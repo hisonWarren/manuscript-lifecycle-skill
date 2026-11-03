@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "clinical_psych_en",
+  "label": "临床心理与精神医学（英文期刊，抑郁与主观认知相关实证论文）",
+  "language": "en",
+  "field": "临床心理学/精神医学",
+  "journals": [],
+  "years": [
+    "2017",
+    "2019",
+    "2024",
+    "2025"
+  ],
+  "n_papers": 24,
+  "genres": {
+    "未标注": 24
+  },
+  "section_coverage": {
+    "abstract": 17,
+    "introduction": 22,
+    "methods": 24,
+    "results": 22,
+    "discussion_all": 24,
+    "limitations": 8,
+    "conclusion": 12
+  },
+  "built": "2026-10-26",
+  "builder": "domain_pack 1",
+  "hashes": {
+    "vocab": "5e039980056fdc46",
+    "texture": "c9d0895b75f64cf9",
+    "tokenizer": "pc4-units-discourse"
+  },
+  "phrase_vocab_extra": [],
+  "phrase_loo": {
+    "median": 4,
+    "max": 25,
+    "min": 0
+  },
+  "stability": {
+    "3": {
+      "agreement": 0.773,
+      "flag_rate": 0.322,
+      "comparisons": 154795
+    },
+    "5": {
+      "agreement": 0.865,
+      "flag_rate": 0.22,
+      "comparisons": 158304
+    },
+    "8": {
+      "agreement": 0.921,
+      "flag_rate": 0.15,
+      "comparisons": 159510
+    },
+    "10": {
+      "agreement": 0.916,
+      "flag_rate": 0.166,
+      "comparisons": 159727
+    },
+    "12": {
+      "agreement": 0.917,
+      "flag_rate": 0.176,
+      "comparisons": 159761
+    },
+    "15": {
+      "agreement": 0.934,
+      "flag_rate": 0.164,
+      "comparisons": 159787
+    },
+    "20": {
+      "agreement": 0.967,
+      "flag_rate": 0.131,
+      "comparisons": 159819
+    }
+  },
+  "genre_effect": null,
+  "use": "领域基线是同领域已发表论文的分布，不是与稿件匹配的对标；体裁、期刊或主题差别大时，先用 --genre 或补充匹配对标。",
+  "license_note": "语料全文留在本机；本目录只含统计量与文献清单。"
+}

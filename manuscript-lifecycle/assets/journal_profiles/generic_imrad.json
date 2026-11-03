@@ -1,0 +1,48 @@
+{
+ "schema_version": 1,
+ "id": "generic_imrad",
+ "journal": "（目标刊未定）",
+ "article_type": "实证研究",
+ "language": "en",
+ "display_family": "english_other",
+ "sources": [
+  {
+   "id": "G1",
+   "url": "https://www.equator-network.org/about-us/what-is-a-reporting-guideline/",
+   "access": "官方网页正文：报告规范的作用与选择",
+   "accessed": "2026-10-26"
+  },
+  {
+   "id": "G2",
+   "url": "https://apastyle.apa.org/style-grammar-guidelines/tables-figures/tables",
+   "access": "APA 官方表格说明正文",
+   "accessed": "2026-10-25"
+  }
+ ],
+ "rules": [
+  {
+   "id": "legend_stats",
+   "check": "legend_defines_stats",
+   "level": "CAND",
+   "status": "verified",
+   "source": "G1",
+   "note": "目标刊未定时只查读者需求：只看这一图表能否读对。不设字数上限。"
+  },
+  {
+   "id": "legend_conclusion",
+   "check": "legend_conclusion",
+   "level": "CAND",
+   "status": "verified",
+   "source": "G2",
+   "note": "图注、表注下结论的句子列为候选。"
+  },
+  {
+   "id": "results_display_led",
+   "check": "results_display_led",
+   "level": "CAND",
+   "status": "verified",
+   "source": "G2",
+   "note": "结果段以表图起句，列为候选。"
+  }
+ ]
+}

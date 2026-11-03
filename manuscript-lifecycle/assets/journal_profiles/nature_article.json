@@ -1,0 +1,101 @@
+{
+ "schema_version": 1,
+ "id": "nature_article",
+ "journal": "Nature",
+ "article_type": "Article",
+ "language": "en",
+ "display_family": "nature_family",
+ "sources": [
+  {
+   "id": "N1",
+   "url": "https://www.nature.com/nature/for-authors/formatting-guide",
+   "access": "官方格式指南正文（经检索缓存读取；直接打开时跳转失败）",
+   "accessed": "2026-10-26"
+  },
+  {
+   "id": "N2",
+   "url": "http://li.mit.edu/Archive/Activities/PubFormat/Nature/FormattingGuide.pdf",
+   "access": "Nature 官方格式信息页的存档副本，不是当前官网页面",
+   "accessed": "2026-10-26"
+  }
+ ],
+ "rules": [
+  {
+   "id": "title",
+   "check": "title_chars",
+   "max": 75,
+   "level": "FAIL",
+   "status": "verified",
+   "source": "N1",
+   "note": "Article 标题不超过 75 字符（含空格；Letter 为 90），不用数字、缩略语与标点，学科外读者也要看得懂。"
+  },
+  {
+   "id": "summary_words",
+   "check": "abstract_words",
+   "max": 200,
+   "level": "FAIL",
+   "status": "verified",
+   "source": "N1",
+   "note": "摘要段（summary paragraph）约 200 词、至多 300 词，带引文，面向其他学科读者。这里按 200 判。"
+  },
+  {
+   "id": "summary_numbers",
+   "check": "abstract_numbers",
+   "max": 4,
+   "level": "CAND",
+   "status": "verified",
+   "source": "N1",
+   "note": "面向学科外读者，除必要外不用数字和缩写。4 个数字是本 skill 设的复读线，不是期刊上限；承重数字可以留。"
+  },
+  {
+   "id": "subheading",
+   "check": "heading_chars",
+   "max": 40,
+   "level": "CAND",
+   "status": "unverified",
+   "source": "N2",
+   "note": "小标题不超过 40 字符（含空格）。只在存档副本中见到，当前官网未确认，所以只作候选。"
+  },
+  {
+   "id": "legend_words",
+   "check": "legend_words",
+   "max": 300,
+   "level": "FAIL",
+   "status": "verified",
+   "source": "N1",
+   "note": "每条图注少于 300 词。历史版本对有方法节的稿件写过 100 词，当前官网没有，不按 100 判。"
+  },
+  {
+   "id": "legend_methods",
+   "check": "legend_no_methods",
+   "level": "CAND",
+   "status": "verified",
+   "source": "N1",
+   "note": "有方法节时，图注不写方法细节；先给整图的简短标题，再逐面板说明符号。"
+  },
+  {
+   "id": "legend_stats",
+   "check": "legend_defines_stats",
+   "level": "CAND",
+   "status": "verified",
+   "source": "N1",
+   "note": "误差条、统计量和样本量要在图注里定义。硬标准是只看这张图能否读对，不是长度。"
+  },
+  {
+   "id": "legend_conclusion",
+   "check": "legend_conclusion",
+   "level": "CAND",
+   "status": "verified",
+   "source": "N1",
+   "note": "图注说明怎样读图。实测本机 Nature 系列 23 条图注中约 44% 含结论句（assets/benchmarks/display_baseline.json），所以这是复读候选，不是错误。"
+  },
+  {
+   "id": "results_display_led",
+   "check": "results_display_led",
+   "level": "CAND",
+   "status": "unverified",
+   "source": "N1",
+   "note": "写法参照而非期刊规则：已发表论文很少以 As shown in Table 2 起句（实测见 display_baseline.json）。"
+  }
+ ]
+}

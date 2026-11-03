@@ -1,0 +1,43 @@
+{
+ "schema_version": 1,
+ "id": "education_zh_measured",
+ "journal": "开放教育研究",
+ "article_type": "（实测分布，不是期刊规则）",
+ "language": "zh",
+ "display_family": "education_zh",
+ "sources": [
+  {
+   "id": "Z1",
+   "url": "http://openedu.sou.edu.cn/",
+   "access": "未访问作者须知正文：数值来自本机 26 篇该刊论文的实测分布，不是期刊规定",
+   "accessed": "2026-10-26"
+  }
+ ],
+ "rules": [
+  {
+   "id": "table_note_units",
+   "check": "note_words",
+   "max": 44.5,
+   "level": "CAND",
+   "status": "unverified",
+   "source": "Z1",
+   "note": "实测该刊注释长度（汉字加英文词）：中位 10.0、p90 44.5。同为中文期刊，心理学报的中位是 24.0、p90 是 86.2，相差一倍以上，所以注释长度只能按同刊比较。这是分布参照，不是上限；必要定义不能为了短而删。"
+  },
+  {
+   "id": "legend_conclusion",
+   "check": "legend_conclusion",
+   "level": "CAND",
+   "status": "unverified",
+   "source": "Z1",
+   "note": "注释下结论的句子列为候选。"
+  },
+  {
+   "id": "results_display_led",
+   "check": "results_display_led",
+   "level": "CAND",
+   "status": "unverified",
+   "source": "Z1",
+   "note": "实测中文已发表论文以“如表 2 所示”起句的结果段只有 3/1131。"
+  }
+ ]
+}

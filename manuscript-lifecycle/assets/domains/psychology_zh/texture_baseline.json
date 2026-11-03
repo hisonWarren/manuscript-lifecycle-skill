@@ -1,0 +1,10627 @@
+{
+  "pack": "psychology_zh",
+  "lang": "zh",
+  "texture_sha": "009b3802a4756609",
+  "papers": [
+    {
+      "id": "10.3724/sp.j.1041.2024.00458",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.9145,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3708,
+            1
+          ],
+          "conclusion": [
+            6.2893,
+            1
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3708,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.9145,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            6.2893,
+            1
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0435,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0435,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3708,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            2.6954,
+            1
+          ],
+          "introduction": [
+            2.7435,
+            6
+          ],
+          "methods": [
+            4.6531,
+            11
+          ],
+          "results": [
+            4.1322,
+            9
+          ],
+          "discussion_all": [
+            1.1123,
+            3
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3708,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.4591,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2023.00892",
+      "genre": "survey",
+      "rates": {
+        "C1": {
+          "abstract": [
+            3.3557,
+            1
+          ],
+          "introduction": [
+            0.5435,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5669,
+            1
+          ],
+          "conclusion": [
+            4.4843,
+            1
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.5435,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5669,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5669,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5669,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            1.087,
+            2
+          ],
+          "methods": [
+            1.25,
+            3
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.5435,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.4167,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3333,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2024.01512",
+      "genre": "survey",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2407,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.4018,
+            1
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.4018,
+            1
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.9627,
+            4
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2407,
+            1
+          ],
+          "methods": [
+            0.7315,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            1.444,
+            6
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.4018,
+            1
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2407,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.9627,
+            4
+          ],
+          "methods": [
+            2.1946,
+            3
+          ],
+          "results": [
+            3.7764,
+            5
+          ],
+          "discussion_all": [
+            0.4018,
+            1
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.4813,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.7315,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.7315,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2024.01351",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2886,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2874,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2886,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5747,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2886,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5747,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5747,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.2584,
+            1
+          ],
+          "results": [
+            0.478,
+            1
+          ],
+          "discussion_all": [
+            0.2874,
+            1
+          ],
+          "conclusion": [
+            5.7803,
+            1
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            5.8651,
+            2
+          ],
+          "introduction": [
+            1.1544,
+            4
+          ],
+          "methods": [
+            5.4264,
+            21
+          ],
+          "results": [
+            0.956,
+            2
+          ],
+          "discussion_all": [
+            1.7241,
+            6
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5747,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.2584,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2874,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.5168,
+            2
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2024.00911",
+      "genre": "survey",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3999,
+            2
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            3.3898,
+            1
+          ],
+          "introduction": [
+            0.5238,
+            3
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.7998,
+            4
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3492,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3492,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0541,
+            2
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.027,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.6984,
+            4
+          ],
+          "methods": [
+            0.6124,
+            2
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2,
+            1
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            1.3969,
+            8
+          ],
+          "methods": [
+            2.7557,
+            9
+          ],
+          "results": [
+            1.3774,
+            2
+          ],
+          "discussion_all": [
+            0.7998,
+            4
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.1746,
+            1
+          ],
+          "methods": [
+            0.3062,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.1746,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2,
+            1
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.1746,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2024.00577",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.639,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.9585,
+            3
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.4505,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3481,
+            1
+          ],
+          "methods": [
+            4.5045,
+            10
+          ],
+          "results": [
+            4.1007,
+            22
+          ],
+          "discussion_all": [
+            1.278,
+            4
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.9009,
+            2
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3195,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.4505,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.9585,
+            3
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2026.2200",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3075,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            2.5381,
+            1
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.191,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.9225,
+            3
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.9551,
+            5
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.6395,
+            3
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.7641,
+            4
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.191,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0333,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.1667,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.191,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            2.1525,
+            7
+          ],
+          "methods": [
+            3.4108,
+            16
+          ],
+          "results": [
+            0.7161,
+            2
+          ],
+          "discussion_all": [
+            1.5282,
+            8
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            2.5381,
+            1
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.2132,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2024.00482",
+      "genre": "survey",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.4082,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2041,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2041,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2041,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2041,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            1.0,
+            1
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.037,
+            1
+          ],
+          "discussion_all": [
+            0.2,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.4082,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            2.6178,
+            1
+          ],
+          "introduction": [
+            1.5056,
+            6
+          ],
+          "methods": [
+            1.9372,
+            5
+          ],
+          "results": [
+            4.0459,
+            6
+          ],
+          "discussion_all": [
+            1.0206,
+            5
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2041,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.7749,
+            2
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2024.00847",
+      "genre": "survey",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3214,
+            1
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.2885,
+            1
+          ],
+          "discussion_all": [
+            0.3214,
+            1
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            2.3256,
+            1
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.2885,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2,
+            1
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.6158,
+            1
+          ],
+          "results": [
+            0.2885,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3214,
+            1
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            2.3256,
+            1
+          ],
+          "introduction": [
+            0.5241,
+            1
+          ],
+          "methods": [
+            3.6946,
+            6
+          ],
+          "results": [
+            1.7311,
+            6
+          ],
+          "discussion_all": [
+            1.9286,
+            6
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            2.0964,
+            4
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.2885,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.6158,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            4.6512,
+            2
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            1.2315,
+            2
+          ],
+          "results": [
+            0.2885,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2025.0247",
+      "genre": "survey",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2388,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2388,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.939,
+            1
+          ],
+          "discussion_all": [
+            0.3269,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2388,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3269,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2388,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0556,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.1429,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3333,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            2.8986,
+            1
+          ],
+          "introduction": [
+            1.1942,
+            5
+          ],
+          "methods": [
+            4.7418,
+            9
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            1.3076,
+            4
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.4777,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2388,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.4777,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2023.00055",
+      "genre": "scale_development",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.4606,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.4983,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.4606,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.4983,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.4606,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.4983,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.9212,
+            2
+          ],
+          "methods": [
+            0.4478,
+            1
+          ],
+          "results": [
+            0.3885,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            4.1456,
+            9
+          ],
+          "methods": [
+            3.1348,
+            7
+          ],
+          "results": [
+            5.8275,
+            15
+          ],
+          "discussion_all": [
+            1.4948,
+            3
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            1.3819,
+            3
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.9965,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.3885,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.4478,
+            1
+          ],
+          "results": [
+            0.3885,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0204,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2024.00107",
+      "genre": "scale_development",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2964,
+            1
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3052,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3052,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.2344,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.2344,
+            1
+          ],
+          "discussion_all": [
+            0.2964,
+            1
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            1.0,
+            1
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.2722,
+            1
+          ],
+          "results": [
+            0.2344,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            1.8309,
+            6
+          ],
+          "methods": [
+            4.3549,
+            16
+          ],
+          "results": [
+            3.2818,
+            14
+          ],
+          "discussion_all": [
+            1.1855,
+            4
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.4688,
+            2
+          ],
+          "discussion_all": [
+            0.2964,
+            1
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.2344,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.6103,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.2344,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0833,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2023.01301",
+      "genre": "survey",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.4815,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.4726,
+            2
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2363,
+            1
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2407,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2363,
+            1
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.7222,
+            3
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            1.4451,
+            5
+          ],
+          "discussion_all": [
+            0.2363,
+            1
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.289,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            2.4073,
+            10
+          ],
+          "methods": [
+            6.2291,
+            28
+          ],
+          "results": [
+            4.0462,
+            14
+          ],
+          "discussion_all": [
+            3.0718,
+            13
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2407,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.289,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.2225,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2407,
+            1
+          ],
+          "methods": [
+            0.2225,
+            1
+          ],
+          "results": [
+            1.4451,
+            5
+          ],
+          "discussion_all": [
+            0.2363,
+            1
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.1429,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2026.1059",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.1874,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.1874,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.209,
+            1
+          ],
+          "methods": [
+            0.3619,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3748,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.3619,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.1874,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.1429,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.209,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            1.8809,
+            9
+          ],
+          "methods": [
+            2.8954,
+            8
+          ],
+          "results": [
+            3.2009,
+            12
+          ],
+          "discussion_all": [
+            0.937,
+            5
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.3619,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.1874,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.209,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.1874,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.3619,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.1667,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2026.1720",
+      "genre": "survey",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2604,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2604,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5107,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2554,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5107,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.7812,
+            3
+          ],
+          "methods": [
+            4.2721,
+            13
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2554,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2026.1254",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.7746,
+            3
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.1177,
+            1
+          ],
+          "discussion_all": [
+            0.9597,
+            5
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.2282,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5758,
+            3
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            2.4691,
+            1
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2582,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.25,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0217,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.1919,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2582,
+            1
+          ],
+          "methods": [
+            3.1942,
+            14
+          ],
+          "results": [
+            3.178,
+            27
+          ],
+          "discussion_all": [
+            0.9597,
+            5
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.1177,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.2282,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.3531,
+            3
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            1.0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2026.1532",
+      "genre": "survey",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2191,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.1983,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2191,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.793,
+            4
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2191,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.1983,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2191,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2191,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.4381,
+            2
+          ],
+          "methods": [
+            1.237,
+            5
+          ],
+          "results": [
+            0.3228,
+            1
+          ],
+          "discussion_all": [
+            0.1983,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2191,
+            1
+          ],
+          "methods": [
+            0.2474,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2026.0198",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            2.4213,
+            1
+          ],
+          "introduction": [
+            0.1854,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            2.4213,
+            1
+          ],
+          "introduction": [
+            0.1854,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            1.3127,
+            5
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            2.4213,
+            1
+          ],
+          "introduction": [
+            0.3708,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.1854,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2625,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.1854,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.2625,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            2.4213,
+            1
+          ],
+          "introduction": [
+            0.7416,
+            4
+          ],
+          "methods": [
+            2.5612,
+            18
+          ],
+          "results": [
+            5.1489,
+            23
+          ],
+          "discussion_all": [
+            0.7876,
+            3
+          ],
+          "conclusion": [
+            5.7143,
+            1
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.1854,
+            1
+          ],
+          "methods": [
+            0.2846,
+            2
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.7876,
+            3
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.1423,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.1854,
+            1
+          ],
+          "methods": [
+            0.2846,
+            2
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2026.1113",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3532,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3532,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.4909,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.7065,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.9818,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.2063,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.2063,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            1.0,
+            1
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            5.7768,
+            28
+          ],
+          "results": [
+            4.8583,
+            12
+          ],
+          "discussion_all": [
+            1.9637,
+            4
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.4126,
+            2
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3532,
+            1
+          ],
+          "methods": [
+            0.2063,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.4126,
+            2
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.3333,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2026.1459",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2491,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2491,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.2119,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5136,
+            2
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.7472,
+            3
+          ],
+          "methods": [
+            0.4237,
+            2
+          ],
+          "results": [
+            0.5445,
+            2
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.25,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            2.193,
+            1
+          ],
+          "introduction": [
+            0.2491,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.9963,
+            4
+          ],
+          "methods": [
+            3.6017,
+            17
+          ],
+          "results": [
+            4.0839,
+            15
+          ],
+          "discussion_all": [
+            1.0272,
+            4
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.4981,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.2491,
+            1
+          ],
+          "methods": [
+            0.4237,
+            2
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.1,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.25,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2026.0467",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            3.125,
+            1
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.4737,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.313,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.313,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.1,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            3.125,
+            1
+          ],
+          "introduction": [
+            0.9474,
+            2
+          ],
+          "methods": [
+            3.7607,
+            11
+          ],
+          "results": [
+            1.3219,
+            2
+          ],
+          "discussion_all": [
+            2.5039,
+            8
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.3419,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.6838,
+            2
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "10.3724/sp.j.1041.2026.0618",
+      "genre": "experiment",
+      "rates": {
+        "C1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "C4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.1594,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.1594,
+            1
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3427,
+            1
+          ],
+          "methods": [
+            0.3188,
+            2
+          ],
+          "results": [
+            0.3554,
+            1
+          ],
+          "discussion_all": [
+            0.3666,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L5": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "L7": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.3427,
+            1
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.5,
+            1
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "S4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "D2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z1": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            2.3989,
+            7
+          ],
+          "methods": [
+            1.2751,
+            8
+          ],
+          "results": [
+            3.5537,
+            10
+          ],
+          "discussion_all": [
+            1.4663,
+            4
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z2": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.6854,
+            2
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.3554,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z3": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.3188,
+            2
+          ],
+          "results": [
+            0.3554,
+            1
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z4": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            1.3708,
+            4
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        },
+        "Z6": {
+          "abstract": [
+            0.0,
+            0
+          ],
+          "introduction": [
+            0.0,
+            0
+          ],
+          "methods": [
+            0.0,
+            0
+          ],
+          "results": [
+            0.0,
+            0
+          ],
+          "discussion_all": [
+            0.0,
+            0
+          ],
+          "conclusion": [
+            0.0,
+            0
+          ]
+        }
+      }
+    }
+  ]
+}

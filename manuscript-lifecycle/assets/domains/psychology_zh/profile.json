@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "id": "psychology_zh",
+  "label": "心理学（中文定量实证）",
+  "language": "zh",
+  "field": "心理学",
+  "journals": [
+    "心理学报"
+  ],
+  "years": [
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+  ],
+  "n_papers": 22,
+  "genres": {
+    "experiment": 11,
+    "survey": 9,
+    "scale_development": 2
+  },
+  "section_coverage": {
+    "abstract": 22,
+    "introduction": 22,
+    "methods": 22,
+    "results": 22,
+    "discussion_all": 22,
+    "limitations": 12,
+    "conclusion": 17
+  },
+  "built": "2026-10-26",
+  "builder": "domain_pack 2",
+  "hashes": {
+    "vocab": "c0104e7299c0d465",
+    "texture": "009b3802a4756609",
+    "tokenizer": "pc4-units-discourse"
+  },
+  "phrase_vocab_extra": [],
+  "phrase_loo": {
+    "median": 7,
+    "max": 20,
+    "min": 1
+  },
+  "stability": {
+    "3": {
+      "agreement": 0.765,
+      "flag_rate": 0.34,
+      "comparisons": 253179
+    },
+    "5": {
+      "agreement": 0.864,
+      "flag_rate": 0.227,
+      "comparisons": 255335
+    },
+    "8": {
+      "agreement": 0.923,
+      "flag_rate": 0.15,
+      "comparisons": 255557
+    },
+    "10": {
+      "agreement": 0.899,
+      "flag_rate": 0.204,
+      "comparisons": 255594
+    },
+    "12": {
+      "agreement": 0.909,
+      "flag_rate": 0.199,
+      "comparisons": 255600
+    },
+    "15": {
+      "agreement": 0.928,
+      "flag_rate": 0.183,
+      "comparisons": 255600
+    },
+    "20": {
+      "agreement": 0.991,
+      "flag_rate": 0.125,
+      "comparisons": 255600
+    }
+  },
+  "genre_effect": {
+    "genres": {
+      "experiment": 11,
+      "survey": 9
+    },
+    "metrics": 177,
+    "beyond_chance": 13,
+    "expected_by_chance": 8.8,
+    "median_eta2": 0.043,
+    "median_null": 0.054,
+    "top": [
+      {
+        "metric": "introduction|share_body",
+        "eta2": 0.271,
+        "null_mean": 0.05,
+        "null_p95": 0.205,
+        "beyond_chance": true
+      },
+      {
+        "metric": "results|ai_common_per1000",
+        "eta2": 0.253,
+        "null_mean": 0.054,
+        "null_p95": 0.211,
+        "beyond_chance": true
+      },
+      {
+        "metric": "methods|words",
+        "eta2": 0.24,
+        "null_mean": 0.057,
+        "null_p95": 0.192,
+        "beyond_chance": true
+      },
+      {
+        "metric": "methods|colons_per1000",
+        "eta2": 0.238,
+        "null_mean": 0.052,
+        "null_p95": 0.203,
+        "beyond_chance": true
+      },
+      {
+        "metric": "discussion_all|long_share",
+        "eta2": 0.234,
+        "null_mean": 0.049,
+        "null_p95": 0.162,
+        "beyond_chance": true
+      },
+      {
+        "metric": "methods|share_body",
+        "eta2": 0.224,
+        "null_mean": 0.051,
+        "null_p95": 0.207,
+        "beyond_chance": true
+      },
+      {
+        "metric": "methods|stat_terms_per100",
+        "eta2": 0.221,
+        "null_mean": 0.05,
+        "null_p95": 0.192,
+        "beyond_chance": true
+      },
+      {
+        "metric": "abstract|hedges_per1000",
+        "eta2": 0.207,
+        "null_mean": 0.052,
+        "null_p95": 0.168,
+        "beyond_chance": true
+      },
+      {
+        "metric": "discussion_all|sent_p90",
+        "eta2": 0.207,
+        "null_mean": 0.047,
+        "null_p95": 0.156,
+        "beyond_chance": true
+      },
+      {
+        "metric": "results|semicolons_per1000",
+        "eta2": 0.206,
+        "null_mean": 0.053,
+        "null_p95": 0.174,
+        "beyond_chance": true
+      }
+    ]
+  },
+  "use": "领域基线是同领域已发表论文的分布，不是与稿件匹配的对标；体裁、期刊或主题差别大时，先用 --genre 或补充匹配对标。",
+  "license_note": "语料全文留在本机；本目录只含统计量与文献清单。"
+}

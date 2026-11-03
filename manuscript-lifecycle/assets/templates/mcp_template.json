@@ -1,0 +1,33 @@
+{
+ "_note": "Cursor 的 mcp.json 示例（放在 ~/.cursor/mcp.json 或项目 .cursor/mcp.json，不放进技能目录）。全部是可选增强，不装也能用本技能；密钥只用 ${env:…} 引用。各实现的能力、维护状态与许可证在启用前自己核对，见 references/23 §3。",
+ "mcpServers": {
+  "openalex": {
+   "url": "https://mcp.openalex.org/mcp"
+  },
+  "zotero_zoteus": {
+   "command": "npx",
+   "args": [
+    "-y",
+    "@oscardvs/zoteus"
+   ]
+  },
+  "zotero_54yyyu": {
+   "command": "npx",
+   "args": [
+    "-y",
+    "zotero-mcp-server"
+   ]
+  },
+  "zotero_cloud_readonly": {
+   "command": "npx",
+   "args": [
+    "-y",
+    "mcp-zotero"
+   ],
+   "env": {
+    "ZOTERO_API_KEY": "${env:ZOTERO_API_KEY}",
+    "ZOTERO_USER_ID": "${env:ZOTERO_USER_ID}"
+   }
+  }
+ }
+}

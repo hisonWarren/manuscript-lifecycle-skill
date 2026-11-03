@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "id": "education_zh",
+  "label": "教育学（中文原始数据实证）",
+  "language": "zh",
+  "field": "教育学",
+  "journals": [
+    "开放教育研究"
+  ],
+  "years": [
+    "2017",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "n_papers": 11,
+  "genres": {
+    "secondary_data_analysis": 1,
+    "survey": 5,
+    "experiment": 4,
+    "prediction_model": 1
+  },
+  "section_coverage": {
+    "abstract": 11,
+    "introduction": 11,
+    "methods": 11,
+    "results": 11,
+    "discussion_all": 8,
+    "limitations": 1,
+    "conclusion": 4
+  },
+  "built": "2026-10-26",
+  "builder": "domain_pack 2",
+  "hashes": {
+    "vocab": "c0104e7299c0d465",
+    "texture": "009b3802a4756609",
+    "tokenizer": "pc4-units-discourse"
+  },
+  "phrase_vocab_extra": [],
+  "phrase_loo": {
+    "median": 2,
+    "max": 7,
+    "min": 0
+  },
+  "stability": {
+    "3": {
+      "agreement": 0.803,
+      "flag_rate": 0.354,
+      "comparisons": 101659
+    },
+    "5": {
+      "agreement": 0.891,
+      "flag_rate": 0.241,
+      "comparisons": 103210
+    },
+    "8": {
+      "agreement": 0.928,
+      "flag_rate": 0.165,
+      "comparisons": 103800
+    },
+    "10": {
+      "agreement": 1.0,
+      "flag_rate": 0.202,
+      "comparisons": 1730
+    }
+  },
+  "genre_effect": {
+    "genres": {
+      "experiment": 4,
+      "survey": 5
+    },
+    "metrics": 120,
+    "beyond_chance": 8,
+    "expected_by_chance": 6.0,
+    "median_eta2": 0.1,
+    "median_null": 0.127,
+    "top": [
+      {
+        "metric": "methods|we_initial_share",
+        "eta2": 0.834,
+        "null_mean": 0.124,
+        "null_p95": 0.406,
+        "beyond_chance": true
+      },
+      {
+        "metric": "methods|we_per1000",
+        "eta2": 0.833,
+        "null_mean": 0.139,
+        "null_p95": 0.516,
+        "beyond_chance": true
+      },
+      {
+        "metric": "methods|ai_common_per1000",
+        "eta2": 0.816,
+        "null_mean": 0.126,
+        "null_p95": 0.592,
+        "beyond_chance": true
+      },
+      {
+        "metric": "results|para_cv",
+        "eta2": 0.569,
+        "null_mean": 0.157,
+        "null_p95": 0.5,
+        "beyond_chance": true
+      },
+      {
+        "metric": "abstract|numbers_per100",
+        "eta2": 0.494,
+        "null_mean": 0.132,
+        "null_p95": 0.397,
+        "beyond_chance": true
+      },
+      {
+        "metric": "methods|colons_per1000",
+        "eta2": 0.478,
+        "null_mean": 0.135,
+        "null_p95": 0.371,
+        "beyond_chance": true
+      },
+      {
+        "metric": "abstract|sent_mean",
+        "eta2": 0.449,
+        "null_mean": 0.122,
+        "null_p95": 0.393,
+        "beyond_chance": true
+      },
+      {
+        "metric": "methods|numbers_per100",
+        "eta2": 0.298,
+        "null_mean": 0.123,
+        "null_p95": 0.292,
+        "beyond_chance": true
+      }
+    ]
+  },
+  "use": "领域基线是同领域已发表论文的分布，不是与稿件匹配的对标；体裁、期刊或主题差别大时，先用 --genre 或补充匹配对标。",
+  "license_note": "语料全文留在本机；本目录只含统计量与文献清单。"
+}

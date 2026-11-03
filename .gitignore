@@ -1,0 +1,8 @@
+﻿# OS / temp
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+.pytest_cache/
+*.tmp
+_skill_temp.zip

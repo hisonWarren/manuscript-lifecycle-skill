@@ -1,0 +1,1848 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>manuscript-lifecycle 流程框架</title>
+<meta name="description" content="manuscript-lifecycle 的流程框架：五条线路、三条范围路线、十个站点，附行程演示、模块详图与包的结构。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:wght@500;600&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#F2F3EE;--paper-2:#E7E9E2;--paper-3:#DCDFD6;--card:#FAFAF7;
+  --ink:#16202B;--ink-2:#4A5563;--ink-3:#838C99;--rule:#C7CBC1;--rule-2:#DCDFD7;
+  --ln-d:#12704E;--ln-r:#2357BF;--ln-s:#DD9C14;--ln-v:#7A3E9D;--ln-a:#0A93A3;--ln-l:#8A929E;
+  --pen:#D02E26;--pen-wash:rgba(208,46,38,.09);--pencil:#3567CC;--ghost:#9AA1AC;--hold:#B86E00;
+  --st:#FFFFFF;--on-s:#1E1600;--on-l:#FFFFFF;
+  --f-sans:"Noto Sans SC","Noto Sans CJK SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --f-cond:"Barlow Semi Condensed","Barlow","Noto Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --f-lat:"Barlow","Noto Sans SC","Noto Sans CJK SC",system-ui,sans-serif;
+  --f-hand:"Long Cang","Kaiti SC","STKaiti","KaiTi","AR PL UKai CN",cursive;
+  --f-seal:"Noto Serif SC","Noto Serif CJK SC","Songti SC","SimSun",serif;
+  --bar-h:52px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#111923;--paper-2:#17212D;--paper-3:#1F2B39;--card:#142030;
+    --ink:#E4E7E0;--ink-2:#A5AEBA;--ink-3:#6E7887;--rule:#2B3747;--rule-2:#223041;
+    --ln-d:#35BD87;--ln-r:#6E98FF;--ln-s:#F1B43C;--ln-v:#B98BE0;--ln-a:#2BC4CF;--ln-l:#7E8795;
+    --pen:#FF5E52;--pen-wash:rgba(255,94,82,.13);--pencil:#8DB1FF;--ghost:#556070;--hold:#F2A83A;
+    --st:#111923;--on-s:#1E1600;--on-l:#0C1520;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#111923;--paper-2:#17212D;--paper-3:#1F2B39;--card:#142030;
+  --ink:#E4E7E0;--ink-2:#A5AEBA;--ink-3:#6E7887;--rule:#2B3747;--rule-2:#223041;
+  --ln-d:#35BD87;--ln-r:#6E98FF;--ln-s:#F1B43C;--ln-v:#B98BE0;--ln-a:#2BC4CF;--ln-l:#7E8795;
+  --pen:#FF5E52;--pen-wash:rgba(255,94,82,.13);--pencil:#8DB1FF;--ghost:#556070;--hold:#F2A83A;
+  --st:#111923;--on-s:#1E1600;--on-l:#0C1520;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--bar-h) + 16px);-webkit-text-size-adjust:100%;overflow-x:clip}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.8;overflow-x:clip;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+::selection{background:color-mix(in srgb,var(--pencil) 26%,transparent)}
+:focus-visible{outline:2.5px solid var(--pencil);outline-offset:3px;border-radius:4px}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+button{font:inherit;color:inherit}
+p{margin:0 0 1em}
+h1,h2,h3{margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.c{font-family:var(--f-cond);font-weight:600;letter-spacing:.01em}
+.f{font-family:var(--f-lat);font-weight:500;font-size:.9em;padding:.05em .32em;border-radius:4px;background:var(--paper-2);white-space:nowrap}
+.pen-ink{color:var(--pen)}
+.hand{font-family:var(--f-hand)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- route bar (in-car display) ---------- */
+.routebar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:1px solid var(--rule)}
+.rb{max-width:1640px;margin:0 auto;height:var(--bar-h);padding:0 clamp(18px,3vw,40px);display:flex;align-items:center;gap:22px}
+.rb-name{font-family:var(--f-cond);font-weight:700;font-size:16px;letter-spacing:.01em;white-space:nowrap}
+.rb-here,.rb-next{display:flex;align-items:baseline;gap:8px;white-space:nowrap;font-size:14px}
+.rb-k{font-size:12px;color:var(--ink-3)}
+.rb-here b{font-weight:700}
+.rb-next b{font-weight:500;color:var(--ink-2)}
+.rb-line{flex:1;position:relative;display:flex;justify-content:space-between;align-items:center;height:100%;min-width:200px}
+.rb-line::before{content:"";position:absolute;left:7px;right:7px;top:50%;height:3px;margin-top:-1.5px;background:var(--rule);border-radius:2px}
+.rb-prog{position:absolute;left:7px;top:50%;height:3px;margin-top:-1.5px;background:var(--ink);border-radius:2px;width:0;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.rb-stop{position:relative;z-index:1;width:15px;height:15px;border-radius:50%;border:2.5px solid var(--ink-3);background:var(--paper);padding:0;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
+.rb-stop.passed{border-color:var(--ink);background:var(--ink)}
+.rb-stop.here{border-color:var(--ink);background:var(--st);transform:scale(1.35)}
+.rb-stop:hover{transform:scale(1.25)}
+@media (max-width:980px){.rb-line,.rb-name{display:none}.rb{justify-content:space-between}}
+
+/* ---------- masthead ---------- */
+.mast{padding:clamp(44px,7vw,100px) 0 clamp(26px,4vw,44px)}
+.mast-title{font-family:var(--f-cond);font-weight:700;font-size:clamp(40px,10.4vw,128px);line-height:.92;letter-spacing:-.018em;overflow-wrap:anywhere}
+.mast-sub{font-weight:900;font-size:clamp(24px,3.5vw,46px);line-height:1.25;margin:.32em 0 0;letter-spacing:-.005em}
+.bullets{display:flex;flex-wrap:wrap;gap:8px 14px;margin:28px 0 0;padding:0;list-style:none}
+.bullet{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:500;background:none;border:1.5px solid transparent;padding:3px 12px 3px 3px;border-radius:999px;cursor:pointer;transition:background .2s,border-color .2s}
+.bullet:hover{background:var(--paper-2)}
+.bullet[aria-pressed="true"]{border-color:var(--ink);background:var(--card)}
+.lb{width:30px;height:30px;flex:none;border-radius:50%;display:inline-grid;place-items:center;font-family:var(--f-cond);font-weight:700;font-size:17px;line-height:1;color:var(--on-l);background:var(--c)}
+.lb[data-l="S"]{color:var(--on-s)}
+.lb[data-l="L"]{background:transparent;color:var(--ink-2);border:2px dashed var(--ln-l)}
+.lb.sm{width:22px;height:22px;font-size:13px}
+.lb.sm[data-l="L"]{border-width:1.5px}
+.mast-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);margin-top:38px;align-items:start}
+.mast-grid .lede{font-size:18px;color:var(--ink-2);max-width:36em}
+.mast-grid .lede strong{color:var(--ink);font-weight:700}
+.mast-verdict{display:block;text-decoration:none;border-top:3px solid var(--ink);padding-top:14px}
+.mv-k{display:block;font-size:13px;color:var(--ink-3)}
+.mv-v{display:block;font-weight:900;font-size:clamp(34px,4.4vw,54px);line-height:1.15;color:var(--pen);margin:.05em 0 .12em}
+.mv-t{display:block;font-size:16px;color:var(--ink-2);line-height:1.7}
+.mv-go{display:inline-block;margin-top:10px;font-size:14px;font-weight:500;color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+@media (max-width:860px){.mast-grid{grid-template-columns:1fr}}
+
+/* ---------- section heads ---------- */
+.sec{padding:clamp(64px,9vw,128px) 0 0}
+.sec-head{position:relative;display:grid;grid-template-columns:22px minmax(0,1fr);column-gap:18px;margin-bottom:clamp(26px,4vw,44px)}
+.sec-dot{width:22px;height:22px;margin-top:.62em;border-radius:50%;border:4px solid var(--ink);background:var(--st);position:relative}
+.sec-dot::before{content:"";position:absolute;right:calc(100% + 4px);top:50%;width:100vw;height:4px;margin-top:-2px;background:var(--ink)}
+.sec-head h2{font-size:clamp(28px,3.7vw,46px);font-weight:900;line-height:1.22;letter-spacing:-.008em}
+.sec-head .lede{grid-column:2;margin:14px 0 0;max-width:40em;color:var(--ink-2);font-size:17.5px}
+
+/* ---------- maps (shared) ---------- */
+.map-frame{max-width:1660px;margin:0 auto;padding:0 clamp(6px,1.6vw,22px)}
+.map-scroll{overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.map-scroll>svg{display:block;width:100%;min-width:1040px;height:auto}
+.swipe{display:none;font-size:13px;color:var(--ink-3);margin:6px 0 0}
+@media (max-width:1040px){.swipe{display:block}}
+svg text{font-family:var(--f-sans)}
+.m-code{font-family:var(--f-cond);font-weight:700;font-size:20px;fill:var(--ink)}
+.m-name{font-size:15px;font-weight:500;fill:var(--ink)}
+.m-name.sm{font-size:14px}
+.m-small{font-size:12px;fill:var(--ink-2)}
+.m-tiny{font-family:var(--f-cond);font-weight:500;font-size:11.5px;fill:var(--ink-3)}
+.m-grid{font-family:var(--f-cond);font-weight:600;font-size:12px;fill:var(--ink-3)}
+.m-bold{font-weight:700}
+.route{fill:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;transition:opacity .25s}
+.route-l{stroke:var(--ln-l);stroke-width:5;stroke-dasharray:11 7;stroke-linecap:butt}
+.route-over{stroke-width:6;stroke-linecap:butt;pointer-events:none;transition:opacity .25s}
+.cap{fill:var(--st);stroke:var(--ink);stroke-width:2.4;transition:stroke .2s,stroke-width .2s}
+.cap.hub{stroke-width:3}
+.term{fill:var(--ink)}
+.lstop{fill:var(--st);stroke:var(--ln-l);stroke-width:2.6}
+.ghost-line{fill:none;stroke:var(--ghost);stroke-width:2.2;stroke-dasharray:1.5 6;stroke-linecap:round}
+.ghost-tick{fill:var(--paper);stroke:var(--ghost);stroke-width:1.6}
+.ring-line{fill:none;stroke:var(--ink);stroke-width:3}
+.spur{stroke:var(--ink-2);stroke-width:2.2;stroke-dasharray:2 5;stroke-linecap:round}
+.depot{fill:var(--paper-2);stroke:var(--ink-3);stroke-width:1.5}
+.siding{fill:none;stroke:var(--ink-3);stroke-width:2.6;stroke-dasharray:7 4}
+.node{cursor:pointer;outline:none;transition:opacity .25s}
+.node .hit{fill:transparent}
+.node .focus{fill:none;stroke:var(--pencil);stroke-width:2;stroke-dasharray:4 4;opacity:0;transition:opacity .15s}
+.node:hover .focus,.node:focus-visible .focus{opacity:1}
+.node:hover .cap{stroke-width:3.4}
+.nonint .node{cursor:default}
+.nonint .node .focus{display:none}
+svg[data-focus] .route:not(.on){opacity:.1}
+svg[data-focus] .route-over{opacity:.1}
+svg[data-focus] .route-over.on{opacity:1}
+svg[data-focus] .node.off{opacity:.24}
+.pen-path{fill:none;stroke:var(--pen);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pen-path.thin{stroke-width:1.9}
+.pen-text{font-family:var(--f-hand);fill:var(--pen);font-size:23px}
+.pen-num{font-family:var(--f-hand);fill:var(--pen);font-size:20px}
+.pencil-path{fill:none;stroke:var(--pencil);stroke-width:2;stroke-linecap:round;stroke-dasharray:1 5}
+.pencil-text{font-family:var(--f-hand);fill:var(--pencil);font-size:22px}
+.pen-layer{transition:opacity .35s}
+.pen-off .pen-layer{opacity:0;pointer-events:none}
+.pen{cursor:pointer;outline:none}
+.pen:focus-visible .pen-path{stroke-width:3.4}
+.pen.flash{animation:flash 1.1s ease-in-out 2}
+@keyframes flash{50%{opacity:.15}}
+
+/* hero map chrome */
+.map-tools{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;margin-bottom:10px}
+.map-tools .hint{margin:0;font-size:15px;color:var(--ink-2)}
+.tools-r{display:flex;align-items:center;gap:18px}
+.switch{display:inline-flex;align-items:center;gap:10px;background:none;border:0;font-size:15px;cursor:pointer;padding:6px 0}
+.switch .track{width:40px;height:22px;border-radius:11px;background:var(--rule);position:relative;transition:background .2s;flex:none}
+.switch .track::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--st);transition:transform .2s}
+.switch[aria-pressed="true"] .track{background:var(--pen)}
+.switch[aria-pressed="true"] .track::after{transform:translateX(18px)}
+.txtbtn{background:none;border:0;padding:6px 0;font-size:15px;font-weight:500;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.map-foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:14px 48px;margin-top:16px;align-items:start}
+.map-caption{margin:0;font-size:15.5px;color:var(--ink-2);min-height:3.4em}
+.map-caption b{color:var(--ink)}
+.legend{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 22px;font-size:14px;color:var(--ink-2)}
+.legend li{display:flex;align-items:center;gap:10px}
+.legend svg{flex:none}
+@media (max-width:860px){.map-foot{grid-template-columns:1fr}}
+
+/* ---------- drawer ---------- */
+.drawer{position:fixed;z-index:70;top:calc(env(safe-area-inset-top,0px) + var(--bar-h) + 12px);right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);width:min(450px,calc(100vw - 28px));background:var(--card);border:1.5px solid var(--ink);border-radius:14px;transform:translateX(calc(100% + 30px));visibility:hidden;transition:transform .38s cubic-bezier(.3,.7,.2,1),visibility 0s .38s;overflow:auto;overscroll-behavior:contain;padding:22px 24px 30px;box-shadow:0 22px 50px -24px rgba(10,18,28,.45)}
+.drawer.open{transform:none;visibility:visible;transition:transform .38s cubic-bezier(.3,.7,.2,1),visibility 0s}
+.dr-close{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--rule);background:var(--paper);cursor:pointer;display:grid;place-items:center}
+.dr-code{font-family:var(--f-cond);font-weight:700;font-size:46px;line-height:1;margin:2px 0 4px}
+.dr-title{font-size:22px;font-weight:900;line-height:1.35;padding-right:40px}
+.dr-lines{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px;align-items:center;font-size:13px;color:var(--ink-3)}
+.dr-dl{margin:16px 0 0}
+.dr-dl dt{font-size:13px;color:var(--ink-3);margin-top:14px}
+.dr-dl dd{margin:2px 0 0;font-size:15px;line-height:1.75}
+.dr-dl dd.empty{color:var(--pen);font-family:var(--f-hand);font-size:22px;line-height:1.3}
+.dr-cs{margin-top:20px;padding-top:14px;border-top:1px solid var(--rule)}
+.dr-cs h4{margin:0 0 8px;font-size:13px;font-weight:500;color:var(--ink-3)}
+.cs-link{display:flex;gap:10px;align-items:baseline;width:100%;text-align:left;background:none;border:0;padding:7px 0;cursor:pointer;font-size:15px;border-bottom:1px dotted var(--rule)}
+.cs-link .n{font-family:var(--f-hand);color:var(--pen);font-size:22px;line-height:1;min-width:1.4em}
+.cs-link:hover span:last-child{text-decoration:underline}
+.dr-stet{margin-top:16px;font-family:var(--f-hand);color:var(--pencil);font-size:21px;line-height:1.35}
+@media (max-width:720px){
+  .drawer{top:auto;left:8px;right:8px;width:auto;max-height:76vh;bottom:calc(env(safe-area-inset-bottom,0px) + 8px);transform:translateY(calc(100% + 30px))}
+}
+
+/* ---------- simulator ---------- */
+.sim{display:block}
+#sim .wrap{max-width:1460px}
+.tickets{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.ticket{display:grid;grid-template-columns:40px minmax(0,1fr);text-align:left;border:1.5px solid var(--rule);border-radius:10px;background:var(--card);padding:0;cursor:pointer;overflow:hidden;position:relative;transition:border-color .2s,transform .2s}
+.ticket:hover{border-color:var(--ink-3)}
+.ticket .stub{background:var(--c);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--on-l);font-family:var(--f-cond);font-weight:700;font-size:20px;line-height:1;border-right:2px dashed var(--card)}
+.ticket .stub small{font-size:11px;font-weight:600;opacity:.85}
+.ticket[data-l="S"] .stub{color:var(--on-s)}
+.ticket[data-l="L"] .stub{background:repeating-linear-gradient(-45deg,var(--paper-3) 0 6px,var(--paper-2) 6px 12px);color:var(--ink-2)}
+.ticket .tb{padding:9px 12px 10px 13px;font-size:14.5px;line-height:1.55}
+.ticket .tm{display:block;margin-top:5px;font-size:12px;color:var(--ink-3)}
+.ticket .no{position:absolute;right:9px;top:6px;font-family:var(--f-cond);font-size:12px;font-weight:600;color:var(--ink-3)}
+.ticket[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.ticket[aria-pressed="true"] .no{background:var(--ink);color:var(--paper);border-radius:999px;padding:0 6px;right:6px;top:5px}
+.sim-main{min-width:0;margin-top:16px}
+.triage{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(120px,.9fr);border:1.5px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--card)}
+.triage>div{padding:10px 14px 12px;border-right:1px solid var(--rule);min-width:0}
+.triage>div:last-child{border-right:0}
+.triage dt{font-size:12px;color:var(--ink-3)}
+.triage dd{margin:3px 0 0;font-size:14.5px;font-weight:500;line-height:1.5}
+.triage .ride{background:var(--c);color:var(--on-l)}
+.triage .ride dt{color:inherit;opacity:.8}
+.triage .ride dd{font-size:18px;font-weight:900}
+.triage .ride[data-l="S"]{color:var(--on-s)}
+.triage .ride[data-l="L"]{background:var(--paper-2);color:var(--ink)}
+.triage-cap{font-size:12.5px;color:var(--ink-3);margin:8px 2px 0}
+.sim-map{margin:16px 0 0;border:1px solid var(--rule);border-radius:12px;background:var(--paper);overflow:hidden}
+.sim-map .map-scroll>svg{min-width:980px}
+.sim-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:12px 0 0}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:6px 15px;font-size:14.5px;font-weight:500;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--paper-2)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:var(--ink-2)}
+.btn svg{width:14px;height:14px}
+.btn:disabled{opacity:.4;cursor:default}
+.sim-prog{margin-left:auto;font-size:13.5px;color:var(--ink-3)}
+.sim-cols{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;margin-top:20px;align-items:start}
+.itin{list-style:none;margin:0;padding:0 8px 0 14px;max-height:min(52vh,470px);overflow:auto;scrollbar-width:thin;position:relative}
+.step{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;padding:12px 0 14px;border-top:1px solid var(--rule);cursor:pointer;transition:opacity .25s}
+.step:first-child{border-top:0}
+.step .chip{font-family:var(--f-cond);font-weight:700;font-size:17px;text-align:center;border:2px solid var(--ink);border-radius:999px;height:28px;line-height:24px;background:var(--st)}
+.step .st-t{font-weight:700;font-size:15.5px;line-height:1.5}
+.step .st-x{font-size:14.5px;color:var(--ink-2);margin-top:3px;line-height:1.75}
+.step .st-m{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px;font-size:12.5px;color:var(--ink-3)}
+.step .st-m b{font-weight:500;color:var(--ink-2)}
+.step .st-flag{display:block;margin-top:6px;font-family:var(--f-hand);color:var(--pen);font-size:20px;line-height:1.3;cursor:pointer;background:none;border:0;padding:0;text-align:left}
+.step .st-flag:hover{text-decoration:underline}
+.step.pass{opacity:.66}
+.step.pass .chip{border-style:dashed;color:var(--ink-3)}
+.step.pass .st-t::after{content:"通过不停";margin-left:8px;font-size:12px;font-weight:500;color:var(--ink-3)}
+.step.forced .chip{border-color:var(--pen);color:var(--pen)}
+.step.forced .st-t::after{content:"被迫回站";margin-left:8px;font-size:12px;font-weight:500;color:var(--pen)}
+.step .hold{display:inline-block;margin-top:6px;font-size:12.5px;font-weight:500;color:var(--hold);border:1.5px solid var(--hold);border-radius:4px;padding:0 6px}
+.step.active::before{content:"";position:absolute;left:-12px;top:12px;bottom:14px;width:4px;border-radius:2px;background:var(--sim-c,var(--ink))}
+.step.active .chip{background:var(--sim-c,var(--ink));border-color:var(--sim-c,var(--ink));color:var(--sim-on,var(--paper))}
+.step.active.forced .chip{background:var(--pen);border-color:var(--pen);color:var(--on-l)}
+.step.done:not(.active) .chip{border-color:var(--sim-c,var(--ink))}
+.receipt{border:1.5px dashed var(--ink-3);border-radius:6px;padding:14px 18px 16px;background:var(--card);font-size:14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--bar-h) + 18px)}
+.receipt h4{margin:0 0 6px;font-size:13px;font-weight:500;color:var(--ink-3);display:flex;justify-content:space-between}
+.rc-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:7px 0;border-bottom:1px dotted var(--rule)}
+.rc-row span:first-child{color:var(--ink-2)}
+.rc-v{font-family:var(--f-cond);font-weight:700;font-size:18px;text-align:right;white-space:nowrap}
+.rc-note{font-size:12.5px;color:var(--ink-3);margin:6px 0 0;line-height:1.6}
+.rc-del{margin-top:10px;font-size:14px;line-height:1.6}
+.rc-del b{display:block;font-size:12px;font-weight:500;color:var(--ink-3)}
+.rc-cs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.rc-cs button{background:none;border:1.5px solid var(--pen);color:var(--pen);border-radius:999px;font-family:var(--f-hand);font-size:18px;line-height:1;padding:3px 9px 4px;cursor:pointer}
+.rc-cs button:hover{background:var(--pen-wash)}
+.sim .train{transition:none}
+.sim-svg .node.visited .cap{stroke:var(--sim-c);stroke-width:3.6}
+.sim-svg .node.forced .cap{stroke:var(--pen);stroke-width:3.8}
+.sim-svg .node.held .cap{stroke:var(--hold);stroke-width:3.8}
+.fork-layer{opacity:0;transition:opacity .4s}
+.fork-on .fork-layer{opacity:1}
+.sim-ring{fill:none;stroke:var(--sim-c);stroke-width:3;transform-box:fill-box;transform-origin:center;animation:ping 1.6s ease-out infinite}
+.sim-ring.red{stroke:var(--pen)}
+@keyframes ping{from{transform:scale(.7);opacity:.95}to{transform:scale(1.7);opacity:0}}
+@media (max-width:1160px){.sim-cols{grid-template-columns:1fr}.receipt{position:static}}
+@media (max-width:1180px){
+  .tickets{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin}
+  .ticket{flex:none;width:280px;scroll-snap-align:start}
+}
+@media (max-width:760px){.triage{grid-template-columns:1fr 1fr}.triage>div{border-bottom:1px solid var(--rule)}.triage .ride{grid-column:1/-1}.itin{max-height:none}}
+
+/* ---------- modules ---------- */
+.mod-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.mod-tab{display:inline-flex;align-items:baseline;gap:8px;border:1.5px solid var(--rule);background:var(--card);border-radius:8px;padding:7px 13px;cursor:pointer;font-size:15px;font-weight:500;transition:border-color .15s,background .15s}
+.mod-tab small{font-family:var(--f-cond);font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.mod-tab:hover{border-color:var(--ink-3)}
+.mod-tab[aria-selected="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.mod-tab[aria-selected="true"] small{color:color-mix(in srgb,var(--paper) 70%,transparent)}
+.mod-panel{border-top:4px solid var(--ink);padding-top:22px}
+.mod-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 28px;align-items:end}
+.mod-top h3{font-size:clamp(22px,2.4vw,30px);font-weight:900;line-height:1.3}
+.mod-top .where{font-size:14px;color:var(--ink-3);text-align:right}
+.mod-lede{margin:10px 0 0;max-width:48em;color:var(--ink-2)}
+.mscroll{overflow-x:auto;margin:26px 0 0;padding:4px 2px 12px;scrollbar-width:thin}
+.mroute{list-style:none;margin:0;padding:0;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);column-gap:18px;position:relative;width:100%}
+.ms{position:relative;min-width:0}
+.ms-dot{display:block;width:24px;height:24px;border-radius:50%;background:var(--st);border:3.5px solid var(--ink);position:relative;z-index:1}
+.ms[data-k="decision"] .ms-dot{border-radius:3px;transform:rotate(45deg) scale(.86)}
+.ms[data-k="gate"] .ms-dot{border-radius:4px}
+.ms[data-k="out"] .ms-dot{width:10px;border-radius:3px;background:var(--ink);margin-left:7px}
+.ms.flag .ms-dot{border-color:var(--pen);box-shadow:0 0 0 4px var(--paper),0 0 0 6px var(--pen)}
+.ms.stet .ms-dot{box-shadow:0 0 0 4px var(--paper),0 0 0 6px var(--pencil)}
+.ms-b{margin-top:12px;padding-right:6px}
+.ms-b b{display:block;font-size:15.5px;line-height:1.45}
+.ms-sub{display:block;font-size:13.5px;color:var(--ink-2);line-height:1.65;margin-top:4px}
+.ms-tools{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+.ms-tools .f{font-size:12px}
+.ms-br{list-style:none;margin:9px 0 0;padding:0 0 0 12px;border-left:2.5px solid var(--ink-3);font-size:13px;color:var(--ink-2);line-height:1.6}
+.ms-br li{margin:4px 0}
+.ms-br li.bad{color:var(--pen)}
+.ms-fan{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.ms-fan .f{font-size:11.5px}
+.ms-flag{display:block;margin-top:9px;font-family:var(--f-hand);color:var(--pen);font-size:19px;line-height:1.3;background:none;border:0;padding:0;text-align:left;cursor:pointer}
+.ms-flag:hover{text-decoration:underline}
+.ms-stet{display:block;margin-top:9px;font-family:var(--f-hand);color:var(--pencil);font-size:19px;line-height:1.3}
+.mod-foot{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:14px;font-size:13.5px;color:var(--ink-3)}
+@media (max-width:760px){
+  .mroute{grid-auto-flow:row;grid-auto-columns:auto;width:auto;min-width:0;row-gap:4px}
+  .ms{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:14px;max-width:none;padding-bottom:12px}
+  .ms-b{margin-top:0}
+  .mod-top{grid-template-columns:1fr}.mod-top .where{text-align:left}
+}
+
+/* ---------- verdict ---------- */
+.verdict{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:start}
+.letter{background:var(--card);border:1.5px solid var(--ink);border-radius:4px;padding:clamp(22px,3.4vw,44px);position:relative}
+.letter-h{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-bottom:1.5px solid var(--ink);padding-bottom:14px;margin-bottom:22px}
+.letter-h h3{font-size:24px;font-weight:900;letter-spacing:.06em}
+.letter-meta{margin:6px 0 0;font-size:14px;color:var(--ink-2);line-height:1.8}
+.letter-meta b{font-weight:700;color:var(--ink)}
+.seal{width:122px;height:122px;flex:none;transform:rotate(-8deg);margin:-8px -6px 0 0}
+.seal text{font-family:var(--f-seal);font-weight:900}
+.letter p{max-width:36em}
+.qa{margin-top:22px;padding-top:18px;border-top:1px dashed var(--rule)}
+.qa .q{font-weight:900;font-size:18px;margin:0 0 6px}
+.stet-list{list-style:none;margin:0;padding:0}
+.stet-list li{padding:14px 0 16px;border-top:1px solid var(--rule)}
+.stet-list li:first-child{border-top:3px solid var(--ink)}
+.stet-list .sh{display:flex;align-items:baseline;gap:12px}
+.stet-list .sm{font-family:var(--f-hand);color:var(--pencil);font-size:24px;line-height:1;flex:none;transform:rotate(-4deg);display:inline-block}
+.stet-list b{font-size:16.5px}
+.stet-list p{margin:6px 0 0;font-size:15px;color:var(--ink-2);line-height:1.75}
+.stet-h{font-size:14px;color:var(--ink-3);margin:0 0 10px}
+@media (max-width:900px){.verdict{grid-template-columns:1fr}}
+
+/* ---------- strata ---------- */
+.strata{border-top:4px solid var(--ink)}
+.floor{display:grid;grid-template-columns:62px minmax(0,220px) minmax(0,1fr);gap:16px 24px;padding:16px 0 18px;border-bottom:1px solid var(--rule);align-items:start}
+.floor .tag{font-family:var(--f-cond);font-weight:700;font-size:20px;line-height:1;border:2.5px solid var(--ink);border-radius:6px;text-align:center;padding:7px 0 6px;background:var(--st)}
+.floor .tag.g{background:var(--ink);color:var(--paper)}
+.floor h3{font-size:18px;font-weight:900;line-height:1.35}
+.floor .fd{margin:4px 0 0;font-size:13.5px;color:var(--ink-2);line-height:1.7}
+.cars{display:flex;flex-wrap:wrap;gap:3px;align-items:center;min-width:0;padding-top:2px}
+.car{display:inline-flex;align-items:center;justify-content:center;height:24px;min-width:5px;border-radius:4px;background:var(--ink);color:var(--paper);font-family:var(--f-cond);font-weight:600;font-size:12px;line-height:1;padding:0 5px;white-space:nowrap;overflow:hidden;cursor:default}
+.car.o{background:var(--st);color:var(--ink);border:1.8px solid var(--ink)}
+.car.bad{background:var(--st);color:var(--pen);border:1.8px dashed var(--pen)}
+.car.lbl{background:var(--c);color:var(--on-l);min-width:24px}
+.car.lbl[data-l="S"]{color:var(--on-s)}
+.car.lbl[data-l="L"]{background:transparent;color:var(--ink-2);border:1.5px dashed var(--ln-l)}
+.car.tx{background:var(--paper-2);color:var(--ink);font-family:var(--f-sans);font-weight:500;font-size:12.5px;height:26px;padding:0 9px}
+.cars .grp{display:flex;flex-wrap:wrap;gap:3px;align-items:center;margin-right:12px}
+.cars .gl{font-size:12px;color:var(--ink-3);margin-right:4px}
+.ticks{display:flex;flex-wrap:wrap;gap:2px;max-width:100%}
+.ticks i{display:block;width:3px;height:16px;background:var(--ink-3);border-radius:1px}
+.ticks i.bad{background:var(--pen);height:22px;margin-top:-3px;width:4px}
+.floor-sum{font-size:12.5px;color:var(--ink-3);margin-top:6px;width:100%}
+@media (max-width:760px){.floor{grid-template-columns:52px minmax(0,1fr)}.floor .cars{grid-column:1/-1}}
+
+/* ---------- load trains ---------- */
+.trains{display:grid;gap:30px}
+.train-row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:14px 28px;align-items:center}
+.train-row h3{font-size:17px;font-weight:900;line-height:1.4}
+.train-row .ts{display:block;font-size:13px;color:var(--ink-2);font-weight:400;margin-top:2px}
+.train-row .tt{display:block;font-family:var(--f-cond);font-weight:700;font-size:26px;line-height:1.1;margin-top:6px}
+.track{position:relative;display:flex;align-items:stretch;height:46px;padding-bottom:8px}
+.track::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:repeating-linear-gradient(90deg,var(--ink-3) 0 10px,transparent 10px 14px)}
+.tcar{position:relative;height:38px;border-radius:5px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:500;white-space:nowrap;border-right:2px solid var(--paper);cursor:default;flex:none}
+.tcar>span{display:block;max-width:100%;overflow:hidden}
+.tcar:first-child{border-radius:14px 5px 5px 5px}
+.tcar.skill{background:var(--pen);color:var(--on-l)}
+.tcar.ex{background:var(--ink-2)}
+.tcar.ghostc{background:transparent;border:1.8px dashed var(--ink-3);color:var(--ink-3)}
+.tcar.target{background:transparent;border:1.8px dashed var(--pencil);color:var(--pencil);font-family:var(--f-hand);font-size:18px}
+.tcar::after,.tcar::before{content:"";position:absolute;bottom:-7px;width:5px;height:5px;border-radius:50%;background:var(--ink-3)}
+.tcar::after{left:18%}
+.tcar::before{right:18%}
+.train-note{grid-column:2;font-size:13px;color:var(--ink-3);margin:-4px 0 0}
+.scale-note{font-size:13px;color:var(--ink-3);margin-top:18px}
+@media (max-width:760px){.train-row{grid-template-columns:1fr}.train-note{grid-column:1}}
+
+/* ---------- review (scrollytelling) ---------- */
+.rv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(24px,4vw,64px);align-items:start}
+.locator{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--bar-h) + 18px);background:var(--paper);z-index:3}
+.locator svg{display:block;width:100%;height:auto;border:1.5px solid var(--ink);border-radius:10px;background:var(--paper)}
+.loc-cap{display:flex;gap:12px;align-items:baseline;margin:10px 2px 0;font-size:14px;color:var(--ink-2);min-height:1.8em}
+.loc-cap .n{font-family:var(--f-hand);color:var(--pen);font-size:26px;line-height:1}
+.loc-svg .m-code{font-size:30px}
+.loc-svg .m-grid{font-size:24px}
+.loc-svg .m-small{font-size:20px}
+.hl-item{opacity:0;transition:opacity .35s}
+.hl-item.on{opacity:1}
+.hl-ring{fill:var(--pen-wash);stroke:var(--pen);stroke-width:7}
+.hl-pulse{fill:none;stroke:var(--pen);stroke-width:5;transform-box:fill-box;transform-origin:center;animation:ping 1.9s ease-out infinite}
+.yjs{list-style:none;margin:0;padding:0;counter-reset:none}
+.yj{padding:26px 0 30px;border-top:1px solid var(--rule);transition:opacity .3s}
+.yj:first-child{border-top:3px solid var(--ink)}
+.yj-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:8px}
+.yj-no{font-family:var(--f-hand);color:var(--pen);font-size:34px;line-height:1;min-width:1.2em}
+.sev{font-size:13px;font-weight:700;border-radius:4px;padding:1px 8px}
+.sev-1{color:var(--on-l);background:var(--pen)}
+.sev-2{color:var(--pen);border:1.5px solid var(--pen)}
+.sev-3{color:var(--ink-2);border:1.5px solid var(--ink-3)}
+.yj-loc{font-family:var(--f-cond);font-size:14px;font-weight:600;color:var(--ink-3)}
+.yj h3{font-size:clamp(19px,2vw,23px);font-weight:900;line-height:1.45}
+.yj dl{margin:12px 0 0}
+.yj dt{font-size:13px;color:var(--ink-3);margin-top:12px}
+.yj dd{margin:2px 0 0;font-size:15.5px;line-height:1.8}
+.yj dd.fix{border-left:3px solid var(--pencil);padding-left:12px}
+.yj-locate{margin-top:14px}
+.yj.on h3{text-decoration:underline;text-decoration-color:var(--pen);text-decoration-thickness:2px;text-underline-offset:6px}
+@media (max-width:900px){
+  .rv{grid-template-columns:1fr}
+  .locator{top:calc(env(safe-area-inset-top,0px) + var(--bar-h));padding:8px 0 6px;border-bottom:1px solid var(--rule)}
+  .locator svg{max-height:34vh}
+  .loc-cap{margin-top:4px}
+}
+
+/* ---------- history ---------- */
+.hist svg{display:block;width:100%;height:auto;min-width:760px}
+.hist .h-car{cursor:pointer;outline:none}
+.hist .h-body{transition:transform .2s}
+.hist .h-car:hover .h-body,.hist .h-car:focus-visible .h-body,.hist .h-car.on .h-body{transform:translateY(-7px)}
+.h-add{fill:var(--ink)}
+.h-fix{fill:var(--st);stroke:var(--ink);stroke-width:2}
+.h-merge{fill:var(--pencil)}
+.hatch-line{stroke:var(--pen);stroke-width:2.2}
+.h-day{font-size:13px;fill:var(--ink);font-weight:700}
+.h-cnt{font-size:12px;fill:var(--ink-3)}
+.h-spark{fill:none;stroke:var(--ink-2);stroke-width:2}
+.h-pt{fill:var(--st);stroke:var(--ink);stroke-width:2}
+.h-pt.bad{stroke:var(--pen);fill:var(--pen)}
+.h-lbl{font-family:var(--f-cond);font-weight:700;font-size:15px;fill:var(--ink)}
+.h-lbl.bad{fill:var(--pen)}
+.h-axis{font-size:12px;fill:var(--ink-3)}
+.h-detail{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 24px;margin-top:18px;border-top:3px solid var(--ink);padding-top:14px;min-height:118px}
+.h-detail .hd-k{font-family:var(--f-cond);font-weight:700;font-size:24px;line-height:1.1}
+.h-detail .hd-k small{display:block;font-family:var(--f-sans);font-size:13px;font-weight:500;color:var(--ink-3);margin-top:4px}
+.h-detail h3{font-size:18px;font-weight:900;line-height:1.45}
+.h-detail p{margin:6px 0 0;font-size:15px;color:var(--ink-2);max-width:46em}
+.h-legend{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:13.5px;color:var(--ink-2);margin:0 0 14px;padding:0;list-style:none}
+.h-legend li{display:flex;align-items:center;gap:8px}
+.h-legend i{display:inline-block;width:20px;height:14px;border-radius:3px}
+@media (max-width:640px){.h-detail{grid-template-columns:1fr}}
+
+/* ---------- plan ---------- */
+.phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,36px)}
+.phase{border-top:4px solid var(--ink);padding-top:14px}
+.phase-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.phase-h h3{font-size:20px;font-weight:900}
+.phase-h span{font-size:13px;color:var(--ink-3);white-space:nowrap}
+.phase-goal{font-size:14.5px;color:var(--ink-2);margin:6px 0 10px}
+.acts{list-style:none;margin:0;padding:0 0 0 22px;position:relative}
+.acts::before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:3px;background:var(--rule);border-radius:2px}
+.acts li{position:relative;padding:7px 0 9px;font-size:14.5px;line-height:1.7}
+.acts li::before{content:"";position:absolute;left:-22px;top:13px;width:12px;height:12px;border-radius:50%;border:2.5px solid var(--ink);background:var(--st)}
+.acts .refs{display:inline-flex;gap:4px;margin-left:6px;vertical-align:1px}
+.acts .refs button{font-family:var(--f-hand);color:var(--pen);font-size:17px;line-height:1;background:none;border:1px solid var(--pen);border-radius:999px;padding:1px 6px 2px;cursor:pointer}
+.plan-map{margin-top:clamp(36px,5vw,60px)}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;padding:3px;gap:3px;background:var(--card)}
+.seg button{border:0;background:none;border-radius:999px;padding:6px 16px;font-size:14.5px;font-weight:500;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.pm-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;margin-bottom:12px}
+.pm-cap{font-size:15px;color:var(--ink-2);margin:0;max-width:44em}
+.pm-wrap{border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--paper)}
+.pm-wrap .map-scroll>svg{min-width:860px}
+.pst{transition:transform .95s cubic-bezier(.6,0,.2,1)}
+.pm-svg .cur{transition:opacity .5s .25s}
+.pm-svg .pro{opacity:0;transition:opacity .5s}
+.pm-svg.is-pro .cur{opacity:0;transition:opacity .4s}
+.pm-svg.is-pro .pro{opacity:1;transition:opacity .55s .45s}
+.metrics{width:100%;border-collapse:collapse;margin-top:clamp(30px,4vw,48px);font-size:15px}
+.metrics caption{text-align:left;font-size:13px;color:var(--ink-3);padding-bottom:8px}
+.metrics th,.metrics td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+.metrics thead th{font-size:13px;font-weight:500;color:var(--ink-3);border-bottom:2px solid var(--ink)}
+.metrics td.v{font-family:var(--f-cond);font-weight:700;font-size:17px;white-space:nowrap}
+.metrics td.v.to{color:var(--pencil)}
+.metrics-wrap{overflow-x:auto}
+@media (max-width:980px){.phases{grid-template-columns:1fr}}
+
+/* ---------- notes ---------- */
+.notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px clamp(24px,4vw,56px)}
+.notes div{border-top:1px solid var(--rule);padding:14px 0 6px}
+.notes h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.notes p{font-size:14.5px;color:var(--ink-2);line-height:1.8}
+.foot{padding:56px 0 calc(48px + env(safe-area-inset-bottom,0px));font-size:13px;color:var(--ink-3)}
+@media (max-width:760px){.notes{grid-template-columns:1fr}}
+
+/* ---------- tooltip ---------- */
+.tip{position:fixed;z-index:90;pointer-events:none;max-width:280px;background:var(--ink);color:var(--paper);font-size:13px;line-height:1.55;padding:7px 10px;border-radius:6px;transform:translate(-50%,calc(-100% - 12px))}
+.tip b{font-weight:700}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+
+/* ---------- additions from the app layer ---------- */
+.pre .node,.pre .under,.pre .route-l,.pre .route-over{opacity:0}
+.pre .route:not(.route-l){opacity:0}
+.pre .pen-layer{visibility:hidden}
+.pen .ch{transition:none}
+.sim-trail{fill:none;stroke:var(--sim-c,var(--ink));stroke-width:11;stroke-linecap:round;opacity:.26;stroke-dasharray:0 9999}
+.fork-path{fill:none;stroke:var(--pen);stroke-width:3;stroke-dasharray:3 8;stroke-linecap:round}
+.fork-layer .pen-text{font-size:21px;paint-order:stroke;stroke:var(--paper);stroke-width:5px}
+.tr-body{fill:var(--sim-c,var(--ink));stroke:var(--st);stroke-width:2.5}
+.tr-win{fill:var(--st);opacity:.92}
+.rc-bar{height:6px;background:var(--paper-3);border-radius:3px;margin:-2px 0 2px;overflow:hidden}
+.rc-bar i{display:block;height:100%;background:var(--pen);border-radius:3px;transition:width .5s cubic-bezier(.3,.7,.2,1)}
+.rc-v.t{font-family:var(--f-sans);font-weight:500;font-size:14px;white-space:normal;line-height:1.5}
+.rc-cs button.dim{opacity:.32}
+.rc-cs button{transition:opacity .3s}
+.mwrap{position:relative;min-width:max(100%,calc(var(--n,5)*156px))}
+.m-line,.m-prog{position:absolute;display:block;border-radius:3px}
+.m-line{background:var(--rule)}
+.m-prog{background:var(--ink);width:0;height:0;transition:width .62s cubic-bezier(.45,.05,.3,1),height .62s cubic-bezier(.45,.05,.3,1)}
+.ms{transition:opacity .35s}
+.demo .ms:not(.lit){opacity:.28}
+.ms .ms-dot{transition:background .25s,border-color .25s}
+.demo .ms.lit .ms-dot{background:var(--st)}
+.ms-b b{font-weight:700}
+.mod-foot{align-items:center;justify-content:space-between}
+.mod-foot .ms-flag{margin:0}
+.mod-foot .btn{margin-left:auto}
+.mod-tab{font-size:15px}
+.cap-bad{stroke:var(--pen);stroke-dasharray:4 3}
+.m-tiny{letter-spacing:.01em}
+.pst-s5{transition:transform .95s cubic-bezier(.6,0,.2,1),opacity .35s .55s}
+.is-pro .pst-s5{opacity:0}
+@media (max-width:900px){.yj{scroll-margin-top:calc(34vh + 40px)}}
+@media (max-width:760px){.mwrap{min-width:0}}
+
+.tcar::after,.tcar::before{bottom:-6px}
+.tcar.nw::after,.tcar.nw::before{display:none}
+.ask{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px 12px;align-items:center;margin:0 0 14px;padding:0 0 14px;border-bottom:1px solid var(--rule)}
+.ask label{font-weight:700;font-size:16px;white-space:nowrap}
+.ask input{font:inherit;font-size:15.5px;color:var(--ink);background:var(--card);border:1.5px solid var(--ink-3);border-radius:8px;padding:8px 12px;min-width:0;width:100%}
+.ask input::placeholder{color:var(--ink-3)}
+.ask input:focus{outline:2.5px solid var(--pencil);outline-offset:1px;border-color:var(--ink)}
+.ask-out{grid-column:1/-1;margin:0;font-size:14.5px;color:var(--ink-2);min-height:0}
+.ask-out:empty{display:none}
+.ask-out b{color:var(--ink)}
+@media (max-width:760px){.ask{grid-template-columns:minmax(0,1fr) auto}.ask label{grid-column:1/-1;white-space:normal}}
+.ticket .tb{padding-right:24px}
+.step.forced.done:not(.active) .chip{border-color:var(--pen);color:var(--pen)}
+.m-train{position:absolute;z-index:2;width:34px;height:17px;border-radius:9px;background:var(--ink);box-shadow:0 0 0 2.5px var(--paper);transform:translate(-50%,-50%);opacity:0;transition:left .62s cubic-bezier(.45,.05,.3,1),top .62s cubic-bezier(.45,.05,.3,1),opacity .25s}
+.m-train::before{content:"";position:absolute;left:6px;right:6px;top:5px;height:7px;border-radius:1.5px;background:repeating-linear-gradient(90deg,var(--paper) 0 5px,transparent 5px 8px)}
+.m-train.v{width:17px;height:34px}
+.m-train.v::before{left:5px;right:5px;top:6px;bottom:6px;width:auto;height:auto;background:repeating-linear-gradient(180deg,var(--paper) 0 5px,transparent 5px 8px)}
+.running .m-train{opacity:1}
+.drawer:focus{outline:none}
+svg[data-focus] .pen-layer{opacity:.28}
+.loc-index{list-style:none;margin:12px 0 0;padding:0;font-size:13.5px;line-height:1.45;border-top:1.5px solid var(--ink)}
+.loc-index button{display:grid;grid-template-columns:24px 12px minmax(0,1fr);column-gap:8px;align-items:center;width:100%;text-align:left;background:none;border:0;border-bottom:1px dotted var(--rule);padding:4px 2px;cursor:pointer;color:var(--ink-2)}
+.loc-index button:hover .t{text-decoration:underline}
+.loc-index .n{font-family:var(--f-hand);color:var(--pen);font-size:18px;line-height:1.1;text-align:center}
+.loc-index .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.loc-index button[aria-current="true"]{color:var(--ink);font-weight:700;background:var(--pen-wash)}
+.sv{display:block;width:10px;height:10px;border-radius:50%}
+.sv-1{background:var(--pen)}
+.sv-2{border:2px solid var(--pen)}
+.sv-3{border:2px solid var(--ink-3)}
+@media (max-height:780px),(max-width:900px){.loc-index{display:none}}
+.panning{cursor:grabbing;user-select:none}
+.panning *{cursor:grabbing!important}
+
+/* ---------- framework page ---------- */
+.route-w{stroke:var(--ln-r);stroke-width:5;stroke-dasharray:11 7;stroke-linecap:butt}
+.wstop{fill:var(--st);stroke:var(--ln-r);stroke-width:2.6}
+.upg{fill:none;stroke:var(--ln-r);stroke-width:2;stroke-dasharray:2 5;stroke-linecap:round}
+.upg-head{fill:none;stroke:var(--ln-r);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.m-small.upg-t{fill:var(--ln-r)}
+.bd-dash{fill:var(--st);stroke-width:1.8;stroke-dasharray:3 2.4}
+.bd-W{stroke:var(--ln-r)}
+.bd-L{stroke:var(--ln-l)}
+.rec-line{stroke:var(--ink);stroke-width:3}
+.rec-tick{fill:var(--st);stroke:var(--ink);stroke-width:2.2}
+.pre .route-w{opacity:0}
+.lb[data-l="W"]{background:transparent;color:var(--ln-r);border:2px dashed var(--ln-r)}
+.lb.sm[data-l="W"]{border-width:1.5px}
+.ticket[data-l="W"] .stub{background:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--ln-r) 22%,var(--paper-2)) 0 6px,var(--paper-2) 6px 12px);color:var(--ln-r)}
+.triage .ride[data-l="W"]{background:color-mix(in srgb,var(--ln-r) 14%,var(--card));color:var(--ink)}
+.car.lbl[data-l="W"]{background:transparent;color:var(--ln-r);border:1.5px dashed var(--ln-r)}
+.step.redo .chip{border-color:var(--hold);color:var(--hold)}
+.step.redo .st-t::after{content:"重新确认";margin-left:8px;font-size:12px;font-weight:500;color:var(--hold)}
+.step.active.redo .chip{background:var(--hold);border-color:var(--hold);color:var(--on-l)}
+.step.redo.done:not(.active) .chip{border-color:var(--hold);color:var(--hold)}
+.mast-flow{border-top:3px solid var(--ink);padding-top:14px}
+.mast-flow h3{font-size:13px;font-weight:500;color:var(--ink-3);margin:0 0 6px}
+.mast-flow .acts li{font-size:15px;line-height:1.65}
+.mast-flow .acts b{font-weight:700;margin-right:3px}
+.codes-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
+.codes-table{margin-top:0}
+.codes-table td{font-size:15px;line-height:1.65}
+.codes-table td:last-child{color:var(--ink-2);font-size:14px}
+.deliv h3{font-size:13px;font-weight:500;color:var(--ink-3);margin:0 0 10px}
+.states{list-style:none;margin:0 0 30px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;background:var(--card)}
+.states li{padding:12px 14px 14px;border-bottom:1px solid var(--rule)}
+.states li:nth-child(odd){border-right:1px solid var(--rule)}
+.states li:nth-child(n+3){border-bottom:0}
+.states li::before{content:"";display:block;width:34px;height:5px;border-radius:3px;margin-bottom:9px;background:var(--ink-3)}
+.states li:nth-child(2)::before{background:var(--hold)}
+.states li:nth-child(3)::before{background:var(--ln-d)}
+.states li:nth-child(4)::before{background:var(--ink)}
+.states b{display:block;font-size:16px;font-weight:900;line-height:1.4}
+.states span{display:block;font-size:13px;color:var(--ink-2);line-height:1.6;margin-top:3px}
+.au{list-style:none;margin:0;padding:0;border-top:3px solid var(--ink)}
+.au li{display:flex;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);font-size:15.5px}
+.au-k{font-family:var(--f-cond);font-weight:700;font-size:15px;border:2px solid var(--ink);border-radius:999px;padding:0 10px;line-height:24px;flex:none}
+@media (max-width:900px){.codes-grid{grid-template-columns:1fr}}
+.mast{padding-left:clamp(18px,4vw,48px);padding-right:clamp(18px,4vw,48px)}
+.foot{padding-left:clamp(18px,4vw,48px);padding-right:clamp(18px,4vw,48px)}
+.mod-tab{padding:6px 11px;font-size:14.5px}
+.rc-bar i{background:var(--sim-c,var(--ink))}
+.sim-svg .node.visited .wstop,.sim-svg .node.visited .lstop{stroke:var(--sim-c);stroke-width:3.6}
+.sim-svg .node.visited .term{fill:var(--sim-c)}
+@media (max-width:640px){
+  .codes-table thead{display:none}
+  .codes-table tr{display:grid;grid-template-columns:1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+  .codes-table td{border:0;padding:1px 0}
+  .codes-table td.v{white-space:normal}
+}
+</style>
+</head>
+<body>
+<nav class="routebar" aria-label="页面导航">
+  <div class="rb">
+    <span class="rb-name">manuscript-lifecycle</span>
+    <span class="rb-here"><span class="rb-k">本站</span><b id="rb-here">线网图</b></span>
+    <div class="rb-line" id="rb-line"><span class="rb-prog" id="rb-prog"></span></div>
+    <span class="rb-next"><span class="rb-k">下一站</span><b id="rb-next">行程演示</b></span>
+  </div>
+</nav>
+
+<header class="mast wrap" id="top">
+  <h1 class="mast-title">manuscript-lifecycle</h1>
+  <p class="mast-sub">流程框架：五种任务、三条路线、十个站点</p>
+  <ul class="bullets" id="bullets" aria-label="线路，点一下只看这条线"></ul>
+  <div class="mast-grid">
+    <div class="lede">
+      <p>这份技能处理科研论文的起草、修订、投稿、返修和审核。每个请求先在 §0 判定<strong>任务性质</strong>与<strong>范围</strong>：指定片段走局部线，整篇修改而不重建走单文档线，这两条都不建项目；完整项目进入 <strong>S0–S9 十个站点</strong>，D、R、S、V、A 五条线各停自己那一组站。</p>
+      <p>点任何一个站，能看到它做什么、产出什么、放行条件和用到的工具。往下是一句请求的行程演示、十个模块的内部流程、整个包的结构，以及编号与交付状态。</p>
+    </div>
+    <div class="mast-flow">
+      <h3>五步读懂整张图</h3>
+      <ol class="acts">
+        <li><b>先定范围。</b>§0 写清任务性质、处理对象、范围与影响。</li>
+        <li><b>选一条路线。</b>局部线、单文档线，或建项进站。</li>
+        <li><b>按站推进。</b>每站有产物、质检员和放行条件，站点表记进度。</li>
+        <li><b>按变更回站。</b>改了什么，只让对应的记录失效（§7.1）。</li>
+        <li><b>按真实状态交付。</b>没查的不写成通过，签字只由作者做。</li>
+      </ol>
+    </div>
+  </div>
+</header>
+
+<section id="map-sec" aria-label="线网图">
+  <div class="wrap map-tools">
+    <p class="hint">点站点看做什么、产物与放行条件；点上方线路标识，只看一条线。</p>
+    <div class="tools-r"><button class="txtbtn" id="focus-reset" hidden>看全部线路</button></div>
+  </div>
+  <div class="map-frame">
+    <div class="map-scroll" id="hero-scroll">
+      <svg id="hero" role="group" aria-label="manuscript-lifecycle 的线网图：五条线路经过 S0 到 S9 十个站点，另有局部线、单文档线、变更影响环线、站点表与车辆段"></svg>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="swipe">左右滑动或拖动看全图</p>
+    <div class="map-foot">
+      <p class="map-caption" id="map-caption"></p>
+      <ul class="legend" aria-label="图例">
+        <li><svg width="44" height="24" viewBox="0 0 44 24" aria-hidden="true"><line x1="0" y1="8" x2="44" y2="8" style="stroke:var(--ln-d)" stroke-width="5"/><line x1="0" y1="16" x2="44" y2="16" style="stroke:var(--ln-r)" stroke-width="5"/><rect x="16" y="3" width="12" height="18" rx="6" style="fill:var(--st);stroke:var(--ink)" stroke-width="2.2"/></svg>站点覆盖的线在这里停靠</li>
+        <li><svg width="44" height="24" viewBox="0 0 44 24" aria-hidden="true"><line x1="0" y1="6" x2="44" y2="6" style="stroke:var(--ln-d)" stroke-width="5"/><line x1="0" y1="18" x2="44" y2="18" style="stroke:var(--ln-v)" stroke-width="5"/><rect x="16" y="1" width="12" height="22" rx="6" style="fill:var(--st);stroke:var(--ink)" stroke-width="2.2"/><line x1="10" y1="12" x2="34" y2="12" style="stroke:var(--ln-s)" stroke-width="5"/></svg>线从站上穿过：通过不停</li>
+        <li><svg width="44" height="24" viewBox="0 0 44 24" aria-hidden="true"><line x1="0" y1="12" x2="44" y2="12" style="stroke:var(--ln-l)" stroke-width="4.5" stroke-dasharray="9 6"/></svg>局部线：指定片段，不建项目</li>
+        <li><svg width="44" height="24" viewBox="0 0 44 24" aria-hidden="true"><line x1="0" y1="12" x2="44" y2="12" style="stroke:var(--ln-r)" stroke-width="4.5" stroke-dasharray="9 6"/></svg>单文档线：整篇修改，不建项目</li>
+        <li><svg width="44" height="24" viewBox="0 0 44 24" aria-hidden="true"><line x1="22" y1="2" x2="22" y2="20" style="stroke:var(--ln-r)" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/><path d="M17 15 22 21 27 15" fill="none" style="stroke:var(--ln-r)" stroke-width="2" stroke-linecap="round"/></svg>升到完整 R 的出口</li>
+        <li><svg width="44" height="24" viewBox="0 0 44 24" aria-hidden="true"><line x1="2" y1="12" x2="42" y2="12" style="stroke:var(--ink)" stroke-width="3"/><circle cx="12" cy="12" r="3.6" style="fill:var(--st);stroke:var(--ink)" stroke-width="2"/><circle cx="32" cy="12" r="3.6" style="fill:var(--st);stroke:var(--ink)" stroke-width="2"/></svg>站点表：唯一的进度记录</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="sim" aria-labelledby="sim-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-dot" aria-hidden="true"></span>
+      <div>
+        <h2 id="sim-h">行程演示：一句请求怎么走完全程</h2>
+        <p class="lede">写一句请求，或者选一张票，看它在 §0 怎样分诊、乘哪条线、在哪些站停、要读哪些说明、建多少文件、最后交出什么。</p>
+      </div>
+    </div>
+    <div class="sim">
+      <form class="ask" id="ask" autocomplete="off">
+        <label for="ask-in">写一句你自己的请求</label>
+        <input id="ask-in" type="text" placeholder="比如：帮我把讨论第一段改短一点" maxlength="120">
+        <button class="btn primary" type="submit">分诊并发车</button>
+        <p class="ask-out" id="ask-out" aria-live="polite"></p>
+      </form>
+      <div class="tickets" id="tickets" role="group" aria-label="十张演示请求"></div>
+      <div class="sim-main">
+        <dl class="triage" id="triage"></dl>
+        <p class="triage-cap">§0 分诊单：先写清任务性质、处理对象与范围，再决定乘哪条线。</p>
+        <div class="sim-map"><div class="map-scroll"><svg id="sim-svg" class="sim-svg nonint" role="img" aria-label="当前请求在线网上的路线"></svg></div></div>
+        <p class="swipe">左右滑动或拖动看全图</p>
+        <div class="sim-ctl">
+          <button class="btn primary" id="sim-play"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg><span>发车</span></button>
+          <button class="btn" id="sim-prev"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9.5 2 4 7l5.5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>上一站</button>
+          <button class="btn" id="sim-next">下一站<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4.5 2 10 7l-5.5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          <button class="btn" id="sim-reset">重来</button>
+          <span class="sim-prog" id="sim-prog" aria-live="polite"></span>
+        </div>
+        <div class="sim-cols">
+          <ol class="itin" id="itin" aria-label="行程单"></ol>
+          <aside class="receipt" id="receipt" aria-label="这一趟"></aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="modules" aria-labelledby="mod-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-dot" aria-hidden="true"></span>
+      <div>
+        <h2 id="mod-h">模块详图：十个模块内部怎么转</h2>
+        <p class="lede">线网图只画到站点。每个模块里还有自己的流程：范围怎么分流，单文档怎么改，数字怎么锁定，引文怎么分层核对，审查怎么防止被框架锁定。菱形是分岔，方块是关口，竖条是出口。</p>
+      </div>
+    </div>
+    <ul class="mod-tabs" id="mod-tabs" role="tablist" aria-label="模块"></ul>
+    <div class="mod-panel" id="mod-panel" role="tabpanel"></div>
+  </div>
+</section>
+
+<section class="sec" id="strata" aria-labelledby="st-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-dot" aria-hidden="true"></span>
+      <div>
+        <h2 id="st-h">包的结构：九层，从一句请求到一份交付</h2>
+        <p class="lede">每个小方块是一个实物：一条判断、一个站点、一份参考说明、一个脚本、一项测试。参考说明按 token 画宽，脚本按行数画宽。越往下越重，判断层只有九块。</p>
+      </div>
+    </div>
+    <div class="strata" id="floors"></div>
+  </div>
+</section>
+
+<section class="sec" id="codes" aria-labelledby="cd-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-dot" aria-hidden="true"></span>
+      <div>
+        <h2 id="cd-h">编号与交付</h2>
+        <p class="lede">一个编号只有一种含义，唯一出处是 17 号说明开头的编号表。交付分四种状态，互不冒充；三类事项只能由作者本人确认。</p>
+      </div>
+    </div>
+    <div class="codes-grid">
+      <div class="metrics-wrap">
+        <table class="metrics codes-table">
+          <caption>编号表</caption>
+          <thead><tr><th>编号</th><th>含义</th><th>出处</th></tr></thead>
+          <tbody>
+            <tr><td class="v">D、R、S、V、A</td><td>任务性质，也就是线网上的五条线</td><td>SKILL §0、§1</td></tr>
+            <tr><td class="v">局部、单文档、全包</td><td>范围：局部线、单文档线、完整项目</td><td>SKILL §0</td></tr>
+            <tr><td class="v">S0–S9</td><td>完整项目的站点；ST1–ST6 是站点核对的规则</td><td>28；station_check</td></tr>
+            <tr><td class="v">RJ1–RJ11</td><td>拒收预演的默认探针；RJ11 只在返修与修订时判定</td><td>reject_drill.md；genre_gate 的 RD 规则</td></tr>
+            <tr><td class="v">AU1–AU3</td><td>只能由作者本人确认：类型与主线、完整稿通读、投稿声明与提交</td><td>SKILL §9</td></tr>
+            <tr><td class="v">L0–L4</td><td>文献覆盖（L0）与四层核实（L1–L4）</td><td>23、24</td></tr>
+            <tr><td class="v">工具规则代码</td><td>如 section_lint S1、genre_gate GG5、check_all EX1；引用时一律带工具名</td><td>各工具；17</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="deliv">
+        <h3>交付的四种状态</h3>
+        <ol class="states">
+          <li><b>草稿完成</b><span>稿件写成，核对按真实状态写明。</span></li>
+          <li><b>尚有待核项</b><span>有缺材料或未核的维度，逐项列出。</span></li>
+          <li><b>投稿包备齐</b><span>每一维都过了，才能这样写。</span></li>
+          <li><b>已实际提交</b><span>只由作者本人完成。</span></li>
+        </ol>
+        <h3>只能由作者确认</h3>
+        <ul class="au">
+          <li><span class="au-k">AU1</span>类型与主线的取舍</li>
+          <li><span class="au-k">AU2</span>完整稿通读</li>
+          <li><span class="au-k">AU3</span>投稿声明与提交</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot wrap">依据 manuscript-lifecycle 2026 年 11 月 3 日版本的 SKILL.md、28 号站点说明与脚本的实际行为。行程演示按 SKILL §0、§1 与 28 号说明推演；token 数按中文一字约一个 token 估算，用来比较相对大小。</footer>
+
+<aside class="drawer" id="drawer" tabindex="-1" role="dialog" aria-modal="false" aria-labelledby="dr-title">
+  <button class="dr-close" id="dr-close" aria-label="关闭"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="2"/></svg></button>
+  <div id="dr-body"></div>
+</aside>
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<script>
+"use strict";
+(function(){
+/* ===================== DATA ===================== */
+const TOK={SKILL:13542,'01':2442,'02':1920,'03':2432,'04':3399,'05':4487,'06':1286,'07':3644,'08':3986,'09':1929,'10':11297,'11':625,'12':1939,'13':1920,'14':4153,'15':2743,'16':11288,'17':22446,'18':2984,'19':3208,'20':5250,'21':2369,'22':2422,'23':4308,'24':1294,'25':1334,'26':1990,'27':5300,'28':5549,'29':7001,'30':1933,
+ e01:1279,e02:984,e03:1315,e04:1605,e05:732,e06:1044,e07:975,e08:700,e09:1191,e10:896,e11:658,e12:870,e13:1133,e14:1137,e15:1318};
+const REFNAME={'01':'类型、设计与贡献','02':'章节职能','03':'交代义务与分档','04':'同类文献对标','05':'语言','06':'信息量','07':'修订规程','08':'返修与回复','09':'投稿','10':'失败案例库','11':'审查与监督','12':'依据与来源','13':'质量与证据契约','14':'图表与交付','15':'核实来源','16':'要求覆盖','17':'工具契约与编号表','18':'领域包','19':'多代理','20':'语步与范例','21':'标准从哪里来','22':'指标口径','23':'文献证据阶梯','24':'文献覆盖','25':'读者用语','26':'审查的框架锁定','27':'体裁与节职能','28':'流水线站点','29':'选材与同类调研','30':'读者的理解前提'};
+const EXNAME={e01:'题目与摘要',e02:'引言',e03:'方法',e04:'结果',e05:'讨论首段',e06:'讨论主体',e07:'局限',e08:'结论',e09:'表',e10:'图注',e11:'Highlights',e12:'投稿信',e13:'回复信',e14:'中文各节',e15:'不该报告的'};
+const D_PATH=['SKILL','28','29','17','01','02','03','04','05','06','07','20','21','22','23','24','27','30','e01','e02','e03','e04','e05','e06','e07','e08','e09','e10','e11','e12','e13','e14','e15'];
+
+const ORDER=['D','R','S','V','A'];
+const LINES={
+ D:{name:'初稿',c:'var(--ln-d)',desc:'<b>D 初稿</b>：有结果、没有成稿。完整项目，十站全停。默认交付稿件与作者说明。'},
+ R:{name:'修订',c:'var(--ln-r)',desc:'<b>R 修订</b>：已有稿件要重建时走完整 R，十站全停。指定片段走局部线，整篇修改而不重建走单文档线。默认交付修改稿与修改清单。'},
+ S:{name:'投稿',c:'var(--ln-s)',desc:'<b>S 投稿</b>：准备投稿材料，沿用现稿主张，不停 S1 和 S4。默认交付投稿信、Highlights、图表说明与作者待办。'},
+ V:{name:'返修',c:'var(--ln-v)',desc:'<b>V 返修</b>：按审稿意见改稿并逐条回复，沿用原稿主张，不停 S3 和 S4，S2 是窄调研。默认交付修改稿、回复信与修改清单。'},
+ A:{name:'只审',c:'var(--ln-a)',desc:'<b>A 只审</b>：只审不改，快速线只停 S0、S6、S7、S9。默认交付审查意见。'},
+ L:{name:'局部',c:'var(--ln-l)',desc:'<b>局部线</b>：一句话或指定片段。不建项目，最小继承后只追受影响处，按真实状态交付。'},
+ W:{name:'单文档',c:'var(--ln-r)',desc:'<b>单文档线</b>：整篇稿件要改，但不重建主张、不要投稿包。五步，不建项目，交修改稿与修改清单；主线或分析去向要变时，升到完整 R。'}
+};
+const Y0=300,LW=10;
+const laneY=k=>Y0+(ORDER.indexOf(k)-2)*LW;
+const X={REQ:60,HUB:200,S0:340,S1:450,S2:560,S3:670,S4:780,S5:890,S6:1000,S7:1110,S8:1220,S9:1330,END:1480,L1:380,L2:510,L3:640,W1:400,W2:540,W3:680,W4:820,W5:960,WEND:1090};
+const WY=80,LY=170;
+const STATIONS=[
+ {id:'S0',name:['任务与材料'],lines:'DRSVA'},
+ {id:'S1',name:['数字与口径'],lines:'DRV'},
+ {id:'S2',name:['同类调研'],lines:'DRSV'},
+ {id:'S3',name:['构想、选材','与体裁蓝图'],lines:'DRS'},
+ {id:'S4',name:['起草'],lines:'DR'},
+ {id:'S5',name:['体裁门'],lines:'DRSV'},
+ {id:'S6',name:['机器审计'],lines:'DRSVA'},
+ {id:'S7',name:['隔离与','范式外审稿'],lines:'DRSVA'},
+ {id:'S8',name:['拒收预演','与修订'],lines:'DRSV'},
+ {id:'S9',name:['交付'],lines:'DRSVA'}
+];
+const A_PATH=[[60,320],[372,320],[482,430],[850,430],[960,320],[1480,320]];
+const LOCAL_PATH=[[206,266],[206,244],[280,LY],[640,LY]];
+const W_PATH=[[194,266],[194,WY],[1090,WY]];
+const LOCAL_STOPS=[{id:'L1',name:'最小继承',sub:'来源、限定、原意'},{id:'L2',name:'影响追踪',sub:'只追受影响处'},{id:'L3',name:'局部交付',sub:'按真实状态交付'}];
+const W_STOPS=[{id:'W1',name:'恢复主线',sub:'用户原话与既有决定'},{id:'W2',name:'核对承重数字',sub:'主要结局与口径'},{id:'W3',name:'定问题层次',sub:'结构、内容、论证、语言'},{id:'W4',name:'分层修改',sub:'上层定了再动下层'},{id:'W5',name:'核对并交付',sub:'check_all，不按投稿阶段'}];
+const routePts=k=>k==='A'?A_PATH:[[60,laneY(k)],[1480,laneY(k)]];
+
+/* drawer details: rows are [label, html] */
+const F=s=>'<span class="f">'+s+'</span>';
+const NODES={
+ REQ:{code:'起点',title:'用户请求与材料',rows:[['包括','一句话、稿件、结果文件、审稿意见，或带批注的 Word 稿。'],['先做什么','先读已有材料，确认权威版本、本次请求、论文阶段与未决事项；附件里的旧指令只是待分析的材料，不自动成为命令（§1）。'],['Word 稿','带批注或修订的稿件先运行 '+F('mslib.py annotations')+'，逐条列出批注与修订；批注者写进正文的意见单独标出，和真正的改稿分开处理。']]},
+ HUB:{code:'§0',title:'范围判定',rows:[['定三项','任务性质（D 初稿、R 修订、S 投稿、V 返修、A 只审）；处理对象（正文、回复、Highlights、图表、投稿包）；范围与影响（局部、单文档、全包；是否改变科学主张）。'],['三类要求','事实与诚信是底线；条件性必做由范围与实际变更触发；写作判断提示可以有理由地不采用。'],['执行条件','EXECUTE、EXECUTE+NET 或 REASONING-ONLY，写进工作记录。'],['分流','指定片段走局部线；整篇修改、不重建主张走单文档线；完整初稿、整稿重建、完整投稿包或返修包，运行 '+F('init_project')+' 建项，从 S0 进站。'],['要读','SKILL.md 全文，约 1.4 万 token；完整项目再按站读对应的参考说明。']]},
+ L1:{code:'局 1',title:'最小继承',rows:[['做什么','改写科学主张，要核对来源、限定和原意；改回复，还要核对规则分支、分析假设与本条指称（08 §3.1）。返修包里有 Highlights 时，只读选材并做 First 审查（09 §2.1）。'],['不做什么','不初始化项目，不填整套模板。']],lines:'L'},
+ L2:{code:'局 2',title:'影响追踪',rows:[['做什么','只追实际受影响的表述与文件（§7.1）。纯拼写或排版、不改变科学含义的，不扩展去审其他材料。']],lines:'L'},
+ L3:{code:'局 3',title:'局部交付',rows:[['交什么','按请求给判断、建议或改好的片段；工作记录简记通过、问题、未审或不适用。'],['约束','用户说不检查就不检查，交付时说明未验证；不制造完整稿的作者说明或签字流程。']],lines:'L'},
+ W1:{code:'单 1',title:'恢复主线',rows:[['做什么','读全文，记下稿件在回答什么、用户原话和既有决定。'],['记在哪里','工作记录与修改清单。不建项目，不填站点表。']],lines:'W'},
+ W2:{code:'单 2',title:'核对承重数字',rows:[['做什么','有结果文件就核主要结局与口径；没有就列为待核，不因此停工。'],['工具',F('number_trace')+'（给了结果文件时）']],lines:'W'},
+ W3:{code:'单 3',title:'定问题层次',rows:[['做什么','按 07 §1 判断问题在结构、内容、论证还是语言。'],['涉及体裁或写法','读 3–5 篇类型匹配的近邻并记下对照，对标说法写 case；拿不到近邻就写明。']],lines:'W'},
+ W4:{code:'单 4',title:'分层修改',rows:[['做什么','上层定了再动下层，同类问题一次改完（§4）。'],['标准','范围小不等于标准低，不写成“安全的实验报告腔”。'],['升到完整 R','改动超出原稿主张（换主线、增删分析、重新分配去向），或用户要投稿级重做时，说明原因后升到完整 R；已做的核对按 §7.1 复用。']],lines:'W'},
+ W5:{code:'单 5',title:'核对并交付',rows:[['做什么','运行 '+F('check_all')+'，不加 '+F('--stage submission')+'；用户不让检查时跳过，并说明未验证。'],['连带影响','按 §7.1 只追受影响的表述与文件。'],['报告','只报告查过的维度。']],lines:'W'},
+ WEND:{code:'单文档交付',title:'修改稿与修改清单',rows:[['交什么','修改稿与修改清单，写明查过和没查的维度。'],['不做什么','不称投稿就绪，不制造完整项目的作者说明或签字流程。']],lines:'W'},
+ S0:{rows:[['做什么','写任务卡，登记权威材料；用户对文体与交付的明确要求逐字写进 expectations.json，之后每轮都是硬回归项。'],['产物',F('00_inputs/task_brief.md')+' '+F('expectations.json')],['质检员要看','用户原话逐字进了登记；模式与交付写清。'],['放行条件','产物存在，且不是空模板。'],['工具',F('init_project')+' '+F('mslib.py annotations')]]},
+ S1:{rows:[['做什么','结果文件是唯一的数字来源；每项分析登记来源、样本与证据质量；承重指标写口径；派生量登记公式、分量与单位并复算。'],['产物',F('results_ledger.csv')+' '+F('qualifiers.csv')+' '+F('derivations.csv')],['质检员要看','每个承重数字有出处与口径。'],['放行条件','台账有数据行；派生量复算对得上。'],['工具',F('ledger_check')+' '+F('number_trace')+' '+F('metric_audit')+' '+F('derivation_check')]]},
+ S2:{rows:[['做什么','按主题、领域、方法、分析、背景、目标刊、旗舰刊多维检索；筛选、全文编码，读出同类作者为什么只呈现这些。'],['产物',F('survey_corpus.csv')+' '+F('survey_synthesis.md')+' '+F('neighbors.csv')],['质检员要看','全文真的读到了；维度够宽。'],['放行条件','survey_check 零 MUST：筛选 ≥20、维度 ≥3、全文编码 ≥6 且类型匹配 ≥4；旗舰刊与学科期刊各 ≥1。V 线是窄调研：10、6、4、2。规模可按领域写进 survey_scope.json 并说明理由。'],['工具',F('survey_check')+' '+F('key_units')+' '+F('convention_profile')+' '+F('move_check')+' '+F('bench_profile')]]},
+ S3:{rows:[['做什么','论文构想（候选构想、主张清单、审稿人预判、搁置清单、禁用表述）；去向登记四档与结果盲测试；故事卡；六维对标决策；体裁备忘。'],['产物',F('paper_concept.md')+' '+F('placement_decisions.csv')+' '+F('story_card.md')+' '+F('benchmark_decisions.csv')+' '+F('genre_memo.md')],['质检员要看','主张清单与搁置清单对得上；没有因结果不利而不进论文的；近邻位置能在全文里找到。'],['放行条件','各节已填，六维齐全，绑定稿件指纹；有子代理时附 reviewer_selection 的审查。']]},
+ S4:{rows:[['做什么','按蓝图逐节写：先读该节语步（参考 20）与范例坏例，写段落计划；通常先方法和结果，再讨论和引言，最后摘要和题目。'],['产物','稿件。'],['起草关键段之前','引言末段、讨论首段、结论先看近邻的职能组成，按它写，偏离要有理由（28 §7）。'],['之后的核对','写出来的稿件由 S5 体裁门与 S6 机器审计核对。']]},
+ S5:{rows:[['做什么',F('genre_gate --stage submission')+'：摘要末句、引言首末段、方法粒度、主文表型、讨论首段与结论；关键段语步与文本质感对照近邻。V、R 另比相对上次投稿原稿的累计增量。'],['产物',F('04_audit/genre_gate.json')],['质检员要看','保留的偏离都有近邻依据。'],['放行条件','投稿阶段 MUST 为 0，指纹一致；工具结果、人工并排记录或写明理由的豁免，三者任一。'],['工具',F('genre_gate')+' '+F('deviation_register')+' '+F('move_check')]]},
+ S6:{rows:[['做什么',F('check_all --stage submission')+'：一条命令跑约 15 项检查，写出 STATUS.md 与 summary.json。'],['产物',F('04_audit/check_all/summary.json')],['质检员要看','误报裁决写进作者说明。'],['放行条件','本稿投稿阶段退出 0；主张强度与派生量复算没有未裁决的问题。'],['工具',F('check_all')+'，内含 section_lint、number_trace、ref_check、claim_strength、genre_gate 等']]},
+ S7:{rows:[['做什么',F('review_pack')+' 打审查包；有子代理时隔离派发 12 份角色简报中需要的审稿人，含 reviewer_genre 与 reviewer_outsider；'+F('review_merge')+' 汇总裁决。没有子代理时按七项结构自查，标明“非独立”。'],['产物',F('review/round*/adjudication.csv')+' 或 '+F('04_audit/self_review.md')],['质检员要看','零发现附覆盖证明；裁决不模板化。'],['放行条件','二者之一存在；自查七项逐项写到。']]},
+ S8:{rows:[['做什么','拒收预演：假设作者看完不满意，列最可能的理由逐条核对，默认探针 RJ1–RJ10 加本稿特有至少两条，V、R 另判 RJ11；修订登记；V、R 另做全稿清扫与整包扫描。'],['产物',F('reject_drill.md')+' '+F('decision_log.md')+'，V、R 另有 '+F('sweep.md')+' '+F('package_scan.json')],['质检员要看','本稿特有的理由不是凑数。'],['放行条件','genre_gate 的 RD 规则；清扫逐项有证据；整包扫描晚于稿件且 MUST 为 0。']]},
+ S9:{rows:[['做什么','作者说明逐维报告。维度以作者说明模板的“分维度状态”表为准，机器能查的部分由 STATUS.md 给出。'],['产物',F('作者说明.md')],['质检员要看','每一维都有证据。'],['放行条件','“分维度状态”没有空格；'+F('station_check')+' 退出 0 才交付。'],['工具',F('station_check')+' '+F('release_check')]]},
+ END:{code:'终点',title:'交付作者',rows:[['四种状态','草稿完成、尚有待核项、投稿包备齐、已实际提交。任何一维没过或没查，就不写“投稿包备齐”。'],['只能由作者确认','AU1 类型与主线的取舍；AU2 完整稿通读；AU3 投稿声明与提交。'],['交付形式','正式稿和回复信，与白话的修改建议分开；台账与检查报告放在工作区，不混进交付。']]},
+ RING:{code:'§7',title:'变更影响环线',rows:[['分层顺序','先修事实、类型与主线，再修内容分配与论证，最后修语言与排版。'],['变更影响','主张变了：对应的来源、限定与原意。数字变了：来源与计算，以及所有出现处。引文变了：支持关系与编号。语言变了且含义不变：只核等义。排版变了：受影响页面。换期刊或设计：回到相关站点。'],['完整 R、V 必做','全稿清扫（07 §9，八项）与融入审查（07 §10，以上次投稿的原稿为基准）。'],['停止','授权工作完成，已知问题解决或列为未决，就按真实状态交付；不为凑轮数复查。']]},
+ RECORD:{code:'进度',title:'站点表 stations.csv',rows:[['列','mode、station、name、status、outputs、qc_evidence、inspector、manuscript_sha256、note。'],['核对',F('station_check')+'：产物存在且不是空模板；有质检记录与质检员；放行条件满足；不跳站；需要绑定的站（S3、S5、S8）对得上当前稿件指纹；缺材料的站标 blocked，并写明最少要补什么。'],['交付','退出 0 才交付。'],['相关报告','check_all 的 STATUS.md 列机器能查的分维度状态；作者说明逐维报告；release_check 核对声称通过的检查有没有运行回执与审查证据。']]},
+ DEPOT:{code:'车辆段',title:'包里有什么',rows:[['实物','45 个脚本（14,626 行）、30 份参考说明（约 12.7 万 token）、36 个模板、12 份角色简报、15 份范例、5 个领域包、6 个期刊档案、4 个词表、50 个测试文件。'],['建项',F('init_project')+' 按模式建工作区：初稿 23 个文件，修订 22 个，投稿与返修各 21 个，只审 8 个。单文档修订与局部任务不建项目。'],['测试','649 项机械回归，另有变异模拟、行为评分和带隐藏陷阱的试跑工具包。'],['编号','各套编号的唯一出处在 17 号说明开头的编号表。']]}
+};
+
+/* ---------- simulated requests ---------- */
+const SCEN=[
+ {line:'L',ticket:'这句“两组差异接近显著（p = .06）”能这么写吗？',meta:'A 只审，局部',
+  tri:['A 只审：判断一句写法','结果节里的一句话','局部，不改变科学主张','不需要运行脚本'],
+  reads:['SKILL'],files:[0,'不建文件'],deliver:'判断与改好的一句话',
+  steps:[
+   {at:'HUB',t:'§0 分诊：判断题，范围定为局部',x:'一句话的写法问题。不建项目、不填模板，工作记录里一句话说明即可。'},
+   {at:'L1',t:'最小继承：核对来源、限定与原意',x:'p = .06 没有达到预设阈值。“接近显著”是用措辞补足证据，section_lint 的 S1 规则管的正是这类句子；区间跨零时写“未见明确差异”。',tools:['section_lint --fragment']},
+   {at:'L2',t:'影响追踪：只看这一句',x:'摘要或讨论里如果有同样的说法，指出位置；不扩展去审其他内容（§7.1）。'},
+   {at:'L3',t:'局部交付',x:'给判断与改法：“两组之间未见明确差异（p = .06）”，必要时补效应量与区间。工作记录简记：已审这一句，其余未审。'}]},
+ {line:'L',ticket:'帮我把摘要压到 250 词以内，意思别变。',meta:'R 修订，局部',
+  tri:['R 修订','摘要','局部，不改变科学主张','可运行脚本'],
+  reads:['SKILL','06'],files:[0,'不建文件'],deliver:'新摘要与删改说明',
+  steps:[
+   {at:'HUB',t:'§0 分诊：局部修订',x:'“意思别变”是用户的明确要求，属于硬约束（原则 7）。'},
+   {at:'L1',t:'最小继承：压缩不能丢掉承重的限定',x:'摘要里的每个数字要在正文找得到依据；结论句的强度不能超过结果节（原则 4）；删句时检查有没有删掉承重的判断与限制（参考 06 的删句测试）。',tools:['section_lint --fragment','claim_strength']},
+   {at:'L2',t:'影响追踪：只追摘要本身',x:'压缩若改变了与题目、结论的一致性，提示作者，不动正文。'},
+   {at:'L3',t:'局部交付',x:'交出改好的摘要与词数，简记删掉了什么、为什么不影响结论。'}]},
+ {line:'W',ticket:'这篇稿子整体改一改，导师说读起来像实验报告。',meta:'R 修订，单文档',
+  tri:['R 修订','正文全稿','单文档：整篇修改，不重建主张','EXECUTE'],
+  reads:['SKILL','07','27','20','05'],files:[0,'不建项目'],deliver:'修改稿与修改清单',
+  steps:[
+   {at:'HUB',t:'§0 分诊：整篇修改，不重建',x:'对象是整篇稿件，但没有要求重建主张，也不要投稿包，走单文档线。导师的原话记进工作记录，交付时逐条回应。'},
+   {at:'W1',t:'恢复主线',x:'读全文，记下稿件在回答什么问题、主要发现是什么，以及导师的原话和既有决定。'},
+   {at:'W2',t:'核对承重数字',x:'有结果文件就核主要结局与口径；没有就把要核的数字列为待核，继续往下做。',tools:['number_trace']},
+   {at:'W3',t:'定问题层次',x:'“像实验报告”多半在结构与论证层：摘要末句、引言首末段、方法粒度、讨论首段。读 3–5 篇类型匹配的近邻，记下它们这几处怎么写，对标说法写 case。'},
+   {at:'W4',t:'分层修改',x:'先改节职能与论证，再改语言；同类问题一次改完。如果发现要换主线或重新分配分析去向，说明原因后升到完整 R，已做的核对复用。'},
+   {at:'W5',t:'核对并交付',x:'运行 check_all，不加 --stage submission；按 §7.1 追连带影响，修改清单里只报告查过的维度。',tools:['check_all']},
+   {at:'WEND',t:'交付作者',x:'修改稿与修改清单：改了哪些节、为什么，哪些维度查过、哪些没查。不称投稿就绪。'}]},
+ {line:'D',ticket:'这是结果表和分析笔记，帮我写成英文初稿，目标刊还没定。',meta:'D 初稿，完整项目',
+  tri:['D 初稿','正文','全包：完整项目','EXECUTE'],
+  reads:D_PATH,files:[23,'23 个，另加每站质检记录'],deliver:'稿件、作者说明',
+  steps:[
+   {at:'HUB',t:'§0 分诊：完整项目',x:'运行 init_project --mode D：stations.csv、作者说明.md 和 21 个模板，一共 23 个文件。',tools:['init_project']},
+   {at:'S0',t:'任务卡',x:'写清模式、权威材料、语言与交付位置；目标刊未定也可以起草。材料里没有伦理批准号：只暂停依赖它的部分，在对话里一次问完，其他站照常推进（28 §1）。',hold:'暂停：缺伦理批准号',files:['task_brief.md','expectations.json']},
+   {at:'S1',t:'锁定数字',x:'结果文件是唯一数字来源；每项分析登记身份、样本与证据质量；承重指标写口径；派生量登记公式、分量与单位并复算。',tools:['ledger_check','derivation_check','metric_audit'],files:['results_ledger.csv','qualifiers.csv','derivations.csv']},
+   {at:'S2',t:'同类调研',x:'七个维度检索，筛选 ≥20 篇，全文编码 ≥6 篇（类型匹配 ≥4），旗舰刊与学科期刊各 ≥1。',tools:['survey_check','key_units','move_check'],files:['survey_corpus.csv','survey_synthesis.md','neighbors.csv']},
+   {at:'S3',t:'构想、选材与蓝图',x:'先写一到三个论文构想请作者选；去向登记四档并做结果盲测试；再写故事卡、体裁备忘与六维对标。',files:['paper_concept.md','placement_decisions.csv','story_card.md','genre_memo.md','benchmark_decisions.csv']},
+   {at:'S4',t:'逐节起草',x:'每节先读语步（参考 20）与范例坏例，写段落计划；关键段先看近邻的职能组成。通常先方法和结果，再讨论和引言，最后摘要和题目。'},
+   {at:'S5',t:'体裁门',x:'genre_gate --stage submission：关键段与文本质感对照近邻，保留的偏离逐项写理由。',tools:['genre_gate','deviation_register']},
+   {at:'S6',t:'机器审计',x:'check_all --stage submission：约 15 项检查，写出 STATUS.md；误报保留原文，写规则代码与理由。',tools:['check_all']},
+   {at:'S7',t:'审查',x:'review_pack 打审查包；有子代理时隔离派发审稿角色，没有时按 19 §5b 七项自查，写明“非独立”。',tools:['review_pack'],files:['self_review.md']},
+   {at:'S8',t:'拒收预演',x:'假设作者不满意，列最可能的理由逐条核对：默认探针 RJ1–RJ10，加本稿特有至少两条。',files:['reject_drill.md','decision_log.md']},
+   {at:'S9',t:'交付',x:'作者说明逐维报告；station_check 退出 0 才交付。S0 还在暂停，所以流水线不算完成。',tools:['station_check'],files:['作者说明.md']},
+   {at:'END',t:'交付作者',x:'状态写“尚有待核项”，不写“投稿包备齐”；AU1–AU3 留给作者本人确认。'}]},
+ {line:'S',ticket:'下周投一本 Elsevier 期刊，帮我准备投稿信、Highlights 和图注。',meta:'S 投稿，全包',
+  tri:['S 投稿','投稿包','全包','EXECUTE'],
+  reads:['SKILL','28','29','17','09','14','21','23','24','25','27','e09','e10','e11','e12'],files:[21,'21 个'],deliver:'投稿信、Highlights、表题表注与图注、作者待办',
+  steps:[
+   {at:'HUB',t:'§0 分诊：准备投稿包',x:'走 S 线，不停 S1、S4。init_project --mode S 建 21 个文件。',tools:['init_project']},
+   {at:'S0',t:'先读作者须知',x:'读目标刊当期的作者须知；不在档案里就新建期刊档案，并写明出处。',tools:['journal_check']},
+   {at:'S2',t:'同类调研',x:'调研可以收窄到目标刊与旗舰刊，规模写进 survey_scope.json 并写理由；近邻里要有目标刊的文章。',tools:['survey_check']},
+   {at:'S3',t:'去向与蓝图',x:'构想以现稿主张为准；去向登记、六维对标与体裁备忘写齐，投稿阶段的 genre_gate 会查。'},
+   {at:'S4',kind:'pass',t:'起草站',x:'S 线沿用现稿，不停起草站。投稿信与 Highlights 按 09 写，Highlights 先选材再压字符。'},
+   {at:'S5',t:'体裁门',x:'投稿阶段 MUST 必须为 0。',tools:['genre_gate']},
+   {at:'S6',t:'机器审计与片段检查',x:'check_all 加期刊档案；Highlights、投稿信、图注单独用 section_lint --fragment 检查条数与字符上限。',tools:['check_all','section_lint --fragment','table_style']},
+   {at:'S7',t:'审查',x:'reviewer_display 看表和图能否独立读懂。'},
+   {at:'S8',t:'拒收预演',x:'列出编辑最可能退稿的理由，逐条到稿件里核对。',files:['reject_drill.md']},
+   {at:'S9',t:'渲染与交付',x:'Word 与 PDF 实际渲染、逐页查看；渲染不了就不声称版式已验收。利益冲突与数据可得性列为作者待办，不代填“无”。',tools:['delivery_check']},
+   {at:'END',t:'交付作者',x:'状态最多写到“投稿包备齐”；真实提交由作者完成（AU3）。'}]},
+ {line:'V',ticket:'这是两位审稿人的意见和原稿，按意见改，并写逐条回复。',meta:'V 返修，全包',
+  tri:['V 返修','正文、回复信、补充材料','全包','EXECUTE'],
+  reads:['SKILL','28','29','17','07','08','19','26','27','30','e13'],files:[21,'21 个'],deliver:'修改稿、逐条回复信、修改清单',
+  steps:[
+   {at:'HUB',t:'§0 分诊：完整返修',x:'走 V 线：沿用原稿的主张，不停 S3、S4。init_project --mode V 建 21 个文件。',tools:['init_project']},
+   {at:'S0',t:'保留原始意见',x:'完整保留两位审稿人的原文；每条拆成子问题，登记进意见矩阵。',files:['comments_matrix.csv','task_brief.md']},
+   {at:'S1',t:'新数字先过九问',x:'审稿人要求新增分析时，先过 08 §1.3 的九问：要解决什么、现有结果为什么不够、有没有更简单的办法、会不会造成选择性报告。'},
+   {at:'S2',t:'窄调研',x:'筛选 10、全文 6、类型匹配 4、维度 2；目标刊优先，只比较受审各节与回应的写法。',tools:['survey_check']},
+   {at:'S3',kind:'pass',t:'构想与蓝图',x:'沿用原稿主张；审稿人要求的新分析逐项登记去向。'},
+   {at:'S4',kind:'pass',t:'改稿与写回复',x:'先改稿，再写信（08 §1.4、§1.5）；回复信由 S6 的 response_lint 核对，S9 双向核对承诺与改动。'},
+   {at:'S5',t:'体裁门：累计增量',x:'genre_gate --submitted：以上次投稿的原稿为基准，累计变长的节重新和近邻比，逐节决定压缩、改写还是保留。',tools:['genre_gate --submitted']},
+   {at:'S6',t:'机器审计',x:'check_all；response_lint 查回复信的定位、致谢公式与跨条指称。',tools:['check_all','response_lint']},
+   {at:'S7',t:'审查',x:'每位审稿人可派一个 response_drafter；审稿角色只报告、不改稿。',tools:['review_merge']},
+   {at:'S8',t:'清扫与融入审查',x:'全稿清扫八项写进 sweep.md；revision_diff package 整包扫描要晚于最后一次改稿且 MUST 为 0；拒收预演判定 RJ11。',tools:['revision_diff package'],files:['sweep.md','reject_drill.md']},
+   {at:'S9',t:'双向核对与交付',x:'每条回复承诺都要在稿件里找到对应改动；页码取正文页脚，没有终稿时用节或段落锚点。',tools:['station_check']},
+   {at:'END',t:'交付作者',x:'修改稿、逐条回复信、修改清单。'}]},
+ {line:'L',ticket:'只帮我润色回复信第 3 条，别动正文。',meta:'V 返修，局部',
+  tri:['V 返修','回复信中的一条','局部（只改回复信）','可运行脚本'],
+  reads:['SKILL','08'],files:[0,'不建文件'],deliver:'改好的一条回复',
+  steps:[
+   {at:'HUB',t:'§0 分诊：只改一条回复',x:'只改回复信：不授权改其他文件，也不要求补交完整投稿包（§0）。'},
+   {at:'L1',t:'最小继承：核对这一条',x:'润色也要核对规则分支、分析假设和本条指称是否与正文一致（08 §3.1）；致谢用固定朴素的公式，不轮换同义词。',tools:['response_lint']},
+   {at:'L2',t:'影响追踪',x:'如果这一条承诺的修改在正文里找不到，只指出，不动正文。'},
+   {at:'L3',t:'局部交付',x:'交出改好的第 3 条，并写明正文与其他各条未审。'}]},
+ {line:'A',ticket:'投稿前帮我从审稿人的角度挑挑毛病，先别改稿。',meta:'A 只审，只给建议',
+  tri:['A 只审','全稿','只给建议，不改文件','EXECUTE'],
+  reads:['SKILL','28','17','11','13','19','26'],files:[8,'8 个'],deliver:'审查意见：问题、证据、严重度、建议',
+  steps:[
+   {at:'HUB',t:'§0 分诊：只交建议',x:'“先别改”就是只给建议、不改文件。走 A 快速线，只停 S0、S6、S7、S9；init_project --mode A 建 8 个文件。',tools:['init_project']},
+   {at:'S0',t:'登记审查范围',x:'写清已审什么、未审什么；用户原话进 expectations.json。'},
+   {at:'S6',t:'机器审计',x:'check_all 跑机器检查；结果只是证据的一部分，退出 0 不等于论证成立。',tools:['check_all']},
+   {at:'S7',t:'审查',x:'审查包加角色审查；每条发现要有逐字锚点，零发现要附覆盖证明。没有子代理时七项自查。',tools:['review_pack','review_merge']},
+   {at:'S9',t:'交付审查意见',x:'问题、证据、严重度、建议，并写明未审的范围。'},
+   {at:'END',t:'交付作者',x:'一份审查意见，不附修改稿。'}]},
+ {line:'R',ticket:'上次交付后发现，主分析样本是 112 不是 120，帮我把全文改对。',meta:'R 修订，已有项目，改一个数字',
+  tri:['R 修订','出现 n 的正文、表与摘要','已有项目内的一处数字改动','EXECUTE'],
+  reads:['SKILL','07','22','28'],files:[0,'不新建，更新受影响的记录'],deliver:'修正稿与受影响位置清单',
+  steps:[
+   {at:'HUB',t:'§0 与 §7.1：数字变了',x:'数字、分母或单位变了，要重核来源与计算，以及摘要、表图、补充和回复里出现该指标的位置；其余记录仍然有效，可以复用。'},
+   {at:'S0',kind:'pass',t:'任务卡',x:'沿用：任务卡与用户原话的登记仍然有效。'},
+   {at:'S1',t:'改台账，复算派生量',x:'台账与口径改成 112；依赖 n 的比例、效应量与区间全部复算。',tools:['ledger_check','derivation_check'],files:['results_ledger.csv','derivations.csv']},
+   {at:'S3',kind:'redo',t:'决策表对上当前稿件',x:'benchmark_decisions 与 placement_decisions 绑定稿件指纹；稿件改动后，把指纹列更新为当前稿件（station_check ST4）。'},
+   {at:'S5',kind:'redo',t:'体裁门对上当前稿件',x:'genre_gate.json 绑定稿件指纹，针对当前稿件重跑一次。',tools:['genre_gate']},
+   {at:'S6',t:'找出残留的 120',x:'number_trace 与 check_all 找出正文、表图与补充材料里所有残留的旧数字。',tools:['number_trace','check_all']},
+   {at:'S8',kind:'redo',t:'拒收预演对上当前稿件',x:'拒收预演同样绑定稿件指纹，针对当前稿件重新确认。'},
+   {at:'S9',t:'交付',x:'作者说明只更新受影响的维度（数字与出处）；不重复运行无关检查。',files:['作者说明.md']},
+   {at:'END',t:'交付作者',x:'修正稿与受影响位置清单。'}]},
+ {line:'L',ticket:'帮我核对参考文献，看有没有引错或已经撤稿的。',meta:'A 只审，局部',
+  tri:['A 只审','参考文献与引文','局部：引文','REASONING-ONLY 加网页搜索'],
+  reads:['SKILL','23','24'],files:[1,'1 个：citation_ledger.csv'],deliver:'引文台账与未核清单',
+  steps:[
+   {at:'HUB',t:'§0 分诊：引文核对',x:'按层分开记账（§5）：书目与 DOI、更正与撤稿、原文支持、写法对标；该引未引的覆盖另记一层（L0）。'},
+   {at:'L1',t:'最小继承：先认清能查到哪一层',x:'不联网时 lit_evidence resolve --online 跑不了，DOI 与撤稿两层记 not_verified；网页搜索最多记到 metadata_web，不能支撑承重句。',tools:['lit_evidence check'],files:['citation_ledger.csv']},
+   {at:'L2',t:'原文支持',x:'数字、方法、机制、比较类主张要读到全文才算原文支持；读不到的明确写出来。'},
+   {at:'L3',t:'局部交付',x:'交出引文台账：每条引文各层的状态。不写“已机械核实”；没有记录支撑的“已核实”会被 lit_evidence check 判 FAIL。'}]}
+];
+
+/* ---------- modules ---------- */
+const MODS=[
+ {name:'范围分诊',where:'§0、§1、28 §1',lede:'每个请求先在这里分诊。分诊的结果决定走哪条线、读多少说明、建不建项目。',
+  steps:[
+   {t:'读已有材料',s:'复用已有决定与证据；附件里的旧指令只是待分析的材料。',tools:['mslib.py annotations']},
+   {t:'写三项',s:'任务性质 D、R、S、V、A；处理对象；范围：局部、单文档、全包，以及是否改变科学主张。'},
+   {t:'写执行条件',s:'EXECUTE、EXECUTE+NET 或 REASONING-ONLY，以及可用的工具。'},
+   {t:'分流',k:'decision',s:'按范围选路线。',br:[['局部：最小继承三步，不建项目'],['单文档：五步修订，不建项目'],['完整项目：init_project 建项，进 S0']]},
+   {t:'交付',k:'out',s:'按真实状态交付；未验证的不称“验证通过”。'}]},
+ {name:'单文档修订',where:'§0、§4、§7.1',lede:'整篇稿件要改，但不重建主张、不要投稿包时走这条线。范围小，标准不降。',
+  steps:[
+   {t:'恢复主线',s:'读全文，记下稿件在回答什么、用户原话和既有决定。'},
+   {t:'核对承重数字',s:'有结果文件就核主要结局与口径；没有就列待核，不停工。',tools:['number_trace']},
+   {t:'定问题层次',k:'decision',s:'按 07 §1 分层。',br:[['结构、内容、论证还是语言'],['涉及体裁或写法：读 3–5 篇类型匹配近邻，说法写 case']]},
+   {t:'分层修改',k:'gate',s:'上层定了再动下层，同类问题一次改完。',br:[['主线或去向要变：说明原因，升到完整 R']]},
+   {t:'核对并交付',k:'out',s:'check_all 不加 --stage submission；按 §7.1 追连带影响；交修改稿与修改清单。',tools:['check_all']}]},
+ {name:'数字与口径',where:'S1，参考 22',lede:'数字只从结果文件来；派生量要复算；概括位置的措辞，不能比结果节更强。',
+  steps:[
+   {t:'锁定结果文件',s:'唯一的数字来源；没有结果就不写结果。'},
+   {t:'结果台账',s:'每项分析登记来源、样本、模型、单位与分析身份；这一步只记身份与证据质量，不定去向。',tools:['results_ledger.csv','ledger_check']},
+   {t:'口径',s:'承重指标写清实际怎么算、分母是什么、未完成或到上限的观测怎么处理。',tools:['qualifiers.csv']},
+   {t:'派生量复算',k:'gate',s:'乘积、比值、换算、效应量登记公式、分量与单位，复算单位、符号和数值。',tools:['derivations.csv','derivation_check','metric_audit']},
+   {t:'数字定方向',s:'每个结局写方向、大小、区间与写法；不显著写“未见明确差异”，不写“趋势”。',tools:['story_card.md']},
+   {t:'稿件核对',k:'out',s:'number_trace 核出处；claim_strength 核题目、摘要、讨论首末段与结论的强度。',tools:['number_trace','claim_strength']}]},
+ {name:'调研与选材',where:'S2、S3，参考 29、27',lede:'先弄清同类作者为什么只呈现这些，再决定这篇论文呈现什么。论文不是项目档案。',
+  steps:[
+   {t:'多维检索',s:'主题、领域、方法、分析、背景、目标刊、旗舰刊。'},
+   {t:'筛选与全文编码',k:'gate',s:'筛选 ≥20 篇；全文编码 ≥6 篇，类型匹配 ≥4；规模可按领域调整并写理由。',tools:['survey_check','key_units']},
+   {t:'为什么只呈现这些',s:'逐篇写出同类作者的取舍，以及审稿人常问什么。',tools:['survey_synthesis.md']},
+   {t:'论文构想',k:'decision',s:'从作者目的写一到三个构想；材料够写不止一篇时请作者选。',tools:['paper_concept.md']},
+   {t:'去向登记',s:'主文、补充、备答、不属于本文；先做结果盲测试，再写放与不放审稿人各会问什么。',tools:['placement_decisions.csv']},
+   {t:'体裁蓝图',s:'故事卡、体裁备忘、六维对标决策。',tools:['story_card.md','genre_memo.md','benchmark_decisions.csv']},
+   {t:'选材审查',k:'out',s:'有子代理时派 reviewer_selection：防止把项目档案写成论文，也防止选择性报告。'}]},
+ {name:'语言修订五步',where:'§4，参考 05',lede:'一次覆盖同类问题：先找类别，再把每一处列进计划，逐行裁决，最后核对改动真的落地。',
+  steps:[
+   {t:'找偏离类别',s:'和同类文献或领域包比句长、连接词、标点、语气、模板重复。',tools:['section_lint','bench_profile','phrase_contrast']},
+   {t:'列出所有位置',s:'正文、补充材料、回复信里的每一处都进计划；有领域包时用 --baseline 对照。',tools:['language_plan scan']},
+   {t:'逐行裁决',k:'decision',s:'改、留或误报，按句子功能，不按出现次数。',br:[['留：目标刊格式、如实的不显著结果、作者要求的篇幅'],['误报：保留原文，写规则代码与理由']]},
+   {t:'改稿',s:'不换同义词绕过规则。'},
+   {t:'核对落地',k:'out',s:'每行已裁决；改动确实落到文件；数字与引文没有丢；否定与限定的变化已复核。',tools:['language_plan check']}]},
+ {name:'引文四层与覆盖',where:'§5，参考 23、24',lede:'每层单独记账，上层通过不点亮下层：DOI 能解析，不等于原文支持你的那句话。',
+  steps:[
+   {t:'L0 覆盖',s:'按论证职能列出该引的：背景、直接近邻、竞争解释、材料、测量、方法、相反证据。',tools:['coverage_map.csv','coverage_check']},
+   {t:'L1 书目与 DOI',s:'Crossref 与 OpenAlex 比对题名、作者与年份；没网时记 not_verified。',tools:['lit_evidence resolve --online']},
+   {t:'L2 更正与撤稿',s:'读出更正与撤稿信号；未见撤稿，不等于文献可靠。'},
+   {t:'L3 原文支持',k:'gate',s:'数字、方法、机制、比较类主张要读全文；只有搜索片段，不能支撑承重句。'},
+   {t:'L4 写法对标',s:'近邻怎样写同一类句子。'},
+   {t:'说法核对',k:'out',s:'作者说明、稿件、回复信里的“已核实”“已对标”，没有记录支撑就判 FAIL。',tools:['lit_evidence check']}]},
+ {name:'机器审计',where:'S6，check_all',lede:'一条命令汇总约 15 项检查，写成一页白话状态。它不判断论证是否成立，论证靠审查与作者通读。',
+  steps:[
+   {t:'一条命令',s:'按给出的参数决定跑哪些检查。',tools:['check_all.py']},
+   {t:'分发检查',k:'decision',fan:['section_lint','density_check','ref_check','number_trace','ledger_check','journal_check','results_function','display_terms','coverage_check','lit_evidence','genre_gate','derivation_check','claim_strength','reader_readiness']},
+   {t:'STATUS.md 四栏',s:'必须先处理；没能运行（不算通过）；需要看一眼；机器查不了、需要人看。'},
+   {t:'分维度状态',k:'gate',s:'机器能查的维度逐维列出；完整维度清单以作者说明模板为准，任何一维没过都不是投稿就绪。'},
+   {t:'误报裁决',k:'out',s:'保留原文，在作者说明里写规则代码与理由；不为全绿改坏正确的内容。'}]},
+ {name:'审查与预演',where:'S7、S8，参考 19、26',lede:'同一模型的多个代理带来的是隔离，不是独立专家。这一段防止审查被技能自己的框架锁住。',
+  steps:[
+   {t:'审查包',s:'正文、表、图注、补充材料与图片清单，带指纹。',tools:['review_pack']},
+   {t:'派发',k:'decision',br:[['有子代理：隔离派发角色简报'],['没有：按七项结构自查，写明“非独立”']]},
+   {t:'汇总与锚点',k:'gate',s:'引文逐字核对；零发现要附覆盖证明；同一模板理由重复三次即报错。',tools:['review_merge']},
+   {t:'范式外审稿',s:'reviewer_outsider 不读本技能的规则，只拿近邻原文与用户要求来审。'},
+   {t:'拒收预演',s:'默认探针 RJ1–RJ10，加本稿特有至少两条；返修与修订另判 RJ11。',tools:['reject_drill.md']},
+   {t:'裁决与修订',k:'out',s:'逐组写改动证据，记进决策登记。',tools:['decision_log.md']}]},
+ {name:'返修与回复',where:'V，参考 08、07',lede:'先核实，再改稿，最后写信；每条承诺都要在稿件里找得到对应的改动。',
+  steps:[
+   {t:'拆意见',s:'完整保留原始意见，每条拆成子问题。',tools:['comments_matrix.csv']},
+   {t:'逐条核实',s:'接受、部分接受、澄清，或有据不接受；做不到的说明原因。'},
+   {t:'新分析先过九问',k:'gate',s:'要解决什么问题、现有结果为什么不够、有没有更简单的办法、会不会造成选择性报告；据此决定实施、改用其他证据，或不实施。'},
+   {t:'改稿',s:'改动落在受影响处，也查全稿的同类问题。'},
+   {t:'写回复',s:'作者有以往的回复信，就照它的写法；逐条致谢用固定朴素的公式。',tools:['response_letter.md','response_lint']},
+   {t:'双向核对',k:'gate',s:'每条承诺对得上实际改动；页码取正文页脚。'},
+   {t:'清扫与融入',k:'out',s:'全稿清扫八项；以上次投稿的原稿为基准判定 RJ11；整包扫描。',tools:['sweep.md','revision_diff package']}]},
+ {name:'多轮修订与停止',where:'§7、§7.1',lede:'改了什么，就只让对应的记录失效；授权的工作做完、已知问题解决或列为未决，就按真实状态交付。',
+  steps:[
+   {t:'判断变更类型',k:'decision',br:[['主张：来源、限定与原意'],['数字：来源、计算与所有出现处'],['引文：支持关系与编号'],['语言：只核等义'],['排版：受影响页面'],['期刊或设计：回到相关站点']]},
+   {t:'找失效的记录',s:'只让受影响的结论与核查失效。'},
+   {t:'复用其余记录',s:'记录要对应来源版本、主张与核查范围；变化后的内容不继承旧的“通过”。'},
+   {t:'重新确认',k:'gate',s:'绑定稿件指纹的站（S3、S5、S8）在稿件改动后针对当前稿件重新确认（ST4）。'},
+   {t:'停止',k:'out',s:'不为凑轮数复查；只有新改动、失败或未决风险，才触发进一步复查。'}]}
+];
+
+/* ---------- inventory for the cross-section ---------- */
+const PRIN=['近邻是外部参照','职能先于比例','工具是手段，不是标准','数字对得上量纲，概括不超过证据','交代跟着主张走','概括前人要有全文依据','用户要求、领域惯例、技能默认三者分开','做不到就说做到哪一步','在依赖处检查读者是否已经理解'];
+const SLOC={mslib:1186,genre_gate:798,check_all:678,section_lint:668,display_terms:577,domain_pack:540,language_plan:533,revision_diff:527,lit_evidence:445,figure_layout_qa:442,bench_profile:440,phrase_contrast:433,reader_readiness:400,journal_check:382,deviation_register:377,table_style:355,station_check:355,claim_strength:349,response_lint:329,delivery_check:318,results_function:303,convention_profile:299,review_merge:296,ref_check:282,survey_check:280,display_extract:255,coverage_check:235,move_check:235,verify_evidence:222,claims_guard:210,metric_audit:189,derivation_check:187,number_trace:178,release_check:169,density_check:159,key_units:143,init_project:121,check_stats:114,review_pack:114,audit_run:102,gate_check:98,ledger_check:97,display_profile:87,reference_identity:63,output_safety:56};
+const TPLS=['author_delivery.md','benchmark_decisions.csv','citation_ledger.csv','claims_register.json','comments_matrix.csv','cover_letter.md','coverage_map.csv','decision_log.md','derivations.csv','display_terms.csv','draft_rubric.md','expectations.json','genre_memo.md','inventory.md','issue_log.csv','limits_example.json','mcp_template.json','moves_coding_example.json','neighbors.csv','outline.md','paper_concept.md','paper_type.md','placement_decisions.csv','qualifiers.csv','reject_drill.md','response_letter.md','results_ledger.csv','self_review.md','source_coverage.csv','story_card.md','submission_checklist.md','survey_corpus.csv','survey_scope.json','survey_synthesis.md','sweep.md','task_brief.md'];
+const AGENTS=['citation_checker','cold_reader','response_drafter','reviewer_argument','reviewer_coverage','reviewer_display','reviewer_genre','reviewer_language','reviewer_methods','reviewer_outsider','reviewer_selection','station_inspector'];
+const DOMAINS=[['clinical_psych_en',24],['education_psych_en',11],['education_zh',11],['psychology_zh',22],['social_perception_en',18]];
+const JOURNALS=['cell_article','education_zh_measured','generic_imrad','nature_article','psychology_zh_measured','science_research_article'];
+const LEXS=['en.json','phrase_vocab.json','texture_catalog.json','zh.json'];
+
+/* ===================== CORE ===================== */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const SVGNS='http://www.w3.org/2000/svg';
+const REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const f1=n=>(+n).toFixed(1);
+function S(tag,attrs,parent,text){
+  const el=document.createElementNS(SVGNS,tag);
+  if(attrs)for(const k in attrs){if(attrs[k]!=null)el.setAttribute(k,attrs[k]);}
+  if(text!=null)el.textContent=text;
+  if(parent)parent.appendChild(el);
+  return el;
+}
+function H(tag,attrs,parent,html){
+  const el=document.createElement(tag);
+  if(attrs)for(const k in attrs){if(attrs[k]!=null)el.setAttribute(k,attrs[k]);}
+  if(html!=null)el.innerHTML=html;
+  if(parent)parent.appendChild(el);
+  return el;
+}
+const wan=n=>'约 '+(n/10000).toFixed(1)+' 万 token';
+const sumTok=keys=>keys.reduce((a,k)=>a+(TOK[k]||0),0);
+const codeOf=id=>({HUB:'§0',END:'终点',REQ:'起点',L1:'局 1',L2:'局 2',L3:'局 3',W1:'单 1',W2:'单 2',W3:'单 3',W4:'单 4',W5:'单 5',WEND:'交付'})[id]||id;
+const lineGlyph=k=>k==='L'?'局':k==='W'?'整':k;
+const bullet=(k,cls)=>'<span class="lb'+(cls?' '+cls:'')+'" data-l="'+k+'" style="--c:'+LINES[k].c+'">'+lineGlyph(k)+'</span>';
+function rpath(pts,r){
+  r=r==null?24:r;
+  let d='M'+pts[0][0]+' '+pts[0][1];
+  for(let i=1;i<pts.length;i++){
+    const c=pts[i];
+    if(i===pts.length-1){d+=' L'+c[0]+' '+c[1];break;}
+    const p=pts[i-1],n=pts[i+1],a=Math.hypot(c[0]-p[0],c[1]-p[1]),b=Math.hypot(n[0]-c[0],n[1]-c[1]),rr=Math.min(r,a/2,b/2);
+    d+=' L'+f1(c[0]-(c[0]-p[0])/a*rr)+' '+f1(c[1]-(c[1]-p[1])/a*rr)+' Q'+c[0]+' '+c[1]+' '+f1(c[0]+(n[0]-c[0])/b*rr)+' '+f1(c[1]+(n[1]-c[1])/b*rr);
+  }
+  return d;
+}
+
+/* ---------- the network ---------- */
+const NET_LINES={REQ:'DRSVALW',HUB:'DRSVALW',END:'DRSVA',RING:'DRSV',RECORD:'DRSVA'};
+function netNode(parent,id,lines,hit,opt,label){
+  const g=S('g',{class:'node','data-id':id},parent);
+  if(lines)g.setAttribute('data-lines',lines);
+  if(hit){
+    S('rect',Object.assign({class:'hit'},hit),g);
+    S('rect',{class:'focus',x:hit.x+2,y:hit.y+2,width:hit.width-4,height:hit.height-4,rx:10},g);
+  }
+  if(opt.interactive){g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-label',label);}
+  return g;
+}
+function drawNet(svg,opt){
+  const o=Object.assign({vb:[0,24,1600,744],depot:false,ring:false,record:false,names:true,board:false,interactive:false},opt);
+  svg.setAttribute('viewBox',o.vb.join(' '));
+  const under=S('g',{class:'under'},svg);
+
+  /* depot, with a siding from the corridor */
+  if(o.depot){
+    S('line',{class:'siding',x1:270,y1:326,x2:270,y2:604},under);
+    const g=netNode(under,'DEPOT',null,{x:66,y:600,width:248,height:160},o,'车辆段：包里有什么');
+    S('rect',{class:'depot',x:70,y:604,width:240,height:152,rx:8},g);
+    S('text',{class:'m-name m-bold',x:84,y:626},g,'车辆段');
+    S('text',{class:'m-small',x:296,y:626,'text-anchor':'end'},g,'298 个文件');
+    [['脚本',45],['参考说明',30],['模板',36],['范例',15],['角色简报',12],['领域包',5],['测试',649]].forEach((r,i)=>{
+      const y=642+i*16.2;
+      S('text',{class:'m-tiny',x:84,y:y+4},g,r[0]+' '+r[1]);
+      if(r[1]>100)S('rect',{x:152,y:y-4,width:144,height:7,style:'fill:var(--ink-2)'},g);
+      else for(let k=0;k<r[1];k++)S('rect',{x:f1(152+k*3.2),y:y-4,width:2,height:7,style:'fill:var(--ink-2)'},g);
+    });
+  }
+
+  /* the one progress record */
+  if(o.record){
+    const g=netNode(under,'RECORD',NET_LINES.RECORD,{x:336,y:604,width:1010,height:104},o,'站点表 stations.csv：唯一的进度记录');
+    S('line',{class:'rec-line',x1:340,y1:660,x2:1330,y2:660},g);
+    STATIONS.forEach(s=>{
+      S('circle',{class:'rec-tick',cx:X[s.id],cy:660,r:6},g);
+      S('text',{class:'m-tiny',x:X[s.id],y:684,'text-anchor':'middle'},g,s.id);
+    });
+    S('text',{class:'m-name m-bold',x:340,y:632},g,'站点表 stations.csv');
+    S('text',{class:'m-small',x:500,y:632},g,'完整项目的进度只记在这里：状态、产物、质检证据、质检员、稿件指纹');
+    S('text',{class:'m-small',x:1330,y:700,'text-anchor':'end'},g,'station_check 退出 0 才交付');
+  }
+
+  /* change-impact loop */
+  if(o.ring){
+    const g=netNode(under,'RING',NET_LINES.RING,{x:424,y:462,width:852,height:116},o,'§7 变更影响环线');
+    S('path',{class:'ring-line',d:'M470 468H1230A40 40 0 0 1 1230 548H470A40 40 0 0 1 470 468Z'},g);
+    [[450,319,473,'up'],[670,314,468,'up'],[890,319,468,'up'],[1220,326,468,'down']].forEach(s=>{
+      S('line',{class:'spur',x1:s[0],y1:s[1],x2:s[0],y2:s[2]},g);
+      const y=s[3]==='up'?s[1]:s[2],dy=s[3]==='up'?9:-9;
+      S('path',{d:'M'+(s[0]-5)+' '+(y+dy)+'L'+s[0]+' '+y+'L'+(s[0]+5)+' '+(y+dy),fill:'none',style:'stroke:var(--ink-2)','stroke-width':2,'stroke-linecap':'round','stroke-linejoin':'round'},g);
+    });
+    if(o.names){
+      S('text',{class:'m-name m-bold',x:850,y:504,'text-anchor':'middle'},g,'§7 变更影响环线');
+      S('text',{class:'m-small',x:850,y:524,'text-anchor':'middle'},g,'改了什么，只让对应的记录失效');
+      ['主张','数字','引文','语言','排版','换刊或设计'].forEach((t,i)=>{
+        const x=520+132*i;
+        S('circle',{cx:x,cy:548,r:5,style:'fill:var(--st);stroke:var(--ink)','stroke-width':2.2},g);
+        S('text',{class:'m-tiny',x,y:568,'text-anchor':'middle'},g,t);
+      });
+    }
+  }
+
+  /* routes */
+  const routes=S('g',{},svg);
+  S('path',{class:'route route-l','data-l':'L',d:rpath(LOCAL_PATH,26)},routes);
+  S('path',{class:'route route-w','data-l':'W',d:rpath(W_PATH,30)},routes);
+  ['A','V','S','R','D'].forEach(k=>{
+    S('path',{class:'route','data-l':k,d:rpath(routePts(k),26),style:'stroke:'+LINES[k].c},routes);
+  });
+  if(o.names)S('text',{class:'m-tiny',x:566,y:449,'text-anchor':'middle'},routes,'A 线下穿：S0 之后直达 S6');
+
+  /* nodes */
+  const nodes=S('g',{},svg);
+  {
+    const g=netNode(nodes,'REQ',NET_LINES.REQ,{x:18,y:262,width:84,height:120},o,'起点：用户请求与材料');
+    S('rect',{class:'term',x:54,y:273,width:12,height:54,rx:4},g);
+    if(o.names){
+      S('text',{class:'m-name sm',x:60,y:352,'text-anchor':'middle'},g,'用户请求');
+      S('text',{class:'m-name sm',x:60,y:370,'text-anchor':'middle'},g,'与材料');
+    }
+  }
+  {
+    const g=netNode(nodes,'HUB',NET_LINES.HUB,{x:156,y:258,width:88,height:136},o,'§0 范围判定');
+    S('rect',{class:'cap hub',x:183,y:271,width:34,height:58,rx:15},g);
+    S('text',{class:'m-code',x:200,y:364,'text-anchor':'middle'},g,'§0');
+    if(o.names)S('text',{class:'m-name',x:200,y:384,'text-anchor':'middle'},g,'范围判定');
+  }
+  LOCAL_STOPS.forEach(s=>{
+    const x=X[s.id],g=netNode(nodes,s.id,'L',{x:x-56,y:116,width:112,height:68},o,s.name+'：'+s.sub);
+    S('circle',{class:'lstop',cx:x,cy:LY,r:9},g);
+    if(o.names){
+      S('text',{class:'m-name sm',x,y:134,'text-anchor':'middle'},g,s.name);
+      S('text',{class:'m-small',x,y:151,'text-anchor':'middle'},g,s.sub);
+    }
+  });
+  W_STOPS.forEach((s,i)=>{
+    const x=X[s.id],g=netNode(nodes,s.id,'W',{x:x-66,y:30,width:132,height:62},o,'单文档线 '+(i+1)+'：'+s.name);
+    S('circle',{class:'wstop',cx:x,cy:WY,r:9},g);
+    if(o.names){
+      S('text',{class:'m-name sm',x,y:46,'text-anchor':'middle'},g,s.name);
+      S('text',{class:'m-small',x,y:63,'text-anchor':'middle'},g,s.sub);
+    }
+    if(s.id==='W4'){
+      S('path',{class:'upg',d:'M'+x+' '+(WY+12)+'V150'},g);
+      S('path',{class:'upg-head',d:'M'+(x-6)+' 143L'+x+' 151L'+(x+6)+' 143'},g);
+      if(o.names){
+        S('text',{class:'m-small upg-t',x:x+12,y:126},g,'主线或去向要变');
+        S('text',{class:'m-small upg-t',x:x+12,y:143},g,'升到完整 R，从 S0 进站');
+      }
+    }
+  });
+  {
+    const g=netNode(nodes,'WEND','W',{x:1074,y:46,width:120,height:68},o,'单文档线终点：修改稿与修改清单');
+    S('rect',{class:'term',x:1084,y:58,width:12,height:44,rx:4},g);
+    if(o.names){
+      S('text',{class:'m-name sm m-bold',x:1108,y:76},g,'修改稿');
+      S('text',{class:'m-name sm m-bold',x:1108,y:95},g,'修改清单');
+    }
+  }
+  STATIONS.forEach(s=>{
+    const x=X[s.id],ys=[...s.lines].map(laneY),top=Math.min(...ys),bot=Math.max(...ys),n=s.name;
+    const g=netNode(nodes,s.id,s.lines,{x:x-50,y:top-76,width:100,height:bot-top+92},o,s.id+' '+n.join(''));
+    S('rect',{class:'cap',x:x-12,y:top-7,width:24,height:bot-top+14,rx:12},g);
+    S('text',{class:'m-code',x,y:top-16,'text-anchor':'middle'},g,s.id);
+    if(o.names)n.forEach((t,i)=>S('text',{class:'m-name'+(n.length>1?' sm':''),x,y:top-37-(n.length-1-i)*18,'text-anchor':'middle'},g,t));
+  });
+  S('path',{class:'route-over','data-l':'S',d:'M'+(X.S1-17)+' '+laneY('S')+'H'+(X.S1+17),style:'stroke:'+LINES.S.c},nodes);
+  {
+    const g=netNode(nodes,'END',NET_LINES.END,{x:1438,y:262,width:84,height:170},o,'终点：交付作者');
+    S('rect',{class:'term',x:1474,y:273,width:12,height:54,rx:4},g);
+    if(o.names){
+      S('text',{class:'m-name m-bold',x:1480,y:352,'text-anchor':'middle'},g,'交付作者');
+      ['草稿完成','尚有待核项','投稿包备齐','已实际提交'].forEach((t,i)=>S('text',{class:'m-small',x:1480,y:372+i*17,'text-anchor':'middle'},g,t));
+    }
+  }
+  if(o.board){
+    const g=S('g',{},nodes);
+    S('text',{class:'m-small',x:1406,y:70},g,'各线默认交付');
+    [['D','稿件、作者说明'],['R','修改稿、修改清单'],['S','投稿信、Highlights、待办'],['V','修改稿、逐条回复信'],['A','审查意见'],['W','修改稿、修改清单'],['L','判断或改好的片段']].forEach((r,i)=>{
+      const y=92+i*24,gg=S('g',{class:'node','data-lines':r[0]},g),dash=r[0]==='W'||r[0]==='L';
+      S('circle',{cx:1416,cy:y,r:9.5,class:dash?'bd-dash bd-'+r[0]:null,style:dash?null:'fill:'+LINES[r[0]].c},gg);
+      S('text',{x:1416,y:y+4.5,'text-anchor':'middle',style:'font-family:var(--f-cond),var(--f-sans);font-weight:700;font-size:12.5px;fill:'+(r[0]==='S'?'var(--on-s)':r[0]==='W'?'var(--ln-r)':r[0]==='L'?'var(--ink-2)':'var(--on-l)')},gg,lineGlyph(r[0]));
+      S('text',{class:'m-small',x:1432,y:y+4.5},gg,r[1]);
+    });
+  }
+  return {under,routes,nodes};
+}
+function setFocus(svg,k){
+  if(k)svg.setAttribute('data-focus',k);else svg.removeAttribute('data-focus');
+  $$('.route,.route-over',svg).forEach(r=>r.classList.toggle('on',r.dataset.l===k));
+  $$('.node',svg).forEach(n=>n.classList.toggle('off',!!k&&!!n.dataset.lines&&!n.dataset.lines.includes(k)));
+}
+
+/* ---------- drawer ---------- */
+const drawer=$('#drawer');
+let drawerFrom=null;
+function openDrawer(id,from){
+  const n=NODES[id];
+  if(!n)return;
+  const st=STATIONS.find(s=>s.id===id);
+  const code=n.code||id,title=n.title||(st?st.name.join(''):'');
+  let html='<div class="dr-code">'+code+'</div><h3 class="dr-title" id="dr-title">'+title+'</h3>';
+  if(st)html+='<div class="dr-lines"><span>停靠的线</span>'+[...st.lines].map(k=>bullet(k,'sm')).join('')+'</div>';
+  else if(n.lines)html+='<div class="dr-lines"><span>所在的线</span>'+bullet(n.lines,'sm')+'</div>';
+  html+='<dl class="dr-dl">'+n.rows.map(r=>'<dt>'+r[0]+'</dt><dd>'+r[1]+'</dd>').join('')+'</dl>';
+  $('#dr-body').innerHTML=html;
+  drawer.classList.add('open');
+  drawerFrom=from||null;
+  drawer.scrollTop=0;
+  drawer.focus({preventScroll:true});
+}
+function closeDrawer(){
+  if(!drawer.classList.contains('open'))return;
+  drawer.classList.remove('open');
+  if(drawerFrom&&document.contains(drawerFrom))drawerFrom.focus({preventScroll:true});
+  drawerFrom=null;
+}
+$('#dr-close').addEventListener('click',closeDrawer);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
+
+/* ---------- hero map ---------- */
+const hero=$('#hero');
+const CAP_DEFAULT='五条线共用一条走廊。<b>D、R</b> 全部停靠；<b>S、V</b> 各跳过两站；<b>A</b> 在 S0 之后下穿，到 S6 才回来。<b>局部线</b>和<b>单文档线</b>从 §0 岔出，都不建项目；单文档线第 4 站有升到完整 R 的出口。';
+drawNet(hero,{depot:true,ring:true,record:true,board:true,interactive:true});
+hero.addEventListener('click',e=>{const n=e.target.closest('.node[data-id]');if(n)openDrawer(n.dataset.id,n);});
+hero.addEventListener('keydown',e=>{
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  const n=e.target.closest('.node[data-id]');
+  if(n){e.preventDefault();openDrawer(n.dataset.id,n);}
+});
+$('#map-caption').innerHTML=CAP_DEFAULT;
+
+let focused=null;
+function focusLine(k){
+  focused=focused===k?null:k;
+  setFocus(hero,focused);
+  $$('.bullet').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===focused)));
+  $('#focus-reset').hidden=!focused;
+  $('#map-caption').innerHTML=focused?LINES[focused].desc:CAP_DEFAULT;
+}
+[...ORDER,'W','L'].forEach(k=>{
+  const li=H('li',null,$('#bullets'));
+  const b=H('button',{class:'bullet','data-l':k,'aria-pressed':'false'},li,bullet(k)+LINES[k].name);
+  b.addEventListener('click',()=>{
+    focusLine(k);
+    const r=$('#map-sec').getBoundingClientRect();
+    if(focused&&r.top>innerHeight*.5)$('#map-sec').scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'start'});
+  });
+});
+$('#focus-reset').addEventListener('click',()=>focusLine(focused));
+
+/* opening: the five lines run out left to right, the branches and stops follow */
+function heroIntro(){
+  if(REDUCE)return;
+  hero.classList.remove('pre');
+  $$('.route:not(.route-l):not(.route-w)',hero).forEach((p,i)=>{
+    const len=p.getTotalLength();
+    p.style.strokeDasharray=len+' '+len;
+    const a=p.animate([{strokeDashoffset:len},{strokeDashoffset:0}],{duration:1500,delay:i*70,easing:'cubic-bezier(.45,.05,.3,1)',fill:'backwards'});
+    a.onfinish=()=>{p.style.strokeDasharray='';};
+  });
+  $$('.node[data-id]',hero).forEach(n=>{
+    const id=n.dataset.id,x=X[id]!=null?X[id]:700;
+    n.animate([{opacity:0},{opacity:1}],{duration:320,delay:220+(x-60)/1420*1300,fill:'backwards'});
+  });
+  [hero.querySelector('.route-l'),hero.querySelector('.route-w'),hero.querySelector('.route-over')].forEach((el,i)=>el.animate([{opacity:0},{opacity:1}],{duration:600,delay:700+i*220,fill:'backwards'}));
+  $$('.node:not([data-id])',hero).forEach(n=>n.animate([{opacity:0},{opacity:1}],{duration:500,delay:1400,fill:'backwards'}));
+  hero.querySelector('.under').animate([{opacity:0},{opacity:1}],{duration:700,delay:1300,fill:'backwards'});
+}
+if(!REDUCE){
+  hero.classList.add('pre');
+  const io=new IntersectionObserver(es=>{
+    if(es.some(e=>e.isIntersecting)){io.disconnect();heroIntro();}
+  },{threshold:.12});
+  io.observe(hero);
+}
+
+/* ===================== SIMULATOR ===================== */
+const simRoot=$('.sim');
+const simSvg=$('#sim-svg');
+drawNet(simSvg,{vb:[20,26,1570,444]});
+const simLayer=S('g',{},simSvg);
+const simPath=S('path',{fill:'none',stroke:'none'},simLayer);
+const simTrail=S('path',{class:'sim-trail'},simLayer);
+const simRing=S('circle',{class:'sim-ring',r:17,cx:-99,cy:-99},simLayer);
+const train=S('g',{class:'train'},simLayer);
+S('rect',{x:-23,y:-9.5,width:46,height:19,rx:9.5,class:'tr-body'},train);
+[-11,1,13].forEach(x=>S('rect',{x:x-3.5,y:-4,width:7,height:8,rx:1.6,class:'tr-win'},train));
+
+const SIM={s:0,i:-1,playing:false,timer:0,raf:0,cur:0,len:0,stops:[],touched:false};
+const simNode=id=>$('.node[data-id="'+id+'"]',simSvg);
+
+function simRouteD(line){
+  if(line==='L')return rpath([[60,300],[206,300],[206,244],[280,LY],[640,LY]],26);
+  if(line==='W')return rpath([[60,300],[194,300],[194,WY],[1090,WY]],30);
+  if(line==='A')return rpath(A_PATH,26);
+  return 'M60 '+laneY(line)+'H1480';
+}
+function stopXY(at,line){
+  if(/^L\d$/.test(at))return [X[at],LY];
+  if(/^W/.test(at))return [X[at],WY];
+  if(line==='L'||line==='W')return [X[at],300];
+  if(line==='A')return [X[at],320];
+  return [X[at],laneY(line)];
+}
+function lenOf(path,total,xy){
+  let best=0,bd=1e9;
+  for(let l=0;l<=total;l+=3){
+    const p=path.getPointAtLength(l),d=(p.x-xy[0])*(p.x-xy[0])+(p.y-xy[1])*(p.y-xy[1]);
+    if(d<bd){bd=d;best=l;}
+  }
+  return best;
+}
+function placeTrain(l){
+  SIM.cur=l;
+  const p=simPath.getPointAtLength(l),a=simPath.getPointAtLength(Math.max(0,l-2)),b=simPath.getPointAtLength(Math.min(SIM.len,l+2));
+  const ang=Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI;
+  train.setAttribute('transform','translate('+f1(p.x)+' '+f1(p.y)+') rotate('+f1(ang)+')');
+  simTrail.style.strokeDasharray=f1(l)+' '+f1(SIM.len+10);
+}
+function moveTrain(to,done){
+  cancelAnimationFrame(SIM.raf);
+  simRing.setAttribute('cx',-99);simRing.setAttribute('cy',-99);
+  const from=SIM.cur,dist=Math.abs(to-from);
+  if(REDUCE||dist<1){placeTrain(to);done&&done();return;}
+  const dur=Math.min(1300,Math.max(420,dist*3.4)),t0=performance.now();
+  const step=now=>{
+    const t=Math.min(1,(now-t0)/dur),e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+    placeTrain(from+(to-from)*e);
+    if(t<1)SIM.raf=requestAnimationFrame(step);else done&&done();
+  };
+  SIM.raf=requestAnimationFrame(step);
+}
+function followTrain(){
+  const sc=simSvg.parentElement;
+  if(sc.scrollWidth<=sc.clientWidth+4)return;
+  const bb=train.getBoundingClientRect(),sr=sc.getBoundingClientRect();
+  sc.scrollTo({left:sc.scrollLeft+bb.left-sr.left-sr.width/2,behavior:REDUCE?'auto':'smooth'});
+}
+function setPlaying(on){
+  SIM.playing=on;
+  const b=$('#sim-play');
+  const ended=!on&&SIM.i>=SCEN[SIM.s].steps.length-1;
+  b.querySelector('path').setAttribute('d',on?'M3 1.5h3v11H3zM8 1.5h3v11H8z':'M3 1.5v11l9-5.5z');
+  b.querySelector('span').textContent=on?'暂停':ended?'再跑一次':SIM.i>=0?'继续':'发车';
+}
+function simReveal(){
+  const r=simSvg.getBoundingClientRect();
+  if(r.top<70||r.bottom>innerHeight-30)$('.sim-main').scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'start'});
+}
+function simLoad(idx,auto){
+  clearTimeout(SIM.timer);cancelAnimationFrame(SIM.raf);
+  SIM.s=idx;SIM.i=-1;
+  const sc=SCEN[idx],c=LINES[sc.line].c;
+  simRoot.style.setProperty('--sim-c',sc.line==='L'?'var(--ink-2)':c);
+  simRoot.style.setProperty('--sim-on',sc.line==='S'?'var(--on-s)':sc.line==='L'?'var(--paper)':'var(--on-l)');
+  $$('.ticket').forEach((t,i)=>t.setAttribute('aria-pressed',String(i===idx)));
+  const ride=sc.line==='L'?'局部线':sc.line==='W'?'单文档线':sc.line+' 线';
+  $('#triage').innerHTML=
+    '<div><dt>任务性质</dt><dd>'+sc.tri[0]+'</dd></div><div><dt>处理对象</dt><dd>'+sc.tri[1]+'</dd></div>'+
+    '<div><dt>范围与影响</dt><dd>'+sc.tri[2]+'</dd></div><div><dt>执行条件</dt><dd>'+sc.tri[3]+'</dd></div>'+
+    '<div class="ride" data-l="'+sc.line+'" style="--c:'+c+'"><dt>乘坐</dt><dd>'+ride+'</dd></div>';
+  setFocus(simSvg,sc.line);
+  $$('.node',simSvg).forEach(n=>n.classList.remove('visited','forced','held'));
+  const d=simRouteD(sc.line);
+  simPath.setAttribute('d',d);simTrail.setAttribute('d',d);
+  SIM.len=simPath.getTotalLength();
+  SIM.stops=sc.steps.map(st=>lenOf(simPath,SIM.len,stopXY(st.at,sc.line)));
+  placeTrain(0);
+  simRing.setAttribute('cx',-99);simRing.setAttribute('cy',-99);
+  renderItin(sc);
+  renderReceipt(sc);
+  simProg();
+  const sc2=simSvg.parentElement;sc2.scrollLeft=0;
+  $('#itin').scrollTop=0;
+  setPlaying(false);
+  if(auto)simPlay();
+}
+function renderItin(sc){
+  const it=$('#itin');
+  it.innerHTML='';
+  sc.steps.forEach((st,k)=>{
+    const li=H('li',{class:'step'+(st.kind?' '+st.kind:'')},it);
+    let h='<span class="chip">'+codeOf(st.at)+'</span><div><div class="st-t">'+st.t+'</div><div class="st-x">'+st.x+'</div>';
+    const meta=[];
+    if(st.tools)meta.push('<span>工具 <b>'+st.tools.join('、')+'</b></span>');
+    if(st.files)meta.push('<span>产物 <b>'+st.files.join('、')+'</b></span>');
+    if(meta.length)h+='<div class="st-m">'+meta.join('')+'</div>';
+    if(st.hold)h+='<span class="hold">'+st.hold+'</span>';
+    h+='</div>';
+    li.innerHTML=h;
+    li.addEventListener('click',e=>{
+      SIM.touched=true;
+      clearTimeout(SIM.timer);setPlaying(false);
+      simTo(k);
+    });
+  });
+}
+function renderReceipt(sc){
+  const toks=sumTok(sc.reads),max=sumTok(D_PATH),no=SCEN.indexOf(sc)+1;
+  const stops=sc.steps.filter(s=>s.at!=='HUB'&&s.at!=='END'&&s.at!=='WEND'&&s.kind!=='pass');
+  const redo=stops.filter(s=>s.kind==='redo').length;
+  const unit=(sc.line==='L'||sc.line==='W')?'步':'站';
+  const tools=new Set();sc.steps.forEach(s=>(s.tools||[]).forEach(t=>tools.add(t)));
+  $('#receipt').innerHTML='<h4><span>这一趟</span><span>第 '+no+' 张票</span></h4>'+
+   '<div class="rc-row"><span>要读的说明</span><span class="rc-v">'+wan(toks)+'</span></div>'+
+   '<div class="rc-bar" aria-hidden="true"><i style="width:'+Math.max(2,toks/max*100).toFixed(1)+'%"></i></div>'+
+   '<p class="rc-note">按 SKILL 与各站要读的参考说明估算，不含稿件与结果文件。</p>'+
+   '<div class="rc-row"><span>新建文件</span><span class="rc-v t">'+sc.files[1]+'</span></div>'+
+   '<div class="rc-row"><span>停靠</span><span class="rc-v t">'+stops.length+' '+unit+(redo?'，其中 '+redo+' 站重新确认':'')+'</span></div>'+
+   '<div class="rc-row"><span>沿途工具</span><span class="rc-v" id="rc-tools">0 / '+tools.size+'</span></div>'+
+   '<div class="rc-del"><b>最后交出</b>'+sc.deliver+'</div>';
+}
+function simProg(){
+  const sc=SCEN[SIM.s],n=sc.steps.length;
+  $('#sim-prog').textContent=SIM.i<0?'停在起点，全程 '+n+' 段':'第 '+(SIM.i+1)+' 段，共 '+n+' 段';
+  $('#sim-prev').disabled=SIM.i<=0;
+  $('#sim-next').disabled=SIM.i>=n-1;
+}
+function simTo(i,done){
+  const sc=SCEN[SIM.s];
+  SIM.i=i;
+  $$('.step',$('#itin')).forEach((li,k)=>{li.classList.toggle('active',k===i);li.classList.toggle('done',k<i);});
+  $$('.node',simSvg).forEach(n=>n.classList.remove('visited','forced','held'));
+  const seenTools=new Set();
+  for(let k=0;k<=i;k++){
+    const st=sc.steps[k],n=simNode(st.at);
+    (st.tools||[]).forEach(t=>seenTools.add(t));
+    if(!n||st.kind==='pass')continue;
+    n.classList.add(st.kind==='redo'||st.hold?'held':'visited');
+  }
+  const rt=$('#rc-tools');
+  if(rt){const total=rt.textContent.split('/')[1];rt.textContent=seenTools.size+' /'+total;}
+  simProg();
+  const it=$('#itin'),li=$$('.step',it)[i];
+  if(li&&it.scrollHeight>it.clientHeight+4){
+    it.scrollTo({top:li.offsetTop-it.clientHeight/2+li.offsetHeight/2,behavior:REDUCE?'auto':'smooth'});
+  }
+  const target=i<0?0:SIM.stops[i];
+  moveTrain(target,()=>{
+    const st=sc.steps[i];
+    if(st&&st.kind!=='pass'){
+      const xy=stopXY(st.at,sc.line);
+      simRing.setAttribute('cx',xy[0]);simRing.setAttribute('cy',xy[1]);
+    }
+    followTrain();
+    done&&done();
+  });
+}
+function simPlay(){
+  const sc=SCEN[SIM.s],n=sc.steps.length;
+  if(SIM.i>=n-1){simLoad(SIM.s);}
+  setPlaying(true);
+  const tick=()=>{
+    if(!SIM.playing)return;
+    if(SIM.i>=n-1){setPlaying(false);return;}
+    simTo(SIM.i+1,()=>{
+      if(!SIM.playing)return;
+      const st=sc.steps[SIM.i];
+      const dwell=st.kind==='pass'?650:Math.min(3200,1250+st.x.length*14);
+      if(SIM.i>=n-1){setPlaying(false);return;}
+      SIM.timer=setTimeout(tick,dwell);
+    });
+  };
+  tick();
+}
+function simPause(){clearTimeout(SIM.timer);setPlaying(false);}
+
+/* tickets */
+SCEN.forEach((sc,i)=>{
+  const b=H('button',{class:'ticket','data-l':sc.line,style:'--c:'+LINES[sc.line].c,'aria-pressed':'false'},$('#tickets'),
+    '<span class="stub">'+lineGlyph(sc.line)+'</span><span class="tb">'+sc.ticket+'<span class="tm">'+sc.meta+'</span></span><span class="no">'+(i+1)+'</span>');
+  b.addEventListener('click',()=>{SIM.touched=true;simLoad(i,!REDUCE);simReveal();});
+});
+$('#sim-play').addEventListener('click',()=>{SIM.touched=true;SIM.playing?simPause():simPlay();});
+$('#sim-next').addEventListener('click',()=>{SIM.touched=true;simPause();const n=SCEN[SIM.s].steps.length;if(SIM.i<n-1)simTo(SIM.i+1,()=>setPlaying(false));});
+$('#sim-prev').addEventListener('click',()=>{SIM.touched=true;simPause();if(SIM.i>0)simTo(SIM.i-1,()=>setPlaying(false));});
+$('#sim-reset').addEventListener('click',()=>{SIM.touched=true;simLoad(SIM.s);});
+simLoad(0);
+if(!REDUCE){
+  const io=new IntersectionObserver(es=>{
+    if(es.some(e=>e.isIntersecting)){io.disconnect();if(!SIM.touched)simPlay();}
+  },{threshold:.4});
+  io.observe(simSvg);
+}
+
+
+/* ===================== MODULES ===================== */
+const modTabs=$('#mod-tabs'),modPanel=$('#mod-panel');
+let modIdx=0,modTimer=0,modPlayed=false;
+function layoutMod(ol){
+  const dots=$$('.ms-dot',ol);
+  if(!dots.length)return null;
+  const wrap=ol.parentElement,r=wrap.getBoundingClientRect(),a=dots[0].getBoundingClientRect(),b=dots[dots.length-1].getBoundingClientRect();
+  const v=matchMedia('(max-width:760px)').matches;
+  const line=$('.m-line',wrap),prog=$('.m-prog',wrap);
+  const ax=a.left-r.left+a.width/2,ay=a.top-r.top+a.height/2,bx=b.left-r.left+b.width/2,by=b.top-r.top+b.height/2;
+  if(v){
+    Object.assign(line.style,{left:(ax-3)+'px',top:ay+'px',width:'6px',height:(by-ay)+'px'});
+    Object.assign(prog.style,{left:(ax-3)+'px',top:ay+'px',width:'6px'});
+  }else{
+    Object.assign(line.style,{left:ax+'px',top:(ay-3)+'px',height:'6px',width:(bx-ax)+'px'});
+    Object.assign(prog.style,{left:ax+'px',top:(ay-3)+'px',height:'6px'});
+  }
+  prog.classList.toggle('v',v);
+  return {v,ax,ay,dots,r};
+}
+function setModProg(ol,k){
+  const lay=layoutMod(ol);
+  if(!lay)return;
+  const d=lay.dots[k].getBoundingClientRect(),prog=$('.m-prog',ol.parentElement);
+  if(lay.v){prog.style.height=(d.top-lay.r.top+d.height/2-lay.ay)+'px';prog.style.width='6px';}
+  else{prog.style.width=(d.left-lay.r.left+d.width/2-lay.ax)+'px';prog.style.height='6px';}
+  const tr=$('.m-train',ol.parentElement);
+  tr.style.left=(d.left-lay.r.left+d.width/2)+'px';
+  tr.style.top=(d.top-lay.r.top+d.height/2)+'px';
+  tr.classList.toggle('v',lay.v);
+}
+function playMod(){
+  clearInterval(modTimer);
+  const ol=$('.mroute',modPanel);
+  if(!ol)return;
+  const items=$$('.ms',ol);
+  if(REDUCE){items.forEach(x=>x.classList.add('lit'));setModProg(ol,items.length-1);return;}
+  items.forEach(x=>x.classList.remove('lit'));
+  ol.classList.add('demo');
+  ol.parentElement.classList.add('running');
+  let k=0;
+  items[0].classList.add('lit');
+  setModProg(ol,0);
+  const sc=$('.mscroll',modPanel);
+  sc.scrollLeft=0;
+  modTimer=setInterval(()=>{
+    k++;
+    if(k>=items.length){clearInterval(modTimer);ol.classList.remove('demo');ol.parentElement.classList.remove('running');return;}
+    items[k].classList.add('lit');
+    setModProg(ol,k);
+    if(sc.scrollWidth>sc.clientWidth+4){
+      const ir=items[k].getBoundingClientRect(),sr=sc.getBoundingClientRect();
+      sc.scrollTo({left:sc.scrollLeft+ir.left-sr.left-sr.width/2+ir.width/2,behavior:'smooth'});
+    }
+  },820);
+}
+function renderMod(i,play){
+  clearInterval(modTimer);
+  modIdx=i;
+  const m=MODS[i];
+  $$('.mod-tab').forEach((t,k)=>{t.setAttribute('aria-selected',String(k===i));t.setAttribute('tabindex',k===i?'0':'-1');});
+  let h='<div class="mod-top"><h3>'+m.name+'</h3><p class="where">对应 '+m.where+'</p></div><p class="mod-lede">'+m.lede+'</p>';
+  h+='<div class="mscroll"><div class="mwrap" style="--n:'+m.steps.length+'"><span class="m-line" aria-hidden="true"></span><span class="m-prog" aria-hidden="true"></span><span class="m-train" aria-hidden="true"></span><ol class="mroute" aria-label="'+m.name+'的步骤">';
+  m.steps.forEach(st=>{
+    h+='<li class="ms"'+(st.k?' data-k="'+st.k+'"':'')+'><span class="ms-dot" aria-hidden="true"></span><div class="ms-b"><b>'+st.t+'</b>';
+    if(st.s)h+='<span class="ms-sub">'+st.s+'</span>';
+    if(st.br)h+='<ul class="ms-br">'+st.br.map(b=>'<li>'+b[0]+'</li>').join('')+'</ul>';
+    if(st.fan)h+='<div class="ms-fan">'+st.fan.map(x=>'<span class="f">'+x+'</span>').join('')+'</div>';
+    if(st.tools)h+='<div class="ms-tools">'+st.tools.map(x=>'<span class="f">'+x+'</span>').join('')+'</div>';
+    h+='</div></li>';
+  });
+  h+='</ol></div></div><div class="mod-foot">';
+  h+='<button class="btn" id="mod-replay">再走一遍</button></div>';
+  modPanel.innerHTML=h;
+  modPanel.setAttribute('aria-labelledby','mod-tab-'+i);
+  const ol=$('.mroute',modPanel);
+  $$('.ms',ol).forEach(x=>x.classList.add('lit'));
+  setModProg(ol,m.steps.length-1);
+  if(play&&modPlayed)playMod();
+}
+MODS.forEach((m,i)=>{
+  const li=H('li',{role:'presentation'},modTabs);
+  const b=H('button',{class:'mod-tab',role:'tab',id:'mod-tab-'+i,'aria-selected':'false','aria-controls':'mod-panel'},li,m.name);
+  b.addEventListener('click',()=>{modPlayed=true;renderMod(i,true);});
+});
+modTabs.addEventListener('keydown',e=>{
+  if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+  e.preventDefault();
+  const n=(modIdx+(e.key==='ArrowRight'?1:-1)+MODS.length)%MODS.length;
+  modPlayed=true;
+  renderMod(n,true);
+  $('#mod-tab-'+n).focus();
+});
+modPanel.addEventListener('click',e=>{
+  if(e.target.closest('#mod-replay'))playMod();
+});
+renderMod(0,false);
+if(!REDUCE){
+  const io=new IntersectionObserver(es=>{
+    if(es.some(e=>e.isIntersecting)){io.disconnect();modPlayed=true;playMod();}
+  },{threshold:.45});
+  io.observe(modPanel);
+}
+
+
+/* ===================== ASK: a keyword triage, only to demonstrate §0 ===================== */
+function triageText(q){
+  const has=rx=>rx.test(q);
+  const local=has(/这句|一句|这段|一段|第.{1,3}[条段句]|摘要|题目|标题|图注|表注|拼写|错别字|这个词|别动|只帮|只改|只看/);
+  const whole=has(/整体|全文|整稿|整篇|通篇|全稿|重写|重做|全部/);
+  let task,why;
+  if(has(/参考文献|引文|撤稿|DOI|doi/))return {idx:9,task:'A 只审',scope:'局部：引文',why:'提到引文或撤稿'};
+  if(has(/样本|分母|数字|\d+\s*不是|不是\s*\d+|改对/)&&!has(/审稿/))return {idx:8,task:'R 修订',scope:'已有项目，改变数字',why:'要改一个已交付的数字'};
+  if(has(/挑.{0,2}毛病|挑挑|先别改|不要改|只审|帮我看看|审一下|\baudit\b/i))task='A';
+  else if(has(/审稿|返修|修回|回复信|回复|reviewer|response letter|resubmi/i))task='V';
+  else if(has(/投稿|投到|投一|cover letter|highlights|submission|submit/i))task='S';
+  else if(has(/初稿|写成|起草|写一篇|从结果|根据结果|\bdraft\b|write up/i))task='D';
+  else if(has(/看看|挑|毛病|检查|核对|有没有问题|能不能|能这么|对吗|是否|合适吗|行吗|\breview\b|\bcheck\b/i))task='A';
+  else if(has(/改|润色|精简|压|缩短|扩写|翻译|重写|重做|polish|revise|edit|shorten|rewrite/i))task='R';
+  else if(local&&has(/写|补|加/))task='R';
+  else if(has(/写/))task='D';
+  if(!task)return null;
+  const map={
+    V:local?[6,'V 返修','局部','提到审稿或回复，且只动一处']:[5,'V 返修','全包','提到审稿或回复'],
+    S:[4,'S 投稿','全包','提到投稿材料'],
+    D:[3,'D 初稿','全包：完整项目','要从结果写成稿'],
+    A:local?[0,'A 只审','局部','是判断题，只问一处']:[7,'A 只审','只给建议，不改文件','要审，不要改'],
+    R:local?[1,'R 修订','局部','只改指定片段']:[2,'R 修订','单文档：走单文档线',whole?'要改整篇稿件':'没有指定片段，按整篇稿件算']
+  };
+  const m=map[task];
+  return {idx:m[0],task:m[1],scope:m[2],why:m[3]};
+}
+$('#ask').addEventListener('submit',e=>{
+  e.preventDefault();
+  const q=$('#ask-in').value.trim(),out=$('#ask-out');
+  SIM.touched=true;
+  if(!q){out.innerHTML='先写一句请求，比如“把引言最后一段写得像同类论文”。';$('#ask-in').focus();return;}
+  const r=triageText(q);
+  if(!r){out.innerHTML='这句话里没有看出任务性质。写明想做什么，比如改、审、写初稿、投稿或回复审稿人。';return;}
+  out.innerHTML='判成 <b>'+r.task+'</b>，范围 <b>'+r.scope+'</b>（'+r.why+'）。最接近第 '+(r.idx+1)+' 张票，按它发车。这里只按关键词粗分，真实执行时由模型按 §0 判断。';
+  simLoad(r.idx,!REDUCE);
+});
+
+
+/* ===================== STRATA ===================== */
+function renderStrata(){
+  const R=[...Array(30).keys()].map(i=>String(i+1).padStart(2,'0'));
+  const n=v=>v.toLocaleString('en-US');
+  const refCars=R.map(k=>{const w=Math.max(5,TOK[k]/150);return '<span class="car" style="width:'+w.toFixed(0)+'px" data-tip="<b>参考 '+k+'</b> '+REFNAME[k]+'，约 '+n(TOK[k])+' token">'+(w>=20?k:'')+'</span>';}).join('');
+  const exCars=Object.keys(EXNAME).map(k=>{const w=Math.max(5,TOK[k]/150);return '<span class="car o" style="width:'+w.toFixed(0)+'px" data-tip="<b>范例</b> '+EXNAME[k]+'，约 '+n(TOK[k])+' token"></span>';}).join('');
+  const tplCars=TPLS.map(t=>'<span class="car o" style="width:15px" data-tip="'+t+'"></span>').join('');
+  const scriptCars=Object.keys(SLOC).map(k=>{const w=Math.max(5,SLOC[k]/14);return '<span class="car" style="width:'+w.toFixed(0)+'px" data-tip="<b>'+k+'.py</b> '+SLOC[k]+' 行"></span>';}).join('');
+  const lbl=k=>'<span class="car lbl" data-l="'+k+'" style="--c:'+LINES[k].c+'">'+lineGlyph(k)+'</span>';
+  const total=Object.values(SLOC).reduce((a,b)=>a+b,0),refs=R.reduce((a,k)=>a+TOK[k],0);
+  const floors=[
+   {tag:'G',g:1,t:'入口',d:'一句请求先碰到的东西：触发描述和整份 SKILL.md。',cars:'<span class="car" style="width:'+(TOK.SKILL/150).toFixed(0)+'px" data-tip="<b>SKILL.md</b> 约 '+n(TOK.SKILL)+' token">SKILL.md</span>',sum:'约 '+(TOK.SKILL/10000).toFixed(1)+' 万 token，每次触发都整份读入；和下面的参考说明用同一比例画。'},
+   {tag:'B1',t:'判断',d:'九条判断，所有步骤背后的依据。',cars:PRIN.map((p,i)=>'<span class="car tx">'+(i+1)+'. '+p+'</span>').join(''),sum:'工具、模板和站点是实现它们的一种方式；某样工具用不了时，按这些判断换一种做法，并写明做到了哪一步。'},
+   {tag:'B2',t:'分诊',d:'§0 与 §1：任务性质、处理对象、范围。',
+    cars:'<span class="grp"><span class="gl">任务性质</span>'+ORDER.map(lbl).join('')+'</span><span class="grp"><span class="gl">范围与路线</span><span class="car tx">局部</span>'+lbl('L')+'<span class="car tx">单文档</span>'+lbl('W')+'<span class="car tx">全包</span><span class="car o" style="min-width:52px">S0–S9</span></span>',
+    sum:'三档范围各有一条路线：局部线、单文档线、完整项目。'},
+   {tag:'B3',t:'站点与进度',d:'十个站；进度只记在站点表里。',
+    cars:'<span class="grp">'+STATIONS.map(s=>'<span class="car o" style="min-width:32px" data-tip="<b>'+s.id+'</b> '+s.name.join('')+'">'+s.id+'</span>').join('')+'</span><span class="grp"><span class="gl">进度</span><span class="car tx">stations.csv</span></span><span class="grp"><span class="gl">报告</span><span class="car tx">STATUS.md</span><span class="car tx">作者说明.md</span></span>',
+    sum:'station_check 核对站点表；STATUS.md 与作者说明是给人看的报告。'},
+   {tag:'B4',t:'模板',d:'36 个，按模式拷入工作区。',cars:tplCars,sum:'初稿项目建 23 个文件，修订 22 个，投稿与返修各 21 个，只审 8 个；局部线与单文档线不建项目。'},
+   {tag:'B5',t:'参考说明与范例',d:'30 份说明、15 份范例，按 token 画宽。',cars:'<span class="grp">'+refCars+'</span><span class="grp"><span class="gl">范例</span>'+exCars+'</span>',sum:'说明约 '+(refs/10000).toFixed(1)+' 万 token，按站加载；17 号是工具契约与编号表。'},
+   {tag:'B6',t:'角色、领域包、期刊、词表',d:'可选的增强件。',
+    cars:'<span class="grp"><span class="gl">角色</span>'+AGENTS.map(a=>'<span class="car o" style="width:15px" data-tip="'+a+'.md"></span>').join('')+'</span>'+
+         '<span class="grp"><span class="gl">领域包</span>'+DOMAINS.map(d=>'<span class="car o" style="width:'+(d[1]*1.6).toFixed(0)+'px" data-tip="<b>'+d[0]+'</b> '+d[1]+' 篇"></span>').join('')+'</span>'+
+         '<span class="grp"><span class="gl">期刊</span>'+JOURNALS.map(j=>'<span class="car o" style="width:15px" data-tip="'+j+'.json"></span>').join('')+'</span>'+
+         '<span class="grp"><span class="gl">词表</span>'+LEXS.map(l=>'<span class="car o" style="width:15px" data-tip="'+l+'"></span>').join('')+'</span>',
+    sum:'领域包共 86 篇，用来校准语言与体裁对照；期刊档案记录作者须知里的硬限制。'},
+   {tag:'B7',t:'脚本',d:'45 个，按行数画宽。',cars:scriptCars,sum:n(total)+' 行；mslib 是公共库，其余 44 个是工具。'},
+   {tag:'B8',t:'测试',d:'649 项机械回归。',cars:'<div class="ticks">'+'<i></i>'.repeat(649)+'</div>',sum:'50 个测试文件，另有变异模拟、行为评分和带隐藏陷阱的试跑工具包。'}
+  ];
+  $('#floors').innerHTML=floors.map(fl=>'<div class="floor"><div class="tag'+(fl.g?' g':'')+'">'+fl.tag+'</div><div><h3>'+fl.t+'</h3><p class="fd">'+fl.d+'</p></div><div class="cars">'+fl.cars+'<div class="floor-sum">'+fl.sum+'</div></div></div>').join('');
+}
+renderStrata();
+
+/* ===================== ROUTE BAR ===================== */
+const STOPS=[['map-sec','线网图'],['sim','行程演示'],['modules','模块详图'],['strata','包的结构'],['codes','编号与交付']];
+{
+  const line=$('#rb-line');
+  STOPS.forEach(s=>{
+    const b=H('button',{class:'rb-stop','aria-label':'到'+s[1],'data-tip':s[1]},line);
+    b.addEventListener('click',()=>$('#'+s[0]).scrollIntoView({behavior:REDUCE?'auto':'smooth',block:'start'}));
+  });
+  const stops=$$('.rb-stop',line),prog=$('#rb-prog');
+  let ticking=false;
+  function upd(){
+    ticking=false;
+    const y=innerHeight*.3;
+    let k=0;
+    STOPS.forEach((s,i)=>{if($('#'+s[0]).getBoundingClientRect().top<=y)k=i;});
+    stops.forEach((b,i)=>{b.classList.toggle('passed',i<k);b.classList.toggle('here',i===k);if(i===k)b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');});
+    $('#rb-here').textContent=STOPS[k][1];
+    $('#rb-next').textContent=k<STOPS.length-1?STOPS[k+1][1]:'终点';
+    const a=stops[0].getBoundingClientRect(),b=stops[k].getBoundingClientRect();
+    prog.style.width=(b.left-a.left)+'px';
+  }
+  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});
+  addEventListener('resize',upd);
+  upd();
+}
+
+/* ===================== TOOLTIP ===================== */
+{
+  const tip=$('#tip');
+  let tapTimer=0;
+  const show=el=>{
+    const r=el.getBoundingClientRect();
+    tip.innerHTML=el.getAttribute('data-tip');
+    tip.hidden=false;
+    const w=tip.offsetWidth;
+    tip.style.left=Math.max(w/2+8,Math.min(innerWidth-w/2-8,r.left+r.width/2))+'px';
+    tip.style.top=Math.max(tip.offsetHeight+18,r.top)+'px';
+  };
+  document.addEventListener('pointerover',e=>{
+    const el=e.target.closest('[data-tip]');
+    if(el&&e.pointerType!=='touch')show(el);else if(!el)tip.hidden=true;
+  });
+  document.addEventListener('focusin',e=>{const el=e.target.closest&&e.target.closest('[data-tip]');if(el)show(el);});
+  document.addEventListener('focusout',()=>{tip.hidden=true;});
+  document.addEventListener('click',e=>{
+    const el=e.target.closest('[data-tip]');
+    clearTimeout(tapTimer);
+    if(el){show(el);tapTimer=setTimeout(()=>{tip.hidden=true;},2400);}else tip.hidden=true;
+  });
+  addEventListener('scroll',()=>{tip.hidden=true;},{passive:true});
+}
+
+/* ===================== RESIZE ===================== */
+{
+  let t=0;
+  addEventListener('resize',()=>{
+    clearTimeout(t);
+    t=setTimeout(()=>{
+      const ol=$('.mroute',modPanel);
+      if(!ol)return;
+      const lit=$$('.ms.lit',ol).length;
+      setModProg(ol,Math.max(0,lit-1));
+    },120);
+  });
+}
+
+/* ===================== DRAG TO PAN, for mice in a narrow panel ===================== */
+$$('.map-scroll').forEach(sc=>{
+  let down=false,moved=false,sx=0,sl=0;
+  sc.addEventListener('pointerdown',e=>{
+    if(e.pointerType!=='mouse'||sc.scrollWidth<=sc.clientWidth+4)return;
+    down=true;moved=false;sx=e.clientX;sl=sc.scrollLeft;
+  });
+  addEventListener('pointermove',e=>{
+    if(!down)return;
+    const dx=e.clientX-sx;
+    if(Math.abs(dx)>5){moved=true;sc.classList.add('panning');}
+    if(moved)sc.scrollLeft=sl-dx;
+  });
+  addEventListener('pointerup',()=>{down=false;sc.classList.remove('panning');});
+  sc.addEventListener('click',e=>{
+    if(moved){e.stopPropagation();e.preventDefault();moved=false;}
+  },true);
+});
+
+
+
+})();
+</script>
+</body>
+</html>

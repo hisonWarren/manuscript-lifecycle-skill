@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "education_psych_en",
+  "label": "教育心理学（英文学业表现观察性研究）",
+  "language": "en",
+  "field": "教育心理学",
+  "journals": [
+    "Frontiers in Psychology"
+  ],
+  "years": [
+    "2021",
+    "2022",
+    "2023",
+    "2024"
+  ],
+  "n_papers": 11,
+  "genres": {
+    "survey": 10,
+    "secondary_data_analysis": 1
+  },
+  "section_coverage": {
+    "abstract": 11,
+    "introduction": 11,
+    "methods": 11,
+    "results": 11,
+    "discussion_all": 11,
+    "limitations": 3,
+    "conclusion": 6
+  },
+  "built": "2026-10-26",
+  "builder": "domain_pack 2",
+  "hashes": {
+    "vocab": "5e039980056fdc46",
+    "texture": "c9d0895b75f64cf9",
+    "tokenizer": "pc4-units-discourse"
+  },
+  "phrase_vocab_extra": [],
+  "phrase_loo": {
+    "median": 10,
+    "max": 26,
+    "min": 1
+  },
+  "stability": {
+    "3": {
+      "agreement": 0.844,
+      "flag_rate": 0.301,
+      "comparisons": 116647
+    },
+    "5": {
+      "agreement": 0.904,
+      "flag_rate": 0.207,
+      "comparisons": 118419
+    },
+    "8": {
+      "agreement": 0.925,
+      "flag_rate": 0.141,
+      "comparisons": 119829
+    },
+    "10": {
+      "agreement": 1.0,
+      "flag_rate": 0.198,
+      "comparisons": 2000
+    }
+  },
+  "genre_effect": null,
+  "use": "领域基线是同领域已发表论文的分布，不是与稿件匹配的对标；体裁、期刊或主题差别大时，先用 --genre 或补充匹配对标。",
+  "license_note": "语料全文留在本机；本目录只含统计量与文献清单。"
+}

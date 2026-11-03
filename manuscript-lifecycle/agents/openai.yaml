@@ -1,0 +1,4 @@
+interface:
+  display_name: "科研论文写作与返修"
+  short_description: "从研究结果到初稿修订和投稿材料 按章节职责与可追溯证据核查"
+  default_prompt: "使用 $manuscript-lifecycle，根据我的材料判断阶段与论文类型，完成写作或修订并检查交付件。"

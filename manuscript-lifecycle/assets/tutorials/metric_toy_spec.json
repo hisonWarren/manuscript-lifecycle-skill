@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "group_by": "arm",
+  "metrics": [
+    {
+      "id": "success_per_all_session",
+      "kind": "rate",
+      "numerator": "success",
+      "denominator": "all",
+      "aggregation": "mean_row_ratios",
+      "reported_by_group": {"A": 0.25, "B": 0.35}
+    },
+    {
+      "id": "success_per_prompt",
+      "kind": "rate",
+      "numerator": "success",
+      "denominator": "prompt",
+      "aggregation": "pooled"
+    },
+    {
+      "id": "mastery_fraction",
+      "kind": "event_fraction",
+      "column": "mastered",
+      "positive_values": ["1"]
+    },
+    {
+      "id": "assigned_cap_days",
+      "kind": "capped_mean",
+      "column": "days",
+      "event_column": "mastered",
+      "event_values": ["1"],
+      "cap": 5
+    }
+  ]
+}

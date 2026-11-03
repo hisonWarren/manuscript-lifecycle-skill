@@ -1,0 +1,593 @@
+{
+ "_note": "英文词表。键名以 _re 结尾为正则（不区分大小写），_re_cs 区分大小写，其余为词语列表。用 --lexicon 追加领域术语（domain_terms）或其它键。ai_marker 依据 Kobak et al. (2025, Science Advances) 的超额词分析；这些词只在与同类文献对照时有意义，不能单篇定罪。",
+ "connectives": [
+  "however",
+  "therefore",
+  "thus",
+  "moreover",
+  "furthermore",
+  "in addition",
+  "additionally",
+  "consequently",
+  "nevertheless",
+  "nonetheless",
+  "hence",
+  "accordingly",
+  "by contrast",
+  "in contrast",
+  "conversely",
+  "similarly",
+  "likewise",
+  "instead",
+  "meanwhile",
+  "indeed",
+  "notably",
+  "importantly",
+  "specifically",
+  "overall",
+  "in particular",
+  "for example",
+  "for instance",
+  "in turn",
+  "as a result",
+  "on the other hand",
+  "that said",
+  "even so",
+  "taken together",
+  "in summary",
+  "in sum"
+ ],
+ "hedges": [
+  "may",
+  "might",
+  "could",
+  "possibly",
+  "perhaps",
+  "likely",
+  "unlikely",
+  "suggest",
+  "suggests",
+  "suggested",
+  "suggesting",
+  "appear",
+  "appears",
+  "appeared",
+  "seem",
+  "seems",
+  "seemed",
+  "potentially",
+  "presumably",
+  "plausibly",
+  "probably",
+  "tend to",
+  "tends to",
+  "tended to",
+  "to some extent",
+  "somewhat",
+  "partly"
+ ],
+ "boosters": [
+  "clearly",
+  "obviously",
+  "undoubtedly",
+  "certainly",
+  "definitely",
+  "strongly",
+  "demonstrate",
+  "demonstrates",
+  "demonstrated",
+  "prove",
+  "proves",
+  "proved",
+  "highly",
+  "remarkably",
+  "crucially",
+  "conclusively",
+  "unequivocally",
+  "firmly",
+  "undeniably",
+  "evidently"
+ ],
+ "ai_marker": [
+  "delve",
+  "delves",
+  "delved",
+  "delving",
+  "showcase",
+  "showcases",
+  "showcased",
+  "showcasing",
+  "underscore",
+  "underscores",
+  "underscored",
+  "underscoring",
+  "intricate",
+  "intricacies",
+  "pivotal",
+  "meticulous",
+  "meticulously",
+  "realm",
+  "tapestry",
+  "commendable",
+  "multifaceted",
+  "unwavering",
+  "groundbreaking",
+  "seamless",
+  "seamlessly",
+  "noteworthy",
+  "holistic",
+  "synergy",
+  "paramount",
+  "invaluable"
+ ],
+ "ai_common": [
+  "potential",
+  "crucial",
+  "critical",
+  "notably",
+  "additionally",
+  "enhance",
+  "enhances",
+  "enhanced",
+  "enhancing",
+  "comprehensive",
+  "insights",
+  "highlight",
+  "highlights",
+  "highlighted",
+  "highlighting",
+  "valuable",
+  "emphasize",
+  "emphasizes",
+  "emphasise",
+  "emphasises",
+  "leverage",
+  "leveraging",
+  "foster",
+  "fostering",
+  "landscape",
+  "interplay",
+  "nuanced",
+  "robust"
+ ],
+ "template_re": [
+  "\\bplays? an? (?:crucial|pivotal|key|vital|important|central|critical|significant) role\\b",
+  "\\bit is (?:worth noting|important to note|noteworthy|crucial to note) that\\b",
+  "\\bsheds? (?:new )?light on\\b",
+  "\\bpave[sd]? the way\\b",
+  "\\bin the realm of\\b",
+  "\\ba (?:growing|large|substantial|rich) body of (?:literature|research|evidence|work)\\b",
+  "\\b(?:offers?|provides?|yields?) (?:valuable|novel|new|important|deeper|critical) insights?\\b",
+  "\\b(?:highlights?|underscores?|emphasi[sz]es?) the (?:importance|need|potential|value|critical role)\\b",
+  "\\bin today's\\b|\\brapidly evolving\\b|\\bever-(?:changing|evolving|growing)\\b",
+  "\\bcomplex interplay\\b|\\bnuanced understanding\\b",
+  "\\bserves? as a (?:testament|reminder|cornerstone)\\b",
+  "\\bnot only\\b[^.;]{1,80}\\bbut also\\b",
+  "\\bfill(?:s|ed|ing)? (?:a|an|this|the) (?:critical |important |significant |key )?gap\\b",
+  "\\bholds? (?:great|significant|considerable|substantial) (?:promise|potential)\\b"
+ ],
+ "backref_re": [
+  "\\bas (?:noted|mentioned|described|discussed|explained|outlined|detailed|stated|shown|indicated|reported) (?:above|earlier|previously|before|in (?:the )?(?:methods|introduction|results|discussion|section\\s*\\d[\\d.]*))\\b",
+  "\\bas explained in\\b"
+ ],
+ "section_xref_re": [
+  "\\((?:see )?sections?\\s*\\d+(?:\\.\\d+)*[^)]*\\)",
+  "\\b(?:see|cf\\.?) sections?\\s*\\d",
+  "\\bin sections?\\s*\\d+(?:\\.\\d+)*"
+ ],
+ "defensive_re": [
+  "\\b(?:is|are|was|were) not (?:merely |simply |just |solely )?(?:an? )?(?:artefact|artifact)s?\\b",
+  "\\bdoes not (?:merely|simply|necessarily|by itself) (?:mean|imply|reflect|indicate|show)\\b",
+  "\\bshould not be (?:read|interpreted|taken|understood|seen|construed) as\\b",
+  "\\bwe do not (?:claim|argue|suggest|imply)\\b",
+  "\\bthis does not (?:mean|imply|make|indicate)\\b",
+  "\\bcannot be (?:ruled out|excluded)\\b",
+  "\\bit (?:is|should be) (?:important|worth) (?:to note|noting|emphasi[sz]ing)\\b",
+  "\\bnot (?:intended|meant) to\\b"
+ ],
+ "coinage_re": [
+  "\\bwe (?:refer to|call|term|label|denote|dub)\\b",
+  "\\bhereafter\\b",
+  "\\bhenceforth\\b",
+  "\\b(?:which|what) we (?:call|term)\\b",
+  "\\bso-called\\b",
+  "\\bfor brevity\\b"
+ ],
+ "meta_re": [
+  "\\b(?:in|throughout) this (?:section|paper|article|manuscript|study)\\b",
+  "\\bthe (?:present|current) (?:paper|article|manuscript) (?:is organi[sz]ed|proceeds)\\b",
+  "\\bthe remainder of this\\b",
+  "\\bas we will (?:see|show|discuss)\\b"
+ ],
+ "gloss_re": [
+  "\\b(?:i\\.e\\.|that is|refers? to|defined as|which (?:is|reflects|captures|represents)|the (?:share|proportion|part) of)\\b"
+ ],
+ "interpretive_re": [
+  "\\bsuggest(?:s|ed|ing)?\\b",
+  "\\bindicat(?:e|es|ed|ing) that\\b",
+  "\\bimpl(?:y|ies|ied)\\b",
+  "\\b(?:may|might|could) (?:reflect|be due|be explained|indicate|suggest|arise)\\b",
+  "\\blikely (?:due|because|reflect)",
+  "\\b(?:this|which) means\\b",
+  "\\bexplained by\\b",
+  "\\bdue to\\b",
+  "\\bbecause\\b",
+  "\\bconsistent with (?:previous|prior|earlier|the hypothesis|our hypothesis|findings|studies|reports)\\b",
+  "\\bin line with\\b",
+  "\\bsupport(?:s|ed)? (?:the|our) (?:hypothesis|prediction|notion|idea|view)\\b",
+  "\\bconfirm(?:s|ed|ing)?\\b",
+  "\\binterestingly\\b|\\bsurprisingly\\b|\\bunexpectedly\\b",
+  "\\bmechanisms?\\b"
+ ],
+ "causal_re": [
+  "\\b(?:caus(?:e|es|ed|ing)|led to|lead(?:s|ing)? to|result(?:s|ed|ing)? in|driv(?:e|es|en|ing)|impact(?:s|ed|ing)? (?:on )?|effect of)\\b"
+ ],
+ "negation_re": [
+  "\\b(?:not|no|never|cannot|nor|neither|without|unable|none|lack(?:s|ed|ing)?)\\b|n[’']t\\b"
+ ],
+ "first_person_re": [
+  "\\b(?:we|our|us|ours)\\b"
+ ],
+ "we_initial_re": [
+  "^\\W*(?:we|our)\\b"
+ ],
+ "rather_than_re": [
+  "\\brather than\\b"
+ ],
+ "contrast_neg_re": [
+  "\\bnot (?:only|merely|simply|just)\\b",
+  "\\bnot\\b[^.;,]{1,40}\\bbut\\b(?! also)"
+ ],
+ "stat_terms": [
+  "variance",
+  "variances",
+  "model",
+  "models",
+  "modelled",
+  "modeled",
+  "modelling",
+  "modeling",
+  "coefficient",
+  "coefficients",
+  "regression",
+  "regressions",
+  "odds ratio",
+  "odds ratios",
+  "hazard ratio",
+  "hazard ratios",
+  "correlation",
+  "correlations",
+  "correlated",
+  "covariance",
+  "covariances",
+  "latent",
+  "estimate",
+  "estimates",
+  "estimated",
+  "estimation",
+  "parameter",
+  "parameters",
+  "interval",
+  "intervals",
+  "significant",
+  "significance",
+  "statistically",
+  "p-value",
+  "p-values",
+  "effect size",
+  "effect sizes",
+  "standard error",
+  "standard deviation",
+  "factor",
+  "factors",
+  "loading",
+  "loadings",
+  "fit",
+  "fitted",
+  "fitting",
+  "chi-square",
+  "likelihood",
+  "bootstrap",
+  "bootstrapped",
+  "posterior",
+  "bayesian",
+  "residual",
+  "residuals",
+  "intercept",
+  "intercepts",
+  "slope",
+  "slopes",
+  "predictor",
+  "predictors",
+  "covariate",
+  "covariates",
+  "adjusted",
+  "multivariate",
+  "multivariable",
+  "multilevel",
+  "mixed-effects",
+  "random effect",
+  "random effects",
+  "fixed effect",
+  "fixed effects",
+  "autoregressive",
+  "autoregression",
+  "invariance",
+  "reliability",
+  "specification",
+  "specifications",
+  "specified",
+  "indicator",
+  "indicators",
+  "parcel",
+  "parcels",
+  "constraint",
+  "constraints",
+  "constrained",
+  "imputation",
+  "imputed",
+  "logistic",
+  "nonlinear",
+  "quadratic",
+  "interaction",
+  "interactions",
+  "moderation",
+  "mediation",
+  "mediator",
+  "moderator",
+  "bic",
+  "aic",
+  "cfi",
+  "rmsea",
+  "srmr",
+  "tli",
+  "auc",
+  "roc",
+  "icc",
+  "anova",
+  "ancova",
+  "t-test",
+  "sem",
+  "cfa",
+  "efa",
+  "irt",
+  "odds",
+  "cox",
+  "kaplan-meier",
+  "sensitivity analysis",
+  "sensitivity analyses",
+  "sample size",
+  "centrality",
+  "modularity",
+  "eigenvalue",
+  "variance explained",
+  "confidence interval",
+  "credible interval",
+  "heterogeneity",
+  "meta-regression"
+ ],
+ "domain_terms": [],
+ "supp_re": [
+  "\\b(?:supplementa(?:ry|l)\\s+(?:tables?|fig(?:ure)?s?\\.?|materials?|sections?|files?|data|information|methods|results|text|appendix|analys[ie]s)\\s*S?\\d*[A-Za-z]?|tables?\\s+S\\d+[A-Za-z]?|fig(?:ure)?s?\\.?\\s+S\\d+[A-Za-z]?|supplementa(?:ry|l)\\b|appendix\\b|online resources?|available (?:up)?on request|supporting information)"
+ ],
+ "table_led_re": [
+  "^\\W*(?:as (?:shown|presented|reported|seen|summari[sz]ed|depicted|illustrated) in |as )?(?:table|fig\\.?|figure)s?\\s*s?\\d+"
+ ],
+ "purpose_re": [
+  "\\bto (?:test|examine|assess|determine|evaluate|estimate|check|account for|ensure|compare|investigate|explore|identify|quantify|separate|address|reduce|control for|adjust for|obtain|allow)\\b",
+  "\\bin order to\\b",
+  "\\bso that\\b",
+  "\\bbecause\\b",
+  "\\bwhether\\b",
+  "\\bfor this reason\\b"
+ ],
+ "aim_re": [
+  "\\b(?:aim(?:s|ed)?|objectives?|purpose|goals?)\\b",
+  "\\bwe (?:examined|investigated|tested|asked|assessed|evaluated|explored|compared|hypothesi[sz]ed|expected|predicted|sought|quantified|estimated)\\b",
+  "\\b(?:the present|this|the current) (?:study|work|paper|analysis|investigation)\\b",
+  "\\bresearch questions?\\b",
+  "\\bhypothes[ie]s\\b"
+ ],
+ "gap_re": [
+  "\\bhowever\\b",
+  "\\byet\\b",
+  "\\bremain(?:s|ed)? (?:unclear|unknown|uncertain|untested|unexamined|largely unexplored)\\b",
+  "\\blittle is known\\b",
+  "\\bfew (?:studies|investigations)\\b",
+  "\\bno (?:previous |prior |such )?(?:study|studies|research|comparison) ha(?:s|ve)\\b",
+  "\\bha(?:s|ve) not been\\b",
+  "\\bunclear whether\\b",
+  "\\bgap\\b",
+  "\\blimited (?:evidence|research|data)\\b",
+  "\\bdiffer in\\b",
+  "\\bcannot (?:distinguish|separate|tell)\\b"
+ ],
+ "synthesis_re": [
+  "\\btaken together\\b",
+  "^\\W*together,",
+  "^\\W*overall,",
+  "\\bin sum(?:mary)?\\b",
+  "\\bcollectively\\b",
+  "\\bthese (?:findings|results|data) (?:suggest|indicate|imply|show)\\b",
+  "\\bthis (?:suggests|indicates|implies)\\b",
+  "\\bin short\\b",
+  "\\bappear to (?:reflect|indicate)\\b"
+ ],
+ "novelty_re": [
+  "\\b(?:first|novel|unprecedented)\\b",
+  "\\bnever before\\b",
+  "\\bno (?:previous |prior )?(?:study|studies) ha(?:s|ve)\\b",
+  "\\bto (?:the best of )?our knowledge\\b",
+  "\\b(?:groundbreaking|ground-breaking|pioneering)\\b",
+  "\\bfills? (?:an? |the )?(?:important |critical |major |significant )?(?:gap|void)\\b"
+ ],
+ "overclaim_re": [
+  "\\b(?:the\\s+)?first\\s+(?:(?:systematic|scoping|bibliometric|comprehensive|global|comparative|randomi[sz]ed|controlled|clinical)\\s+){0,3}(?:study|report|paper|work|trial|investigation|attempt|mapping|review|analysis)\\b",
+  "\\bfirst to (?:show|demonstrate|report|examine|document|test|identify)\\b",
+  "\\b(?:groundbreaking|ground-breaking|pioneering|unprecedented)\\b",
+  "\\bnever before\\b",
+  "\\bno (?:previous |prior )?(?:study|studies) ha(?:s|ve)\\b",
+  "\\bfills? (?:an? |the )?(?:important |critical |major |significant )?(?:gap|void)\\b"
+ ],
+ "spin_re": [
+  "\\bmarginal(?:ly)? signific\\w*",
+  "\\bapproach(?:ed|ing|es)? (?:statistical )?significance\\b",
+  "\\btrend(?:ed|ing)?\\s+(?:towards?|toward)\\s+(?:statistical )?significance\\b",
+  "\\bnear(?:ly|ing)? signific\\w*",
+  "\\bborderline signific\\w*",
+  "\\bnon-?significant trend\\b",
+  "\\b(?:did not|failed to) reach (?:statistical )?significance\\b[^.]{0,60}\\b(?:but|however|although|nevertheless)\\b",
+  "\\balthough (?:the (?:effect|difference|association) was )?not (?:statistically )?significant\\b"
+ ],
+ "prescriptive_re": [
+  "\\b(?:clinicians?|practitioners?|policy ?makers?|schools?|teachers?|physicians?|governments?|educators?|employers?)\\s+should\\b",
+  "\\bshould be (?:implemented|adopted|mandated|restricted|prioriti[sz]ed|routinely|offered|provided|encouraged)\\b",
+  "\\bwe recommend\\b",
+  "\\bit is recommended that\\b",
+  "\\bmust be (?:implemented|adopted|prioriti[sz]ed)\\b"
+ ],
+ "declaration_re": [
+  "\\bno (?:conflicts?|competing) (?:of )?interests?\\b|\\b(?:conflicts?|competing) (?:of )?interests?\\b",
+  "\\bdata (?:are|is) (?:publicly )?available\\b|\\bavailable (?:up)?on (?:reasonable )?request\\b|\\bdata availability\\b",
+  "\\ball authors? ha(?:s|ve) (?:read and )?(?:approved|seen)\\b",
+  "\\b(?:ha(?:s|ve)|is|are) not been published\\b|\\bnot (?:been )?(?:published|submitted|under consideration) (?:elsewhere|in another)\\b|\\bunder consideration elsewhere\\b",
+  "\\bethic(?:s|al) (?:approval|committee|board)\\b|\\binformed consent\\b|\\binstitutional review board\\b",
+  "\\b(?:funded|supported) by\\b|\\bno (?:external )?funding\\b"
+ ],
+ "future_generic_re": [
+  "\\b(?:further|future|more|additional) (?:research|studies|work|investigations?) (?:is |are |will be )?(?:needed|warranted|required|necessary)\\b"
+ ],
+ "software_re_cs": [
+  "\\b(?:R|Python|SPSS|Stata|SAS|Mplus|MATLAB|JASP|jamovi|lavaan|lme4|brms|Stan|JAGS|AMOS|LISREL|EQS|CiteSpace|VOSviewer|bibliometrix|OpenRefine|FSL|SPM\\d*|FreeSurfer|AFNI|scikit-learn|PyTorch|TensorFlow|semTools|glmnet)\\b(?:\\s*(?:version|v\\.?)?\\s*\\d+(?:\\.\\d+)+)?",
+  "\\bversion \\d+(?:\\.\\d+)+"
+ ],
+ "impl_detail_re": [
+  "\\bdefaults?\\b",
+  "\\brandom seed\\b",
+  "\\biterations?\\b",
+  "\\bconvergence\\b",
+  "\\btolerance\\b",
+  "\\boptimi[sz]er\\b",
+  "\\bflagged\\b",
+  "\\bcareless\\b",
+  "\\bstraight-?lin",
+  "\\battention checks?\\b",
+  "\\bcompletion time\\b",
+  "\\bindependent(?:ly)? (?:reproduc|recomput|re-?r[au]n)",
+  "\\bset to missing\\b",
+  "\\bpackage versions?\\b"
+ ],
+ "scope_re": [
+  "\\ball (?:the )?analyses\\b",
+  "\\bthe analyses were (?:repeated|rerun|re-run)\\b",
+  "\\bwere also analy[sz]ed\\b",
+  "\\banalyses were (?:conducted|performed|run|carried out) (?:in|with|using)\\b"
+ ],
+ "vague_ref_re": [
+  "^\\W*(?:this|that|these|those|it|such)\\s+(?:is|was|are|were|suggests?|indicates?|shows?|means|implies|reflects?|may|might|could|can)\\b",
+  "^\\W*here,",
+  "\\bthat pattern\\b",
+  "\\bthis too\\b"
+ ],
+ "stat_detail_re": [
+  "\\bp\\s*[<=>≤≥]\\s*\\.?\\d",
+  "\\b95\\s*%\\s*CI\\b",
+  "\\b(?:CI|SE|SD)\\b\\s*[=:]?",
+  "[χΧ]2|χ²|\\bchi-square\\b"
+ ],
+ "stat_evidence_re": [
+  "\\bp\\s*[<=>≤≥]\\s*\\.?\\d",
+  "\\bCI\\b|confidence interval",
+  "\\b[tFrzβbB]\\s*(?:\\(\\d+(?:,\\s*\\d+)?\\))?\\s*=\\s*[−-]?\\.?\\d",
+  "χ2|χ²|chi-square",
+  "\\b(?:OR|HR|RR)\\b"
+ ],
+ "significant_re": [
+  "\\bsignificant(?:ly)?\\b"
+ ],
+ "limitation_marker_re": [
+  "^\\W*(?:first|second|third|fourth|fifth|sixth|finally|lastly|another limitation|a further limitation)\\b"
+ ],
+ "spelling_pairs": [
+  [
+   "analyse",
+   "analyze"
+  ],
+  [
+   "analysed",
+   "analyzed"
+  ],
+  [
+   "analysing",
+   "analyzing"
+  ],
+  [
+   "modelling",
+   "modeling"
+  ],
+  [
+   "modelled",
+   "modeled"
+  ],
+  [
+   "behaviour",
+   "behavior"
+  ],
+  [
+   "behavioural",
+   "behavioral"
+  ],
+  [
+   "centre",
+   "center"
+  ],
+  [
+   "standardised",
+   "standardized"
+  ],
+  [
+   "generalised",
+   "generalized"
+  ],
+  [
+   "organisation",
+   "organization"
+  ],
+  [
+   "randomised",
+   "randomized"
+  ],
+  [
+   "characterised",
+   "characterized"
+  ],
+  [
+   "recognised",
+   "recognized"
+  ],
+  [
+   "colour",
+   "color"
+  ],
+  [
+   "favour",
+   "favor"
+  ],
+  [
+   "labelled",
+   "labeled"
+  ],
+  [
+   "paediatric",
+   "pediatric"
+  ],
+  [
+   "utilise",
+   "utilize"
+  ],
+  [
+   "minimise",
+   "minimize"
+  ]
+ ]
+}
