@@ -1,0 +1,2 @@
+0.42 # derived: 17350/41300 hint displays (practice_logs_by_school.csv)
+0.47 # derived: 9450/19950 feedback displays (practice_logs_by_school.csv)

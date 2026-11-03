@@ -1,0 +1,5 @@
+id,outcome,analysis,group,n,estimate,lower,upper,unit,status
+R1,concept score,primary,all complete cases,112,2.1,-0.4,4.6,points,prespecified
+R2,error identification,secondary,all complete cases,112,1.6,0.5,2.7,points,prespecified
+R3,concept score,subgroup,low baseline,40,5.2,0.3,10.1,points,posthoc
+R4,concept score,sensitivity,all complete cases,112,1.8,-0.7,4.3,points,posthoc
