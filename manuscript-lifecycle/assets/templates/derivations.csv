@@ -1,2 +1,0 @@
-id,label,formula,variables,reported,reported_unit,tolerance,kind,source,note
-D1,示例：PSE 位移（每 SD）,-b/bd*k,b=-0.029[logit/SD]; bd=9.65[logit/s]; k=1000[ms/s],3.0,ms/SD,,identity,结果文件与行,正值表示更多“短”判断

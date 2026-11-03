@@ -1,8 +1,0 @@
-{
- "_note": "调研规模。默认值适用于多数实证论文；按领域或模式调低时写 reason（survey_check SV8 核对），且不能低于最低限度：筛选 5、全文编码 2、类型匹配 2、维度 2（references/29 §10）。",
- "min_screen": 20,
- "min_full": 6,
- "min_matched": 4,
- "min_axes": 3,
- "reason": ""
-}
